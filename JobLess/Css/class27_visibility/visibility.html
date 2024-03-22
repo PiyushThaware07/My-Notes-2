@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visibility and Z-index</title>
+    <style>
+        .box{
+            height: 170px;
+            width: 170px;
+            border: 3px solid black;
+        }
+
+
+        /* Visible (default) */
+        #box1{
+            background-color: red;
+            visibility: visible;
+        }
+
+        /* Hidden */
+        #box2{
+            background-color: blue;
+            visibility: hidden;
+        }
+
+        /* Display:none ------>> this will be use only when i want to remove element by dont what to leave a gap */
+        #box3{
+            background-color: green;
+            display: none;
+        }
+        
+        #box4{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box1"></div>
+    <div class="box" id="box2"></div>
+    <div class="box" id="box3"></div>
+    <div class="box" id="box4"></div>
+</body>
+</html>

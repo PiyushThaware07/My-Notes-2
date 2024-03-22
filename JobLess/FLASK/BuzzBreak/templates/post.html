@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Post{% endblock title %}
+{% block body %}
+
+<div class="container-fluid p-0 m-0">
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="img mb-4" {% set image=posts.image %}
+                    style="height: 600px;width: 100%;background: url({{ url_for('media', filename=image) }}) center no-repeat;background-size:cover;">
+                </div>
+                <p style="font-family: 'font1', cursive;font-size: 14px;font-weight: bold;" class="m-0 p-0">Category</p>
+                <h3 style="font-family: 'main1', serif;font-size: 2rem;">{{posts.title}}</h3>
+                <div class="placeholder bg-primary p-2 text-light">{{posts.date}}</div>
+                <hr>
+                <p style="font-size: 14px;">{{posts.content}}</p>
+                <!-- Share section -->
+                <section class="my-5">
+                    <span class="h6 text-bold p-2 p-md-3 border" style="color:rgba(0, 0, 0, 0.572);">Share this
+                        post</span>
+                    <a href="https://facebook.com"><span class="h6 text-bold p-2 p-md-3 border"
+                            style="color:rgba(0, 0, 0, 0.775);"><i class="fa-brands fa-facebook"></i></span></a>
+                    <a href="https://instagram.com"><span class="h6 text-bold p-2 p-md-3 border"
+                            style="color:rgba(0, 0, 0, 0.775);"><i class="fa-brands fa-instagram"></i></span></a>
+                    <a href="https://snapchat.com"><span class="h6 text-bold p-2 p-md-3 border"
+                            style="color:rgba(0, 0, 0, 0.775);"><i class="fa-brands fa-snapchat"></i></span></a>
+                    <a href="https://linkedin.com"><span class="h6 text-bold p-2 p-md-3 border"
+                            style="color:rgba(0, 0, 0, 0.775);"><i class="fa-brands fa-linkedin-in"></i></span></a>
+                    <a href="https://twitter.com"><span class="h6 text-bold p-2 p-md-3 border"
+                            style="color:rgba(0, 0, 0, 0.775);"><i class="fa-brands fa-twitter"></i></span></a>
+                </section>
+            </div>
+            <div class="col-md-4">
+                <h6 class="border text-center"
+                    style="padding: 20px;color:rgba(0, 0, 0, 0.641);background-color: #00000012;">NEWSLETTER</h6>
+                <div class="border" style="padding: 20px;color:rgba(0, 0, 0, 0.641);background-color: #00000012;">
+                    <form action="/letter/{{posts.sno}}" method="post">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-0" id="floatingInput1"
+                                placeholder="First Name" name="fname">
+                            <label for="floatingInput1">First Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control rounded-0" id="floatingInput2"
+                                placeholder="Last Name" name="lname">
+                            <label for="floatingInput2">Last Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control rounded-0" id="floatingInput3"
+                                placeholder="name@example.com" name="email">
+                            <label for="floatingInput3">Email Address</label>
+                        </div>
+                        <a href=""><button type="submit"
+                                class="btn btn-dark form-control rounded-0">SUBSCRIBE</button></a>
+                    </form>
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                        {% for message in messages %}
+                        <strong>Message</strong> {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

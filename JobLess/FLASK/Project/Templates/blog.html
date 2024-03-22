@@ -1,0 +1,54 @@
+{% extends 'basic.html' %}
+{% block title %}blog{% endblock title %}
+{% block body %}
+
+<style>
+    /* font */
+    @font-face {
+        font-family: 'font1', cursive;
+        src: url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;500;600;700&display=swap");
+    }
+
+    @font-face {
+        font-family: 'Roboto', sans-serif;
+        src: url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap");
+    }
+
+    .container-fluid .main {
+        height: 450px;
+        width: 100%;
+        background: url("{{ url_for('static',filename='img/{{allPosts.image}}') }}") no-repeat center;
+        background-size: cover;
+    }
+</style>
+
+<div class="container-fluid p-0 m-0">
+    <!-- <div class="main"></div>s -->
+
+
+    <header>
+        <div class="container my-5">
+            <div class="row">
+                {% for i in allPosts %}
+                <div class="col-md-4" height="500">
+                    {% set img = 'img/' + i.image %}
+                    <div class="blockImg" style="height: 350px;width: 100%;background: url({{ url_for('static',filename=img) }}) center no-repeat;background-size:cover;"></div>
+                    <p style="font-family: 'font1', cursive;font-size: 10px;font-weight: bold;" class="mt-4 text-dark">
+                        NEWS
+                    </p>
+                    <h4 style="font-family: 'Roboto', sans-serif;font-weight: 600;">{{i.title|safe|truncate(27)}}</h4>
+                    <p style="font-size: 12px;">{{i.content|safe|truncate(300) }}<a href="post/{{i.slug}}">Read More</a>
+                    </p>
+                    <span style="font-family: 'font1', cursive;font-size: 10px;font-weight: bold;"
+                        class="float-start text-uppercase">BY {{i.author}}</span>
+                    <span style="font-family: 'font1', cursive;font-size: 10px;font-weight: bold;"
+                        class="float-end">{{i.date}}</span>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </header>
+</div>
+
+{% endblock body %}

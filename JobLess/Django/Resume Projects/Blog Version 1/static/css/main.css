@@ -1,0 +1,21 @@
+.container-fluid .title-img img
+{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.nav-link
+{
+    margin-left: 55px;
+}
+
+.content img
+{
+    height: 300px;
+    width: 300px;
+}
+body
+{
+    overflow-x: hidden;
+}

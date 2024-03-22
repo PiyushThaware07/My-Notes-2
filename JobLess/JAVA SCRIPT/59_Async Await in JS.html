@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        console.log("Welcome To WeatherWise");
+
+
+        async function displayWeather() {
+            let delhiWeather = new Promise(function (resolve, reject) {
+                setTimeout(() => {
+                    console.log("Delhi = 27deg");
+                    resolve(alert('Delhi data found...'));
+                }, 1000);
+            })
+            let mumbaiWeather = new Promise(function (resolve, reject) {
+                setTimeout(() => {
+                    console.log("Mumbai = 34deg ");
+                    resolve(alert('mumbai data found...'));
+                }, 3000);
+            })
+
+            // await : The await keyword makes the function pause the execution and wait for a resolved promise before it continues:
+            console.log("Fetching Delhi Weather Data please wait ...");
+            let delhiW = await delhiWeather;
+            console.log("Fetching Mumbai Weather Data please wait ...");
+            setTimeout(async () => {
+                let mumbaiW = await mumbaiWeather;
+            }, 2000);
+            // console.log([delhiW,mumbaiW]);
+            // return [delhiW, mumbaiW];
+        }
+
+        const func1 = async () => {
+            console.log("Hey,I am Parallely running");
+        }
+
+        const func2 = async () => {
+            console.log("Loading data...");
+            let result1 = await displayWeather()
+            let result2 = await func1()
+        }
+
+        func2()
+// console.log("async function return promises",displayWeather());
+    </script>
+</body>
+
+</html>

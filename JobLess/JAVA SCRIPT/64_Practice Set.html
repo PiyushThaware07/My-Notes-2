@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        async function loadscript(src) {
+            let p = new Promise(function (resolve, reject) {
+                let new_script = document.createElement("script")
+                new_script.src = src
+                document.head.append(new_script)
+                // loaded
+                new_script.onload = function () {
+                    console.log("Script is loaded succesfully");
+                    resolve("success")
+                }
+                // error
+                new_script.onerror = function () {
+                    console.log("Failed to load the script");
+                    resolve("success-2")
+                }
+            })
+            return p
+        }
+        async function main1() {
+            let input_scrip1 = prompt("Enter the srcipt-1");
+            console.log("Getting data please wait...");
+            let load1 = await loadscript(input_scrip1)
+
+
+            let input_scrip2 = prompt("Enter the srcipt-2");
+            console.log("Getting data please wait...");
+            let load2 = await loadscript(input_scrip2)
+        }
+        main1()
+
+    </script>
+</body>
+
+</html>

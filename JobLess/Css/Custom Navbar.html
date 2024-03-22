@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $('#icon').click(function(){
+                $("ul").toggleClass("show")
+            })
+        })
+
+    </script>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+
+        nav {
+            height: 80px;
+            width: 100%;
+            background-color: rgb(125, 0, 209);
+        }
+
+        nav label.logo {
+            font-size: 35px;
+            font-weight: bold;
+            color: white;
+            padding: 0px 100px;
+            line-height: 80px;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav ul {
+            float: right;
+            margin-right: 40px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 8px;
+            line-height: 80px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 18px;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+            text-decoration: none;
+            padding: 7px 10px;
+            border-radius: 3px;
+        }
+
+        nav ul li .active:hover {
+            border: 1px solid white;
+            transition: 0.5s;
+        }
+
+        nav #icon {
+            color: white;
+            font-size: 30px;
+            line-height: 80px;
+            float: right;
+            margin-right: 40px;
+            cursor: pointer;
+            margin-right: 40px;
+        }
+
+        @media (max-width:1048px) {
+            label.logo {
+                font-size: 32px;
+                padding-left: 60px;
+            }
+
+            nav ul {
+                margin-right: 20px;
+            }
+
+            nav a {
+                font-size: 17px;
+            }
+            nav #icon 
+            {
+                display: none;
+            }
+        }
+
+        @media (max-width:909px) {
+            nav #icon {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                background-color: #2f3640;
+                top: 80px;
+                left: -100%;
+                text-align: center;
+                transition: all 0.5s;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 50px 0;
+                line-height: 30px;
+            }
+
+            nav a {
+                font-size: 20px;
+            }
+
+            nav ul li .active:hover {
+                border: none;
+                color: #3498db;
+            }
+
+            nav ul.show {
+                left: 0px;
+            }
+        }
+    </style>
+
+    <script src="https://kit.fontawesome.com/4d9f707396.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <nav>
+        <label class="logo">DesignX</label>
+        <ul>
+            <li><a class="active" href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Blogs</a></li>
+            <li><a href="">Products</a></li>
+        </ul>
+        <label for="" id="icon">
+            <i class="fa-solid fa-bars fa-xl"></i>
+        </label>
+    </nav>
+</body>
+
+</html>

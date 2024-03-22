@@ -1,0 +1,25 @@
+{
+    "parameters":
+    {
+        "local_server" : "True",
+        "local_url" : "mysql://root:@localhost/buzzbreak",
+        "live_url" : "mysql://root:@localhost/buzzbreak",
+
+
+
+        "facebook_url" : "https://www.facebook.com/piyush.thaware.351/",
+        "instagram_url" : "https://www.instagram.com/piyushthaware07/",
+        "linkedin_url" : "https://www.linkedin.com/in/piyush-thaware/",
+        "github_url" : "https://github.com/PiyushThaware07",
+
+
+        "website_name": "BuzzBreak",
+
+        "admin_username":"admin",
+        "admin_password":"12345",
+
+
+        "upload_location": "D:\\Learning\\FLASK\\Project\\media"
+
+    }
+}

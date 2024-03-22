@@ -1,0 +1,111 @@
+ReactJS
+1. Defination : ReactJS, commonly known as React, is an open-source JavaScript library developed by Facebook for building user interfaces, particularly for single-page applications. It's widely used for creating interactive and dynamic web applications. React allows developers to create reusable UI components, which can be composed together to build complex user interfaces.
+2. Key Feature : 
+   * Component-based architecture -> React follows a component-based approach where UIs are broken down into smaller, reusable components.
+   * Virtual DOM -> React uses a virtual DOM (Document Object Model) to efficiently update the UI. Instead of directly manipulating the browser's DOM, React creates a virtual representation of the UI in memory and updates only the necessary parts when data changes. This helps improve performance and user experience.
+   * JSX (JavaScript XML)-> JSX is a syntax extension for JavaScript that allows developers to write HTML-like code within JavaScript.
+   * Unidirectional data flow -> React follows a unidirectional data flow, also known as one-way data binding. Data flows from parent components to child components, which helps maintain a predictable state and simplifies debugging.
+3. Version : 18
+4. npm : npm (Node Package Manager) is a package manager for JavaScript programming language and is predominantly used for managing packages and dependencies for Node.js applications. It allows developers to easily install, share, and manage packages and libraries that can be used in Node.js projects. 
+   npx : npx is a tool that comes bundled with npm (since version 5.2.0) and stands for Node Package Runner. It is used to execute Node.js packages directly without having to install them globally or locally. npx allows developers to run packages as if they were installed globally, but without the need to install them beforehand.
+
+
+5. Alternative of npm : * npm 
+                        * yarn
+                        * pnpm
+
+6. Entry Point Of File : Index.JSX
+
+7. Types Of Components : 
+   a. Functional Component -> Functional components are also known as stateless components or presentational components. They are defined as JavaScript functions that accept props (short for properties) as arguments and return JSX elements representing the UI. Functional components are simple and lightweight, primarily used for rendering UI based on props passed to them.
+                               function MyComponent(props){
+                                return(
+                                    <>Hello , {props.name}</>
+                                );
+                               };
+
+   b. Class Components-> Class components are ES6 classes that extend from React.Component. They have a render method that returns JSX representing the UI. Class components can hold and manage their own local state using the setState method. They are used when the component needs to manage state, handle lifecycle methods, or utilize features like setState.
+                              import React,{Component} from "react";
+                              class MyClassComponent extends Component{
+                                 render() {
+                                    return (
+                                       <>Hello {this.props.name}</>
+                                    )
+                                 }
+                              }
+
+   c. Pure Components -> Pure components are similar to functional components but come with a performance optimization.
+                                 import React, { PureComponent } from 'react'
+                                 export default class MyComponent extends PureComponent {
+                                 render() {
+                                    return (
+                                       <>
+                                       Hello, {this.props.name}!
+                                       </>
+                                    )
+                                 }
+                                 }
+
+   d.Higher-Order Components (HOCs)-> Higher-Order Components are functions that take a component as input and return a new component with enhanced functionality. They enable code reusability and allow cross-cutting concerns like authentication, logging, or data fetching to be abstracted away from individual components.
+                              const withLogger = (WrappedComponent) => {
+                              return class extends React.Component {
+                                 componentDidMount() {
+                                    console.log("Component mounted.");
+                                 }
+                                 render() {
+                                    return <WrappedComponent {...this.props} />;
+                                 }
+                              };
+                              };
+
+
+
+8. Import / Export Multiple Functions in React within a single file:
+            suppose we have create a new file named as single.jsx where it exports the following code
+            export function Temp1() {
+               return (
+                  <>
+                        <h1>Temp-1</h1>
+                  </>
+               )
+            }
+
+            export function Temp2() {
+               return (
+                  <>
+                        <h1>Temp-2</h1>
+                  </>
+               )
+            }
+
+            now we can use this code as follows
+            import React from 'react';
+            // & Function Based Components 
+            import { Temp1,Temp2 } from './Function/One';
+
+            export default function App() {
+            return (
+               <div>
+                  <Temp1/>
+                  <Temp2/>
+               </div>
+             )
+            }
+
+
+9. React Fragment : In React, a fragment is a lightweight syntax for grouping multiple elements without adding extra nodes to the DOM. It allows you to return multiple elements from a component's render method without needing to wrap them in a single parent element.
+Before the introduction of fragments, if you wanted to return multiple elements from a component, you had to wrap them in a single parent element, such as a <div>. 
+either we can use <React.Fragment></React.Fragment> or <></>
+
+
+10. State : 
+state is a built-in feature that allows components to manage and store data that can change over time. It represents the current state of a component and determines how it renders and behaves in response to user interactions, data fetching, or other events.
+State is managed internally by components and can be accessed and updated using the setState() method. When the state of a component changes, React automatically re-renders the component to reflect the updated state.
+
+11. Props : 
+
+In React, props (short for "properties") are a mechanism for passing data from a parent component to a child component. Props are read-only and immutable, meaning that child components cannot modify the props they receive from their parent.
+
+
+
+

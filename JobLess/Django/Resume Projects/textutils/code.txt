@@ -1,0 +1,31 @@
+1. Create            django-admin startproject projectname
+                     cd projectname
+2. runserver         py manage.py runserver
+
+3. create views
+
+4. django work as --> urls-views-functions-templates
+
+5. urls : 
+   we have to import our views as : from . import views
+   now, we have to provide the path as : path('targetpage',views.function_name,name='page-title'),
+
+6. creating about page :
+   urls  : path('about/',views.about,name='aboutpage'),
+   views : def about(request):
+               return HttpResponse('About Page') 
+
+7. creating django templates :
+   * create templates folder in base directory
+
+   setting.py
+   * 'DIRS': ['templates'], 
+
+   views.py
+   * from django.shortcuts import render
+   def index(request):
+      return render(request, 'template_name', dictionary)
+   * to represent data of dictionary in templates then we will use this --> {{}}      
+
+8. Difference between get request and post request ?
+   In case of account id,pass we must use post request  ----> When we dont want to show our data in the url then we are gooing to use Post Method

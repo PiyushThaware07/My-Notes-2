@@ -1,0 +1,65 @@
+NEXT JS
+1. Defination : Next.js is a popular open-source JavaScript framework created by Vercel (formerly Zeit) for building React-based web applications. It enables developers to build server-rendered React applications easily, providing features such as server-side rendering (SSR), static site generation (SSG), automatic code splitting, and more.
+2. Installation : npx create-next-app@latest or npm create-next-app appName
+
+3. use client : "use client" is used to declare a boundary between a Server and Client Component modules. This means that by defining a "use client" in a file, all other modules imported into it, including child components, are considered part of the client bundle.
+    like react you can not do this <button type="button" onClick={() => alert("Hello")}>click</button> directly as it shows error
+    so you have to import "use client" at the top of component page
+    Example : 
+    Imagine you're in a restaurant. With server-side rendering, the waiter (server) brings you a fully prepared meal (web page) directly to your table. You don't have to do anything; everything is ready for you to enjoy right away. In web terms, the server prepares the entire webpage with all its content and styling before sending it to your browser.
+
+
+4. SSR v/s CSR 
+    * Server Site Rendering : Server-side rendering (SSR) is an application's ability to convert HTML files on the server into a fully rendered HTML page for the client.
+    * Client Site Rendering : Client-side rendering (CSR) is the process of rendering web pages on the client using JavaScript.
+    Example : 
+    Now, imagine you're at a build-your-own-burger place. You're given the basics (HTML shell) and then you add toppings (content) as you like. With client-side rendering, your browser is like the chef. It gets the basic ingredients (HTML, CSS, JavaScript) from the server and then assembles the final dish (renders the webpage) right there on your plate (screen) based on your preferences and actions.
+      <button type="button" onClick={() => alert("Hello")}>click</button> is button ko use karna hai client site so "use client"
+
+
+5. Call InnerComponent as a function 
+    "use client"   //   'use client' directive at the top of the file. This tells React to render the component on the client.
+    export default function Home() {
+    function InnerComponent(){
+        return(
+        <h1>Hello I am inner component</h1>
+        )
+    }
+    return (
+        <main>
+        {InnerComponent()}
+        <InnerComponent/>
+        </main>
+    );
+    }
+
+    Difference between {InnerComponent()} & <InnerComponent/>
+    ANS : When you use <Component /> in your JSX, you are treating it as a React component. This means that React will create an instance of the component and manage its state and lifecycle. It can accept props just like any other React component. This is the recommended way to use components in React.
+    When you use {Component()} in your JSX, you are treating it as a JavaScript function call. It is not treated as a React component. This means that React will execute the Component function immediately and render the JSX returned by that function. It does not have access to React's state management or lifecycle methods.
+
+
+6. esLint : ESLint is a widely-used static code analysis tool for identifying problematic patterns found in JavaScript code.It is used to maintain the standard of our code.
+
+
+7. Types of components :
+    a. Server Component : by default the components are server components , backend related logic and code should written in server component.{data fetching , data handling ,data manupulation}
+    b. Client Component : All the UI related code and event should be within the client component.{input box ,buttons}
+    Note : we can use both the components together in a single project.
+
+
+8. Routing : Next.js uses a file-system based router where folders are used to define routes.
+    step-1 ~> Create a folder for login.
+    step-2 ~> Add Page.jsx within that folder.
+    step-3 ~> just open that route on the browser http://localhost:3000/signin.
+
+    Links & Navigation :
+    <Link> is a built-in component that extends the HTML <a> tag to provide prefetching and client-side navigation between routes. 
+
+    Nested Routing : auth/signin or auth/signup
+    Step-1 ~> Create a main folder auth.
+    Step-2 ~> Create a sub folder named as signin or signup.
+    Step-3 ~> Create a page.js within those folders.
+    Step-4 ~> http://localhost:3000/college/teachers or http://localhost:3000/college/students
+
+9. Layout : A layout is UI that is shared between multiple routes. On navigation, layouts preserve state, remain interactive, and do not re-render. Layouts can also be nested.
+    

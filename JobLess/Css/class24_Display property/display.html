@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Display Properties</title>
+    <style>
+        
+        header {
+            margin: auto;
+            border: 2px solid blue;
+            width: 40%;
+        }
+
+        .top img {
+            height: 200px;
+            width: 300px;
+            border: 5px solid red;
+            background-size: cover;
+        }
+
+        body>header>img {
+            display: inline;
+            /* inline means jitni jagah hai utani lelo */
+        }
+
+        h3 {
+            font-family: cursive;
+            font-size: 40px;
+            margin: 0;
+        }
+
+        #photo {
+            height: 200px;
+            width: 300px;
+            border: 5px solid rgb(255, 0, 200);
+            background-size: cover;
+            display: block;
+            /* block jitni jagah hai us se jada lelo */
+            margin: 40px;
+        }
+
+        .container {
+           width: 40%;
+           margin: auto;
+           margin-top: 50px;
+           border: 3px darkblue solid;
+        }
+
+        .box {
+            border: 2px solid green;
+            background-color: pink;
+            margin: 10px;
+            padding: 20px;
+            width: 30%; 
+            display: inline-block;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top">
+        <h3>Display inline</h3>
+        <img src="HD.jpg"><br>
+        <h3>Display block</h3>
+        <img src="HD1.jpg" id="photo">
+    </header>
+
+    <div class="container">
+        <h3>Display inline-block</h3>
+        <div class="box">
+            <h4 class="heading">Heading</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dolorem, voluptatum est consequuntur
+                doloremque atque alias reiciendis dolore sapiente commodi repellendus sunt voluptate itaque tempore
+                impedit exercitationem aspernatur obcaecati incidunt facere hic provident eius.</p>
+        </div>
+        <div class="box">
+            <h4 class="heading">Heading</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dolorem, voluptatum est consequuntur
+                doloremque atque alias reiciendis dolore sapiente commodi repellendus sunt voluptate itaque tempore
+                impedit exercitationem aspernatur obcaecati incidunt facere hic provident eius.</p>
+        </div>
+        <div class="box">
+            <h4 class="heading">Heading</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dolorem, voluptatum est consequuntur
+                doloremque atque alias reiciendis dolore sapiente commodi repellendus sunt voluptate itaque tempore
+                impedit exercitationem aspernatur obcaecati incidunt facere hic provident eius.</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grids</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: 300px 100px 100px; /* make three colummns : width1:300px , width2:100px , width3:100px  */
+            grid-template-columns: 300px auto 100px; /* column-1 width : 300px and then column-2 : width : auto pura widtgh le lega end tak and then width of column-3 is : 100px again */
+            grid-template-columns: 1fr 4fr 2fr; /* first fr:1 pahele column ko dedo then 4fr dusre column ko dedo then 2fr third column ko dedo */
+
+            /* For creating multiple columns we will use below code : */
+            grid-template-columns: repeat(10,auto);
+
+            grid-gap: 2rem; /* it provide free spacing */
+        }
+        .item{
+            /* height: 100px; */
+            /* width: 100px; */
+            background-color: red;
+            margin: 3px;
+            border: 3px solid blue;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">Item-1</div>
+        <div class="item">Item-2</div>
+        <div class="item">Item-3</div>
+        <div class="item">Item-4</div>
+        <div class="item">Item-5</div>
+        <div class="item">Item-6</div>
+        <div class="item">Item-7</div>
+        <div class="item">Item-8</div>
+        <div class="item">Item-9</div>
+        <div class="item">Item-10</div>
+        <div class="item">Item-11</div>
+        <div class="item">Item-12</div>
+        <div class="item">Item-13</div>
+        <div class="item">Item-14</div>
+        <div class="item">Item-15</div>
+        <div class="item">Item-16</div>
+        <div class="item">Item-17</div>
+        <div class="item">Item-18</div>
+        <div class="item">Item-19</div>
+        <div class="item">Item-20</div>
+    </div>
+</body>
+</html>

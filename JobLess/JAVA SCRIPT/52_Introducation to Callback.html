@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function loadScript(src,callback) {
+            let new_script = document.createElement("script");
+            new_script.src = src
+            document.head.append(new_script)
+            // Check Whether Script is loaded or Not
+            new_script.onload = function(){
+                alert("Script is Loaded");
+                callback(null,src); // since no error
+            }
+            // Check Whether Error in script or not
+            new_script.onerror = function(){
+                alert("Error while loading a script");
+                callback(new Error("Error while loading a script"))
+            }
+
+        }
+
+        function func1(error,src){
+            console.log(error,src); // debugging purpose
+            if(error){
+                console.log("Error Encounter");
+            }
+            else{
+                console.log("This Function-1 is worked due to callback");
+            }
+        }
+        let input_script = prompt("Enter the script here")
+        loadScript(input_script,func1);
+
+
+        // Example
+        function dispalySum(data){
+            console.log(data,"callback is working");
+        }
+
+        function sum(a,b,callback){
+            let s = a+b;
+            callback(s);
+        }
+        sum(1,3,dispalySum);
+    </script>
+
+
+</body>
+
+</html>

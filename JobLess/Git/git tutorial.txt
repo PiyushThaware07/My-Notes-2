@@ -1,0 +1,64 @@
+to check git status use this : git status
+
+to check git version use this : git --version
+
+to make any empty repostry or folder as git repository then use this : git init
+
+to make file migrations so write this : git add. 
+then the whole file comes under staging area
+
+to save all the migrations or commit then use : git commit -m "version 1"
+
+to check what changes had been made use this : git log
+
+if we are using git bash then use : SSH in git hub repository
+
+to connect git hub to your offline repostry write this : git remote add origin git@github.com:piyu5h07/Git-Tutorials.git
+
+to push code on git hub : git push -u origin master
+
+to check what changes we had made it our file on github : git pull origin master
+
+to display the change made on specific file on screen use this : git diff utils.txt
+
+to display the change made on all files on screen use this : git diff
+
+to check stage file changes : git diff --staged utils.txt
+
+to undo all the changes made on code we will have to unstage the code first so use below code one by one
+: git diff --staged utils.txt
+: git checkout utils.txt  (to save all the undo updates)
+
+
+
+----> git add -A  : stages all
+----> git add .   : stages new and modified,without deleted
+----> git add -u  : stages modified and deleted,without new
+
+
+all data in git are store in .git folder if you want to check it : ls -la
+
+when you want to copy or make a clone of your repo then use this : git clone git@github.com:piyu5h07/Git-Tutorials.git
+
+to create empty file : touch .gitignore
+
+to open coded file in a particular : notepad .gitignore
+
+to check branch : git branch
+
+to create new branch : git branch branch_name
+
+to change branch : git checkout login-system
+
+if you chnage branch you need to add data to it : git push origin login-system
+
+if you want to add data created during login-system : git merge login-system
+
+to delete branch on local system use : git branch -d branch_name
+
+to delete branch on live system means on github use :  git push origin --delete branch_names
+
+
+
+
+

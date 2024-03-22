@@ -1,0 +1,1033 @@
+Python 
+1. Defination : Python is a high-level, interpreted programming language known for its simplicity and readability. 
+2. Created By : Guido van Rossum and first released in 1991.
+3. Why Python : Python is designed to be easy to understand and write, which makes it an excellent choice for beginners in programming as well as for experienced developers.
+4. What is Interpreted programming language : An interpreted programming language is a type of programming language where the code is executed line-by-line or statement-by-statement by an interpreter at runtime
+
+5. print()    : In python print() function is used to display text or values to the console.
+
+6. Modules    : Python has different built-in packages are as follows
+    * os -> The os module in Python is a built-in module that provides a way of using operating system-dependent functionality. 
+            It allows you to interact with the operating system on which Python is running, enabling you to perform various tasks such as file and directory manipulation, process management, and environmental variables.
+            OPERATIONS
+            1. os.mkdir("folder name")  this will create a folder in current working directory
+            2. os.listdir()             this will return all the directory/folders present in the current directory
+            3. os.remove(path)          this will remove the file from the current directory/folder
+            4. os.rmdir(path)           this will Remove an empty directory.
+            5. os.rename(src, dst)      this will Rename a file or directory.
+
+7. variable  :  variable are the container which is used to store the values or
+                variable is the name given to the memory location in a program or
+                variable which stores the value.
+
+                condition for variables : 
+                * can't start with letter,numbers,symbols
+                * they are case sensitive i.e piyush = 100 , Piyush = 300 they are different fromeach other
+                * can't contain white spaces 
+                * In python variable can startswith underscore like "_piyush"
+
+8. Datatype : A particular kind of data item,which was define by its values it can take it is called datatype.
+                Numeric data types: int, float, complex
+                String data types: str
+                Sequence types: list, tuple, range
+                Binary types: bytes, bytearray, memoryview
+                Mapping data type: dict
+                Boolean type: bool
+                Set data types: set, frozenset
+
+                type() : use to check the type 
+                   Example : a = 10
+                             print(a,type(a))
+
+                TypeCasting : It is the process of converting a value from one data type to another in a programming language.
+                int   ---> float , int --->str 
+                float ---> int
+                tuple ---> list
+                list  ---> dict
+
+                Primitive data types: The primitive data types include boolean, char, byte, short, int, long, float and double.
+                Non-primitive data types: The non-primitive data types include Classes, Interfaces, and Arrays.
+
+                
+
+9. Reserved Keywords :  Like other language python also have some reserved keyword
+                        which we can use to initialize or declaration anything in python.
+                        Example : new,pass,import,is,in,True,False
+
+10. input() : input() is a built-in function in Python that allows you to read a line of text (string) entered by the user.
+              this function takes input as string by default
+              input("Enter something :")
+              TypeCasting : int(input('Enter something :'))
+
+11. Operator: In programming, an operator is a symbol or a set of symbols that represents a specific operation or computation to be performed on one or more operands.
+                types : 
+                1) Arithmetic Operator ------------> + - / * ++ -- **
+                2) Assignment Operator ------------> = 
+                3) Comparision Operator -----------> == , >= <= , !=
+                4) Logical Operator ---------------> and , or , not
+
+12. String : String is the sequence of character in python.
+            How to write String :
+            1) Single Quotes string : 'Piyush'
+            2) Double Quotes String : "Piyush"
+            3) Triple Quotes String : ''' '''
+
+    String Function : 
+    1) len(string)    ->  this will return the length of a string
+    2) string.upper() ->  this will convert the string to uppercase
+    3) string.lower() ->  this will convert the string to lowercase
+    4) string.captialize() -> this will captialize the text means convert text first letter to uppercase
+    5) string.replace(old,new) -> this will replace the string data to new string data
+    6) string.find(str) -> this will return the index of where the str matches
+    7) string.startswith(str) -> this will return true of the string starts with the value present.
+    8) string.endswith(str) -> this will return true of the string ends with the value present.
+    9) string.count(str) -> this will return the count as integer
+    10) string.strip() -> this function removes the blank spaces from starting and ending of the string.
+    11) string.split(',') -> this function will turn a string to the list seperated by ',' or any other symbols.
+                                Example : text = "apple,banana,cherry"
+                                fruits = text.split(",")  # ['apple', 'banana', 'cherry']
+    12) string[index] -> this will return the value or character present at the specific index given.
+
+    String Slicing : String slicing in Python allows you to extract a portion of a string by specifying a starting and ending index. 
+                        A string start from "index = 0 to length-1"
+                            name[start,end,skip]
+                                name = "Piyush"
+                                        012345
+                                name[1:4] --> iyu
+                                name[:4]  --> bydefault startswith index 0 to 4 --> Piyu
+                                name[1:]  --> bydefault endswith length-1 --> iyush
+                            // Negative String Slicing 
+                               name = "Piyush"
+                                       654321  
+                                name[-5:-1] --> iyus 
+                            // Skip 
+                               name[1:5:2]
+                               o/p -> iu
+   
+    concatenate : In Python, you can concatenate (combine) two strings by using the + operator.
+                  fname = "Piyush"
+                  lname = "thaware"
+                  print(fname+lname)
+                  o/p : Piyushthaware
+
+
+13. ESCAPE SEQUENCES IN PYTHON :
+    1) \n ----> Line break
+    2) \\ ----> backslash backslash
+    3) \t ----> tab
+    4) \' ----> backslash single quote
+
+14. Lists : In python lists are use to store a set of values of an any data type.
+            a list is a built-in data structure used to store a collection of items or elements.
+            mutable  L[0] = "Shreyash"
+            index starts from 0 to length-1
+            ordered
+            list = [1,22.2,True,"Piyush"]
+
+            OPERATIONS : 
+            1) list.sort()    : It sort the list in proper order or in incresing order.
+            2) list.reverse() : It reverse the list.
+            3) list.append(element)  : It simply append the item at the end of the list
+            4) list.insert(position,element)  : It will replace the item according to the index by any other new value 
+            5) list.pop()     : It will remove the top most element from the list
+            6) list.remove(index)  : It will remove element from list according to the index value entered.
+            7) list[start:end:skip] : list slicing 
+
+            Empty List : list = []
+
+15. Tuples : tuples are the immutiable datatypes in python i.e elements of tuple list can not be changable.
+            Empty Tuple : tuple = ()
+            OPERATIONS  :
+            1) A.count() : A.count(1) will return number of times 1 occurs in A
+            2) A.index() : A.index(1) will returns the index of first occurence of 1 in A
+
+16. Dictionary : In Python, a dictionary is a built-in data type used to store collections of key-value pairs. 
+    Exmpty Dictionary  : dictionary = {}
+    Properties of Dictionary :  1) It is unordered.
+                                2) It is Mutable i.e means the element of dictiory can be change.
+                                3) It is Indexed
+                                4) Cannot contain Dublicate Keys. 
+
+    Methods  of Dictionary  : 1) dictionary.key() -> this will return the list of key only
+                              2) dictionary.value() -> this will return the list of values only
+                              3) dictionary.items() -> this will return the list of key:value pair 
+                              4) dictionary["key"]  -> Access individual key value items in a dictionary 
+                              5) dictionary.update(updated dictionary) -> this will return the updated dictionary
+                              6) dictionary.clear() -> this will remove all the key value pairs.
+                              7) dictionary.get("key") -> this will return the value whenever the key matches if no match found it will return "none" but (4-Point) will give the error.
+    dictionary = {
+        "key":"value"
+    }
+    // Nested Dictionary
+    dict = {
+        "Key":"Value",
+        "myDict" : {
+            "fname":"Piyush",
+            "lanme":"Thaware",
+        }
+    }
+    print(dict["Key"])
+    print(dict["myDict"])
+    print(dict["myDict"]["fname"])
+    o/p : 
+        Value
+        {'fname': 'Piyush', 'lanme': 'Thaware'}
+        Piyush
+
+17. Sets : sets in python is a collection of none repetative items.In Python, sets are unordered collections of unique elements. 
+    Empty Sets : sample = {1,} if you write {} this will return an empty dictionary. or set()
+    Properties of Sets : 1) sets are unordered
+                         2) sets are unindexed
+                         3) there are no way to change the items in sets
+                         4) sets cannot contain dublicate items.
+    Example : 
+        * List --> set 
+          list = [1,2,4]
+          a = set(list)
+        * Tuple --> set 
+          tuple = ("Piyush","Ronak",1,1,2,3)
+          a = set(tuple)
+
+    Methods : 
+        * add(element) -> You can add elements to a set using the add() method.
+        * remove(element) -> You can remove element of the set using this function but if element is not present it will raise "Key Error". 
+        * discard(element) -> it is also same as remove but the only difference is that you if element not found then in this case it will not raise any kind of error it will not return anything and just pass to next line of code.
+    Operations : 
+        * Union : Combines two sets to create a new set containing all unique elements from both sets.
+                  result = set1.union(set2)  OR  result = set1 |set2
+        * Intersection  : Creates a new set containing elements that are common to both sets.
+                  result = set1.intersection(set2)  OR  result = set1 & set2
+        * Difference : Creates a new set containing elements that are in the first set but not in the second set.
+                  result = set1.difference(set2)  OR  result = set1 - set2
+        * set Comparision : You can compare sets for equality or inequality using == and != operators.
+                  set1 == set2 
+        * clear : You can remove all elements from a set using the clear() method.
+                  set1.clear()
+        * issubset : You can check if one set is a subset or superset of another set using the issubset() and issuperset() methods.
+                        Example :
+                        set1 = {1,2,3,4,5}
+                        set2 = {2,3}
+                        result = set2.issubset(set1)
+                        result1 = set1.issuperset(set2)
+                        o/p : True,Ture 
+        * len   : this will return the length of set.
+        * pop   : this will remove the top most element of the of the set.
+        Note : set1.add([2,5,6])   # we can not add list is set : TypeError: unhashable type: 'list' 
+               set1.add({4:5})     # we can not add dictionary in set : it is also unhashable
+               set1.add(tuple)  # you can add tuple to set
+
+18. in : In Python, the in keyword is used for various purposes, including:
+    * Membership Test: fruits = ["apple", "banana", "cherry"]
+                       if "banana" in fruits:
+                            print("Yes, 'banana' is in the list.")
+  
+    * Iterating Over Iterables: for letter in "Hello":
+                                    print(letter)
+    
+    * Checking for Key Existence in Dictionaries: 
+                                student = {"name": "Alice", "age": 25}
+                                if "age" in student:
+                                    print("Yes, 'age' is a key in the dictionary.")
+                        
+
+19. Conditionals : conditionals in Python are like making decisions in real life. You have choices, and you want to do different things based on those choices.
+    * if-else : weather = "sunny"  # You can change this to "rainy" to test the other condition
+                if weather == "sunny":
+                    print("Go outside")
+                else:
+                    print("Stay indoors")
+    
+    * elif : elif clause means same as else-if clause.An statement can be chained together
+             with a lot pf these elif statements followed by an else statement.
+    
+    Important Notes : 1) There can be any number of elif statement.
+                      2) Last else is executed only if all the conditions inside elifs fails. 
+
+20.Loops : sometimes we wants to repeat few sets of instruction again and again that time we use this loop.
+    Types of loop :
+        1) While loop
+                Syntax ---->> while(condition):
+                                // code
+                Note ------>> If the condition never becomes false then the
+                                loop is continuously executed.                     
+        2) for loop   
+                syntax ---->> m = [1,2,7,8]
+                for item in m:
+                    print(item) 
+    Note  : For loop is used when the number of iterations is already known.
+            While loop is used when the number of iterations is already Unknown.
+
+21. For loop with else : An optional else can be used with a for loop if code is to be 
+                         executed when the loop exhausts. 
+                         Example : 
+                         for i in range(0,11,2):
+                                print(i,end=" ")
+                            else:
+                                print("loop exit")
+                         o/p : 0 2 4 6 8 10 loop exit
+
+22. Break : In Python, the break statement is used to exit or break out of a loop prematurely. 
+            for i in range(5):
+                if i==3:
+                    break
+                print(i,end=" ")   o/p : 0 1 2
+
+23. Continue : It effectively allows you to skip over certain iterations without exiting the loop entirely.
+            for i in range(5):
+                if i==3:
+                    print("continue",end=" ")
+                    continue
+                print(i,end=" ") o/p : 0 1 2 continue 4 
+
+
+24. Range : The range funtion in python is used to generte a sequence of number.
+            we can also specify the start, stop and step-size as follows :
+                range(start,stop,step-size)
+                Syntax ---->> for i in range(start,end,step-size):
+                                    print(i)
+
+            Example :
+            for i in range(0,11,2):
+                print(i,end=" ")  --> o/P : 0 2 4 6 8 10 
+
+
+25. Function : A function is a group of statement that perform the specific tasks.
+    when the program is get bigger in size and its complexility grows,it gets difficult for the program to keep the track on which piece of code is doing what?
+    A function can be reused by the programmer in a given program any number of.
+    "def" keyword is used to declare the function in python
+    Syntax : 
+            def fun1():
+                print("Hello")
+            This above function can be called any number of time   
+    Example : def hello():
+              print("Hello")
+              hello()
+    Example2 : function with argument 
+                def hello(name):
+                print("Hello",name)
+                hello("Piyush")
+
+    Types of Functions in python :
+    1) Builtin Functions       -------------> Already present in python
+                Example : len() , print() , range()
+    2) User define Functions   -------------> Define by the user
+                Example : sum() , greet()
+
+    Default Argument : We can have a default argument in our function like 
+                       def hello(name="Piyush"):
+                            print("Hello",name)
+                            hello()
+
+
+26. Object Oriented Programming (oop's) : Object-oriented programming (OOP) is a programming paradigm or methodology that uses objects as the fundamental building blocks for designing and structuring computer programs. In OOP, everything is treated as an object, which is an instance of a class. 
+    Key concepts : 
+    * class  :  A class is a blueprint or template for creating objects.
+    * object :  An object is an instance of a class. It is a concrete, real-world entity that has its own unique set of data and can perform actions defined by its class.
+    * Encapsulation : Encapsulation in Python refers to the practice of hiding the implementation details of an object or class, and only exposing a public interface for interacting with it. Encapsulation is achieved through the use of access modifiers such as 'public', 'private', and 'protected'.
+    * Inheritance :  Inheritance is the capability of one class to derive or inherit the properties from another class. 
+    * Polymorphism : Different objects can do similar things, even if they do them in their own unique way.
+    * Abstraction : Abstraction is used to hide background details or any unnecessary implementation about the data so that users only see the required information.
+
+    Nate  : The self parameter is a reference to the current instance of the class, and is used to access variables that belongs to the class.
+    
+    Example 1 : Creating class name as Employee and property named as company , where company have block scope and showDetails is method/function.
+                class Employee:  
+                company = 'TCS'  
+                def showDetails(self):
+                    print(f"Company Name : {self.company}")
+                e1 = Employee()  Create an object named e1 from employee class, and print the value of company:
+                print(e1.company)       Print the value of company
+                e1.showDetails()
+
+    Example 2 : Passing argument to the showDetails of Employee class like
+                class Employee:
+                    company = 'TCS'   # Class Attribute
+                    def showDetails(self):
+                        print(f">>>>> Employee Details <<<<<\nFirst Name : {self.first_name}\tLast Name : {self.last_name}")
+                e1 = Employee()
+                # Attribute Assignment : After creating the e1 instance, it assigns values to its first_name and last_name attributes. These attributes are not defined in the class but are assigned to the instance dynamically. In Python, you can add attributes to an instance even if they are not defined in the class.
+                e1.first_name = "Pankaj"
+                e1.last_name = "Sharma"
+                e1.showDetails()
+
+    Example 3 : Method Definition with Parameters
+                class Employee:
+                    company = 'TCS' 
+                    def showDetails(self,first_name,last_name):  # This line defines a method named showDetails within the Employee class. This method takes three parameters: self (a reference to the instance), first_name, and last_name. 
+                        print(f">>>>> Employee Details <<<<<\nFirst Name : {first_name}\tLast Name : {last_name}")
+                e1 = Employee()
+                e1.showDetails("Piyush","Thaware")
+
+27. Attribute : 
+    1. Class Attribute : Attributes which are belongs to specific class are known as class attribute.
+                         class Employee:
+                               company = "TCS" #class attribute
+
+    2. instance Attribute : An instance attribute is a Python variable belonging to one, and only one, object. This variable is only accessible in the scope of this object, and it's defined inside the constructor function, __init__(self,..) of the class.
+    
+       Example : 
+                class MyClass:
+                    # Class attribute
+                    class_attr = "I am a class attribute"
+
+                    def __init__(self):
+                        # Instance attribute
+                        self.instance_attr = "I am an instance attribute"
+
+                # Creating instances
+                obj1 = MyClass()
+                obj2 = MyClass()
+
+                # Accessing class and instance attributes
+                print(MyClass.class_attr)       # Accessing a class attribute
+                print(obj1.instance_attr)        # Accessing an instance attribute
+
+                # Modifying instance attributes
+                obj1.instance_attr = "Modified instance attribute"
+                print(obj1.instance_attr)        # Modified value for obj1
+                print(obj2.instance_attr)        # Unchanged value for obj2
+
+                Output  :  
+                        I am a class attribute
+                        I am an instance attribute
+                        Modified instance attribute
+                        I am an instance attribute
+    
+    Example : If there is no instance attribute then it will show the class attribute.
+                class MyClass:
+                    # Class attribute
+                    class_attr = "I am a class attribute"
+                # Creating instances
+                obj1 = MyClass()
+                obj2 = MyClass()
+                print(obj1.class_attr)
+
+    Example : If there is class attribute or instance attribute in a program then it will prefer the instance 
+               Instance attributes take preference over class attributes during assignment & retrival.
+                class MyClass:
+                    # Class attribute
+                    class_attr = "I am a class attribute"
+                # Creating instances
+                obj1 = MyClass()
+                obj1.class_attr = "Updated Class Attribute"
+                print(obj1.class_attr)
+
+28. Constructor "__init__(self)" :  a constructor is a special method or function that is automatically called when an object of a class is created.
+                                     The __init__() function is called automatically every time the class is being used to create a new object.
+                                Example :  
+                                            class Employee:
+                                                def __init__(self):
+                                                    print("I am the constrctor of employee class")
+                                            e1 = Employee()
+                                            o/p : I am the constrctor of employee class
+
+                                Example :  
+                                            class Employee:
+                                                def __init__(self,fname,lname):
+                                                    #  It initializes the instance attributes first_name and last_name with the values passed as parameters, and then it prints the first name and last name.
+                                                    self.first_name = fname
+                                                    self.last_name = lname
+                                                    print(f"First Name : {self.first_name}\tLast Name : {self.last_name}")
+                                            e1 = Employee("Piyush","Thaware")
+
+                                Example : 
+                                            class Employee:
+                                                def __init__(self,fname,lname):
+                                                    #  It initializes the instance attributes first_name and last_name with the values passed as parameters, and then it prints the first name and last name.
+                                                    self.first_name = fname
+                                                    self.last_name = lname
+
+                                                def getDetails(self):
+                                                    print(f"First Name : {self.first_name}\tLast Name : {self.last_name}")
+
+                                            e1 = Employee("Piyush","Thaware")
+                                            e1.getDetails()
+
+29. Static Method : sometime we need a fucntion that doesn't uses the self paremeter we can define a static method like this :
+                @staticmethod  ------------------> decorator to mark greet as a static method
+                def greet():
+                    print("Good Morning)
+                
+                Note ---------> when we dont want to use self then we will use or declare  @staticmethod
+
+                Example : Static without arguments
+                            class Employee:
+                                @staticmethod
+                                def hello():
+                                    print("Hello")
+                            e1 = Employee()
+                            e1.hello()
+                
+                Example : passing argument to static method
+                            class Employee:
+                                @staticmethod
+                                def hello(fname):
+                                    print("Hello",fname)
+                            e1 = Employee()
+                            e1.hello("Piyush")
+
+
+
+30. Inheritance : creating new class from the exisiting class.
+        syntax -
+        class Parent: ------------------> Base class
+            #code
+        class Son(Parent): -------------> Derived Class
+            #code      
+
+        Types -
+        1. Single Inheritance :  A derived or subclass can have a single immediate parent class from which it inherits.
+                        Syntax - 
+                        class Parent:
+                            # code
+                        class Child(Parent):
+                            # code
+                        
+                        Example : 
+                        class Parent:
+                            age = 40
+                            def func1(self):
+                                print("This is the function-1 from parent class")
+
+                        class Child(Parent):
+                            age = 20
+
+                        c1 = Child()
+                        print(c1.age)  # o/p : 20 since both the classes have same attribute the child class will return its own attribute
+                        c1.func1()     # o/p : This is the function-1 from parent class
+
+                        p1 = Parent()
+                        print(p1.age) # o/p : 40
+
+        2. Multiple Inheritance : In multiple inheritance, a subclass can inherit attributes and methods from more than one parent class simultaneously. 
+                    Example : 
+                            class Father:
+                                name = "Father's Name"
+
+                            class Mother:
+                                name = "Mother's Name"
+
+                            class Child(Father,Mother):
+                                def showData(self):
+                                    print(f"Children Parent Details : {self.name}")  o/p : Children Parent Details : Father's Name
+                            ------- OR ----------
+                            class Child(Mother,Father):
+                                def showData(self):
+                                    print(f"Children Parent Details : {self.name}") o/p : Children Parent Details : Mother's Name
+                            c1 = Child()
+                            c1.showData()
+
+        3. Multilevel Inheritance :  it involves a chain of inheritance where a subclass becomes the parent class for another subclass, creating a hierarchical structure.
+                            Example : 
+                                    class GrandFather:
+                                        age = 78
+                                    class Father(GrandFather): # recently derived child class becomes the super class for another subclass/derived class
+                                        name = "Father name"
+                                    class Child(Father):
+                                        rollNo = 233
+
+                                    # The following instance can access the attributes of GrandFather class only
+                                    gf = GrandFather()
+                                    print(gf.age)
+
+                                    # The following instance can access the attributes of GrandFather & Father class both
+                                    f = Father()
+                                    print(f.age) 
+                                    print(f.name) 
+
+                                    # The following instance can access the attributes of GrandFather & Father & Child classes
+                                    c = Child()
+                                    print(c.age)
+                                    print(c.name)
+                                    print(c.rollNo)
+
+                            Example : 
+                                    class GrandFather:
+                                        age = 78
+                                    class Father(GrandFather): # recently derived child class becomes the super class for another subclass/derived class
+                                        name = "Father name"
+                                    class Child(Father):
+                                        rollNo = 233
+                                        def showData(self):
+                                            print(f"Data for child : {self.age} {self.name} {self.rollNo}")
+                                    # The following instance can access the attributes of GrandFather & Father & Child classes
+                                    c = Child()
+                                    c.showData()
+
+31. Class Method : A class method is a method which is bound to the class and not to the object of a class. 
+                   Decorator used to declare is --> @classmethod
+                   
+
+32. Super() : This method is used to access the method of super class (ie Parent class) in the derive class.
+              # In case of methods 
+              Example : super with argument passing to super class from derived class
+                        class A:
+                            def func1(self,name):
+                                print("This is function-1 from class A \t",name)
+
+                        class B(A):
+                            def greet(self,name):
+                                super().func1(name)
+                                print("This is function-1 from class B")
+                        b = B()
+                        b.greet("Piyush")  
+                        o/p : This is function-1 from class A          Piyush
+                              This is function-1 from class B
+
+            # In case of constrctor 
+            Example : super with argument passing from derived class constrctor to super class constrctor
+                        class A:
+                            def __init__(self,name):
+                                print("This is constructor from class A \t",name)
+
+                        class B(A):
+                            def __init__(self,name):
+                                self.name = name 
+                                super().__init__(self.name)
+                                print("This is constructor from class B")
+                        b = B("Piyush")
+                        o/p : This is constructor from class A         Piyush
+                              This is constructor from class B
+
+
+33. Operator Overloading : Operator overloading in Python allows you to define how operators like +, -, *, /, and others should behave for objects of your custom classes. This means you can make your objects work with operators just like built-in types such as integers and floats. 
+                        Example : 
+                        class Sample:
+                            def __init__(self,number):
+                                self.number = number 
+
+                            def __add__(self,other_number):
+                                print(f"The sum of two number is : {self.number+other_number.number} ")
+                            def __sub__(self,other_number):
+                                print(f"The sub of two number {self.number} is : {self.number - other_number.number} ")
+
+                        n1 = Sample(4)
+                        n2 = Sample(3)
+                        sum = n1+n2
+                        sub = n1-n2
+
+
+34. Getter and Setter  OR @property Decorator :  In Python, you can use getter and setter methods to control access to the attributes of a class. While Python doesn't have traditional private or protected access modifiers like some other languages, you can use getter and setter methods to enforce encapsulation and provide controlled access to object attributes. 
+                            Example : 
+                                    class Employee:
+                                        salary = 1000
+
+                                        @property           # getter used to get the value
+                                        def getSalary(self):
+                                            return self.salary 
+
+                                        @getSalary.setter    # setter used to set the value
+                                        def setSalary(self,amount):
+                                            if amount>0:
+                                                self.salary = self.salary + amount
+                                            else:
+                                                print("Invalid Amount Entered !!!")
+
+                                    e1 =  Employee()
+                                    print(f"Initial Salary : {e1.getSalary}")
+                                    # increasing salary amount or modifying it
+                                    e1.setSalary = 5000
+                                    print(f"Final Salary : {e1.getSalary}")
+                                    o/p : Initial Salary : 1000
+                                        Final Salary : 6000
+
+35. Other Dunder Methods :
+        __init__(self, ...) : The constructor method that initializes an object when it is created.
+        __str__() :  Returns a string representation of the object when str(obj) or print(obj) is called.
+        __len__() :  Returns the length of the object when len(obj) is called.
+        __eq__(self, other): Defines behavior for the equality operator ==.
+        __ne__(self, other): Defines behavior for the inequality operator !=.
+        __lt__(self, other): Defines behavior for the less-than operator <.
+        __le__(self, other): Defines behavior for the less-than-or-equal-to operator <=.
+        __gt__(self, other): Defines behavior for the greater-than operator >.
+        __ge__(self, other): Defines behavior for the greater-than-or-equal-to operator >=.
+        __mul__(self, other): Defines behavior for the multiplication operator *.
+        __truediv__(self, other): Defines behavior for the division operator /.
+        __floordiv__(self, other): Defines behavior for the floor division operator //.
+        __mod__(self, other): Defines behavior for the modulo operator %.
+        __pow__(self, other, modulo=None): Defines behavior for the exponentiation operator **.
+
+        Example : 
+                class ClassName:
+                    def __init__(self, name):
+                        self.name = name
+
+                    def __str__(self):
+                        return self.name
+
+                    def __len__(self):
+                        return len(self.name)
+
+                    def __eq__(self, other):
+                        if self.name == other.name:
+                            return f"{self.name} > Yes"
+                        else:
+                            return "No"
+
+                c = ClassName("Piyush")
+                print(c)  # OR print(str(c))
+                print(str(c))
+                print(len(c))
+                print(c == ClassName("Piyush"))  # Use the equality operator
+
+
+36. Exception Handling :  Python is a mechanism that allows you to gracefully handle and recover from errors and exceptions that can occur during the execution of your program.It helps prevent your program from crashing and allows you to take appropriate actions when an unexpected situation arises.
+        * Try Block     : You place the code that might raise an exception inside a try block.
+        * Except Block  : You specify what to do if a specific type of exception occurs in an except block. You can have multiple except blocks to handle different types of exceptions.
+        * Finally Block : The code in the finally block is always executed, regardless of whether an exception occurred or not. This is useful for cleanup operations. 
+        * Else Block (optional): You can include an else block after the try and except blocks. The code in the else block is executed if no exception occurs in the try block.
+
+        Example : 
+                try:
+                    num = int(input("Enter the value : "))
+                    result = 10 / num
+                    print("Try Block")
+                # Definig different types of error for exceptionn handling.
+                except ZeroDivisionError:
+                    print("Except with zerodivision eror occurs")
+                except ValueError:
+                    print("Except Value error occurs")
+                except Exception as error:
+                    print("Except Block : ",error)
+                else:
+                    print("Else Block as Try block run successfully...")
+                finally:
+                    print("It will run if exception handle or not handle at any cost")
+
+
+        * Create Custom Exception : The raise keyword is used to raise an exception.
+                                    Syntax - raise Exception(error message)
+
+                                        try:
+                                            num = "herik"
+                                            if num == "Piyush":
+                                                print("No Error Occurs")
+                                            else:
+                                                raise Exception("Invalid Name")
+                                        except Exception as e:
+                                            print(f"Error : {e}")
+
+37. Enumerate   :  The enumerate() function in Python is used to add a counter to an iterable (such as a list, tuple, or string),and keep track of the index or position of each item in the iterable.
+                Example : 
+                        names = ["Piyush","Herik","Shreyash","Json","Pankaj","Praful"]
+                        for index,name in enumerate(names,start=5):
+                            print(f"{index} -> {name}")
+                        o/p : Piyush -> 5
+
+38. List comprehension : It offers a shorter syntax when you want to create a new list based on the values of an existing list.Without list comprehension you will have to write a for statement with a conditional test inside.
+                Example : 
+                        list1 = [1,2,3,4,5]
+                        list2 = [num*num for num in list1]
+                        print(list2)
+                        o/p : [1, 4, 9, 16, 25]
+                Example: 
+                        list1 = [1,2,3,4,5]
+                        list2 = [num for num in list1 if num>3]
+                        print(list2)
+                        o/p : [4,5]
+
+
+39. Python has several types of scopes :
+    * Local Scope : Variables defined within a function are in the local scope.
+                    These variables are only accessible within that function.
+                    Once the function completes execution, local variables typically go out of scope.
+
+                    Example :
+                            def my_function():
+                                x = 10  # x is in the local scope
+                                print(x)
+
+                            my_function()
+                            print(x)  # This will result in a NameError because x is not in the global scope 
+
+    * Non-Local Scope :The nonlocal keyword is used to work with variables inside nested functions, where the variable should not belong to the inner function.Use the keyword nonlocal to declare that the variable is not local.
+                        Example : 
+                                def outerFunction():
+                                    x = "Local Scope"
+                                    def InnerFunction():
+                                        nonlocal x 
+                                        x = "Non Local"
+                                        print(x)
+                                    print(x)
+                                    InnerFunction()
+                                    print(x) # This will print "Non Local" because we modified the x from the outer scope
+                                outerFunction()
+                                o/p : 
+                                    Local Scope
+                                    Non Local
+                                    Non Local
+    
+    * Global Scope : Variables defined at the top level of a module or script are in the global scope.Global variables are accessible throughout the module or script.
+                    Example : 
+                                x = "Global"
+                                def outerFunction():
+                                    print(x)
+                                outerFunction()
+                                print(x)
+
+                    Example : 
+                                x = "Global"
+                                def outerFunction():
+                                    print(x)  # local variable 'x' referenced before assignment
+                                    x = "Local"
+                                    print(x)
+                                outerFunction()
+                                print(x)
+
+
+40. * Map()   :   The map function applies a given function to each item in an iterable (e.g., a list) and returns an iterable containing the results.
+                It takes two arguments: the function to apply and the iterable.
+                syntax - map(function,list or iterable)
+                Example : 
+                        def square(number):
+                            return number*number
+
+                        number_list = [1,2,3,4,5]
+                        mapping = map(square,number_list)
+                        print(mapping)         # This will return a map object which is convertable  --> <map object at 0x000002B6747CE2E0>
+                        print(list(mapping))   # This will return a list of square of number  --> [1, 4, 9, 16, 25]
+
+    
+    *  Filter() :  The filter function filters elements from an iterable based on a given function that returns True or False.
+                It takes two arguments: the filtering function and the iterable.
+                It returns an iterable containing only the elements for which the filtering function returns True.
+                Syntax - filter(function,list or iterable)
+                Example : 
+                        def function(number):
+                            if number>3:
+                                return number 
+
+                        number_list = [1,2,3,4,5]
+                        filtering = filter(function,number_list)
+                        print(filtering)         # This will return a filter object which is convertable  --> <filter object at 0x0000020AEDD8B070>
+                        print(list(filtering))   # This will  return a list of filter iterables  --> [4, 5]
+
+
+    * Reduce()  : The Reduce() frunction is applied to the list or iterable and it perform a task according to the function any Reduce the list or iterable to the single entity.
+                  Syntax - reduce(function,list or iterable)
+                  Example : 
+                            from functools import reduce
+                            def sum(x,y):
+                                return x+y
+
+                            number_list = [1,2,3,4,5]
+                            reducing = reduce(sum,number_list)
+                            print(reducing)  ---> 15
+
+41. * Using f-strings : print(f" Hello, {fname} ")
+    * Using .format() : print("Hello , {}".format(name))
+    * Normal          : print("Hello",name)
+
+42. join()  : In Python, the join method is used to concatenate (join) the elements of an iterable (such as a list or tuple) into a single string, using a specified separator.
+              Example : 
+                        names = ["Piyush","Shreyash","Herik","Json"]
+                        result = " > ".join(names)
+                        print(result,type(result))
+                        o/p : Piyush > Shreyash > Herik > Json <class 'str'>
+
+43. Assert : In Python, the assert statement is used as a debugging code to test a condition. If the condition specified in the assert statement evaluates to True, the program continues to execute normally.
+             Example  : 
+                        a = 10
+                        assert a>20 ,"Error"
+                        o/p : AssertionError: Error
+
+             Example  : 
+                        x = 'hi'
+                        assert x == "hi","No error"
+                        assert x=="Hello","Error Occurs : x should be hi"
+                        o/p : AssertionError: Error Occurs : x should be hi
+
+44. del : In Python, the del statement is used to remove an object, variable, or element from memory.
+          Example : 
+                    list = [1,2,3,4,5]
+                    print(list)  --> [1,2,3,4,5]
+                    del list[2]
+                    print(list)  --> [1,2,4,5]
+
+          Example  : 
+                    a = 10
+                    print(a)
+                    del a
+                    print(a) --> this will show error
+
+
+45. Eval() : Since defualt input type is string but if we use eval() then it will allow us to put any kind of datatype and convert the data as according to our input.
+            Example : 
+                userInput = eval(input("Enter the value : "))
+                print(userInput,type(userInput))
+            o/p : 
+                Enter the value : "Piyush"
+                Piyush <class 'str'>
+                Enter the value : 34
+                34 <class 'int'>
+                Enter the value : 34.333
+                34.333 <class 'float'>
+                Enter the value : True
+                True <class 'bool'>
+
+46. Anonymous function : The function with no name is called anonymous function
+
+47. Lambda Function : 
+         syntax - lambda arguments: expression
+         Example : sum = lambda a,b:a+b 
+                   print(sum(2,5))
+                   o/p : 7
+
+         Example : square = lambda x:x**2
+                   print(square(3))
+                   o/p : 9
+
+        *  Anonymous Function inside a function :
+            def add(a):
+                return lambda b: a+b
+            A = add(2)    
+            print(A(2))
+
+48. To take multiple inputs in a single line in Python, you can use the input() function along with split()
+    *   userInput = input("Enter the list of array : ")
+        result = userInput.split()
+        print("Output : ",result)
+        o/p : 
+            Enter the list of array : 1 2 3 4
+            Output :  ['1', '2', '3', '4']
+
+    Example : 
+            number1,number2 = [int(number) for number in input("Enter the values : ").split(',')]
+            print(number1+number2)  
+            o/p : 
+            Enter the values : 1,2
+            3
+
+
+49. Ternary : 
+        syntax -> value_if_true if condition else value_if_false
+        Example : 
+                num1 = int(input("Enter the value 1 : "))
+                num2 = int(input("Enter the value 2 : "))
+                result = num1 if num1>num2 else num2
+                print(result)
+
+50. Tools :
+    * in 
+            names = ["Piyush","Shreyash","Json","Herik"]
+            if "Herik" in names:
+                print("Yes")
+            else:
+                print("No")
+
+    * is 
+            a = 10
+            if a is 10:
+                print("Yes")
+            else:
+                print("No")
+
+
+51. We use end="" to prevent print() from adding an extra newline character, so the output appears on the same line as the prefix.
+
+
+52. I/O Files : 
+    * File : file is used to store a data in device memory.
+            Types of Files :
+            1. Text Files (.txt .c ... etc)
+            2. Binary Files (.Jpg , .png , .mp4)
+
+            A Programmer can write as well as ready a file Python has a lot of functions for reading,writing,updating or deleting a file.
+
+            1. Open File : 
+                python has open() funtion which is used to open a file.It will take two parameters which are 
+                open('file name (path)','mode')
+
+            2. Read file : 
+                file = open("Notes.txt","r") # open() function to open a file in various modes (e.g., 'r' for reading, 'w' for writing, 'a' for appending).  bydefault the file is open in  readOnly mode so it is not necessary to mentioned "r" for read.
+                print(file)        # this will return an object code --> <_io.TextIOWrapper name='Notes.txt' mode='r' encoding='cp1252'>
+                print(file.read()) # this will display the entire data of a file to the console
+                file.seek(0)       # Reset the file pointer to the beginning of the file
+                line = file.readline(0)  # Reads up to 0 bytes from the current line
+                firstLine = file.readline() # this will display the first line of the file open
+                secondLine = file.readline() # this will display the second line of the open file
+                lines = file.readlines()  # this will display the entire data of a file and remove the formatting and return to the console
+                file.close()   # if it manditiory to close the open file 
+
+            3. Write File : 
+                file = open("Temp.txt","w")
+                file.write("New Data is added")
+                file.close()
+
+            4. Append Data to a file : 
+                file = open("Temp.txt","a")
+                file.write("\nNew Data is added2323")
+                file.close()
+
+        Modes of Operation :
+        r -----> open for reading
+        w -----> open for writing
+        a -----> open for appending
+        + -----> open for updating
+
+        'rb' ---> will open for read in binary mode
+        'rt' ---> will open for read in text mode
+
+
+    * Using with : we can automatically open() or close() a file. 
+      Example : Read Mode 
+                with open('Temp.txt',"r") as file:
+                    print(file.read())
+                    print("==> Line 1 of a Temp file",file.readline())
+
+      Example : Write Mode 
+                with open('Temp.txt',"w") as file:
+                    file.write("Hello Ji")
+
+      Example : Append Mode 
+                with open('Temp.txt',"a") as file:
+                    file.write("\nHello Ji 3")
+
+    * Reading Binary File : 
+            file = open("image.jpg","rb")
+            print(file)  # o/p : <_io.BufferedReader name='image.jpg'>
+            file.close()
+
+        ---- OR ----
+        with open("image.jpg","rb") as file :
+        print(file)  # o/p : <_io.BufferedReader name='image.jpg'>
+
+53. if __name__ == "__main__" : You only need the if __name__ == "__main__" check if you want to have a script that can be run as a script or imported as a module
+    Example : In file-1.py write the below code 
+              if __name__ == "__main___":
+                    print("main")
+
+              In file-2.py write the below code 
+              import file-1
+              print(__name__)
+
+              o/p : __main__
+
+54. Module Import/Export :
+    * file 1 : 
+                def sum(num1,num2):
+                    return num1+num2
+
+    * file 2 : 
+                import file1 
+                num1 = int(input("Enter number-1 : "))
+                num2 = int(input("Enter number-2 : "))
+                result = file1.sum(num1,num2)  <----- notice this 
+                print(result)
+
+            
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+

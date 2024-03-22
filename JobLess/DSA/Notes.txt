@@ -1,0 +1,11 @@
+DSA - Data structure & Algorithm
+1. Defination -> A data structure is a specialized format for organizing, processing, retrieving and storing data.
+2. Types -> 
+a. Builtin : List , Tuple , Dictionary , Set 
+b. User Defined : Stack ,Queue ,Linked List , Tree , Graph
+
+3. List : It is the builtin data structure in python used to store and kind of data enclosed within the square brackets,indexed, mutable
+4. Tuple : It is the builtin data structure in python used to store and kind of data enclosed within the circular brackets,indexed, immutable
+5. Dictionary :It is the builtin data structure in python used to store and kind of data enclosed within the curly bracket it is the collection of key value pair.
+6. Set : It is the collection of non repetative data items.
+

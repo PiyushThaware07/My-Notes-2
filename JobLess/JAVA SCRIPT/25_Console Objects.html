@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        The console object has several methods, log being one of them. Some of them are as follows:
+assert() – used to assert a condition
+clear() – clears the console
+log() – outputs a message to the console
+table() – Displays a tabular data
+warn() – used for warnings
+error() – used for errors
+info() – used for special information
+        */
+        console.log(console);
+        console.log("Hello Piyush");
+        console.error("This is an error piyush");
+        console.assert(555<5);
+        console.assert(555>5);
+        console.clear();
+
+        const obj = {
+            'a':10,
+            'b':20,
+            'c':30,
+        }
+        console.table(obj);
+        console.warn("This is used for warning purpose piyush");
+        console.info("This is an important info");
+
+        console.time("forLoop");
+        for(let j=0;j<5;j++)
+        {
+            console.log("Time");
+        }
+        console.timeEnd("forLoop");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@500&display=swap');
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .timeline-section {
+            background-color: transparent;
+            min-height: 20vh !important;
+            padding: 0px 15px !important;
+        }
+
+        .timeline-items {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .timeline-items::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background-color: #2f363e;
+            left: calc(50% - 1px);
+        }
+
+        .timeline-item {
+            /* background-color: #2f363e; */
+            margin-bottom: 40px;
+            width: 100%;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 30px);
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 30px);
+            text-align: left;
+        }
+
+        .timeline-dot {
+            height: 16px;
+            width: 16px;
+            background-color: #0d6efd;
+            position: absolute;
+            left: calc(50% - 8px);
+            border-radius: 50%;
+            top: 10px;
+        }
+
+        .timeline-date {
+            font-size: 16px;
+            color: #0d6efd;
+        }
+
+
+        .timeline-content {
+            background-color: #2f363e;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .timeline-content h3 {
+            font-size: 20px;
+            font-weight: 900 !important;
+            color: white;
+            margin: 0px 0px 10px;
+            text-transform: capitalize;
+            font-weight: 300;
+            font-family: 'Ysabeau SC';
+            letter-spacing: 3px;
+        }
+
+        .timeline-content p {
+            color: #c8c8c8;
+            font-size: 12px !important;
+            font-weight: 300;
+            line-height: 22px;
+        }
+
+        /* Responsive */
+        @media (max-width:767px) {
+            .timeline-items::before {
+                left: 7px;
+            }
+
+            .timeline-item:nth-child(odd) {
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 37px;
+            }
+
+            .timeline-dot {
+                left: 0;
+            }
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <section class="timeline-section">
+        <div class="timeline-items">
+            {% for experience in experience_details %}
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">{{experience.fromdate}} - {{experience.todate}}</div>
+                <div class="timeline-content" data-aos="fade-right">
+                    <div class="text-start">
+                        <h3>{{experience.companyname}}</h3>
+                    <p class="p-0 m-0">Job Title : {{experience.jobtitle}}</p>
+                    <p class="p-0 m-0">Location : {{experience.location}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

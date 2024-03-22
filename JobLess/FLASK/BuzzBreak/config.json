@@ -1,0 +1,31 @@
+{
+    "parameters":
+    {
+        "website_name":"BuzzBreak",
+        "website_tagline":"Discover the World at Your Fingertips",
+        "website_description":"Knowledge is power, and reading is the ultimate tool to gain that power. Get ahead of the game by staying informed with BuzzBreak.With BuzzBreak, you'll never miss a beat in the news cycle. From breaking news to the latest celebrity gossip, we've got it all covered for you.",
+
+
+
+        "facebook_url" : "https://www.facebook.com/piyush.thaware.351/",
+        "instagram_url" : "https://www.instagram.com/piyushthaware07/",
+        "linkedin_url" : "https://www.linkedin.com/in/piyush-thaware/",
+        "github_url" : "https://github.com/PiyushThaware07",
+
+
+
+
+        "api_key":"2c3171958b52495588f9fefb8f547135",
+        "api_location":"in",
+
+        "local_server" : "True",
+        "local_url" : "mysql://root:@localhost/buzzbreak",
+        "live_url" : "mysql://root:@localhost/buzzbreak",
+
+
+        "admin_username" : "admin",
+        "admin_password" : "12345",
+
+        "upload_location": "media"
+    }
+}

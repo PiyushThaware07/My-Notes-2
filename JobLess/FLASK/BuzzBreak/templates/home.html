@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+<div class="container-fluid p-0">
+    <div class="container-fluid p-0">
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
+                        width="700" height="500" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">{{param["website_name"]}}</h1>
+                    <p class="lead">{{param["website_description"]}}</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a href="/blog"><button type="button"
+                                class="btn btn-danger btn-lg px-4 me-md-2">Blogging</button></a>
+                        <a href="/news"><button type="button"
+                                class="btn btn-outline-secondary btn-lg px-4">News</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-0">
+        <div id="news-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for article in articles %}
+                <div class="carousel-item{% if loop.index == 1 %} active{% endif %}">
+                    <img src="{{ article.urlToImage }}" class="d-block w-100" alt="Loading Please Wait..." height="400">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ article.title }}</h5>
+                        <p>{{ article.description }}</p>
+                        <a href="{{ article.url }}" class="btn btn-sm btn-danger rounded-0">Read more</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#news-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#news-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+
+
+    <!-- News show by card -->
+    
+    <div class="container p-5">
+        <div class="row">
+            <span class="h6 text-bold p-2 p-md-3 border border-danger"
+                style="color:rgba(255, 0, 0, 0.572);width: auto;">Top Headlines</span>
+            <div id="post-carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for post in articles[0:3] %}
+                    {% if loop.index == 1 %}
+                    <div class="carousel-item active">
+                        {% else %}
+                        <div class="carousel-item">
+                            {% endif %}
+                            <div class="row row-cols-1 row-cols-md-3 g-4">
+                                {% for post in articles[loop.index0:loop.index0+3] %}
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="{{ post.urlToImage }}" class="card-img-top" alt="{{ post.title }}">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ post.title|truncate(80) }}</h5>
+                                            <p class="card-text">{{ post.description|truncate(100) }}</p>
+                                            <a href="{{ post.url }}"
+                                                class="btn btn-sm btn-dark form-control rounded-0">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#post-carousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#post-carousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Post show by card -->
+    {% if posts %}
+    <div class="container px-5 mb-3">
+        <div class="row">
+            <span class="h6 text-bold p-2 p-md-3 border border-danger"
+                style="color:rgba(255, 0, 0, 0.572);width: auto;">Latest Posts</span>
+            <div id="post-carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for post in posts[0:3] %}
+                    {% if loop.index == 1 %}
+                    <div class="carousel-item active">
+                        {% else %}
+                        <div class="carousel-item">
+                            {% endif %}
+                            <div class="row row-cols-1 row-cols-md-3 g-4">
+                                {% for post in posts[loop.index0:loop.index0+3] %}
+                                <div class="col">
+                                    <div class="card h-100">
+                                        {% set image = post.image %}
+                                        <img src="{{ url_for('media', filename=image) }}" class="card-img-top"
+                                            alt="{{ post.title }}">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ post.title|safe|truncate(35) }}</h5>
+                                            <p class="card-text">{{ post.content|truncate(100) }}</p>
+                                            <a href="{{ url_for('post', sno=post.sno) }}"
+                                                class="btn btn-sm btn-dark form-control rounded-0">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#post-carousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#post-carousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+
+
+    {% endblock body %}

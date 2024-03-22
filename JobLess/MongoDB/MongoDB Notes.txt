@@ -1,0 +1,439 @@
+MongoDB 
+
+defination : MongoDB is a document database with the scalability and flexibility that you want with the querying and indexing that you need
+
+1. mongod --version   this will return mongodb version
+2. mongosh            this will enable the shell of mongodb
+3. cls                clear console
+4. use Database_name  create database using this : this will return switched to db DatabaseName , this meand Databasename is refered as db
+5. db.collection_name.operations  this will create collection or dataset
+
+6. CRUD : 
+   1) Insertion Operation
+   * db.collection_name.insertOne({field:value})
+   * db.collection_name.insertMany([{field:value},{field:value}])
+
+   2) Read Operation : Read operations retrieve documents from a collection
+   * db.collection_name.find(query,projection) : query -> {field:value} ,projection -> what to show or what not to show
+       Example : db.details.find({category:"category1"},{name:1})
+   * db.collection_name.findOne()   this will return only one doc whose condition matches
+       Example :  db.details.findOne({category:"category1"})
+   * db.collection_name.find().limit(number of doc to show)   alternative of findOne()
+       Example :  db.details.find().limit(2)
+   * db.collection_name.find().pretty()  this will return the pretty version of doc
+
+   3) Update Operation : Update operations modify existing documents in a collection. 
+   * db.collection_name.updateOne(<filer>,<update>)  this will update only one doc whose condition matches
+         Example : db.collection_name.updateOne({id:1},{$set:{age:27}})
+         Note : $ is a atomic operator
+   * db.collection_name.updateMany(<filer>,<update>) this will update data of multiple documents
+         Example :  db.collections.updateMany({id:1},{$set:{first_name:"Pankaj",last_name:"Sharma"}})
+                    db.details.updateMany({ _id: { $gt: 1 } }, { $set: { tags: ["tag1", "tag2", "tag3", "tag4"] } })
+   * db.collection.replaceOne(
+     <filter>,
+     <replacementDocument>,
+     {
+     upsert: <boolean>,
+     writeConcern: <document>,
+     collation: <document>,
+     hint: <document|string>                   
+    }
+    )
+     Push :
+   * db.collection_name.updateOne(<filter>,{$push:{arrayField:"new Element"}})
+     Example Adding array field :  db.collections.updateOne({first_name:"Herik"},{$push:{"emailAddress":"HerikSevak@gmail.com"}})
+                                  o/p : emailAddress: [ 'HerikSevak@gmail.com' ]
+                                   
+     Example For field:value    :  db.collections.updateOne({first_name:"Herik"},{$set:{'RollNo':'161'}})
+                                  o/p : RollNo: '161'
+
+     Pop:
+   * db.collection_name.updateOne(<filter>,{$pop:{arrayField:value}})
+     Example for filed:value    :  db.collections.updateOne({first_name:"Herik"},{$unset:{'RollNo':1}})
+     Example rRemove   : db.details.updateOne({ _id: 1 }, { $pop: { "quantity": 1 } })
+    
+
+
+   4) Delete Operation
+   * db.collection_name.deleteOne({field:value})  this will delete only one entry
+   * db.collection_name.deleteMany()              if deleteMany({}) then it will return an empty collection or remove all the items
+
+   5) Remove Operation 
+   * db.collection_name.updateOne({filter},{$unset:{field_Name:1}})
+        Example : db.collections.updateOne({first_name:"Herik"},{$unset:{age:1}})
+
+   6) Rename Operation 
+   * db.collection_name.updateOne({filter},{$rename:{oldFieldName:"NewFieldName"}})
+        Example : db.collections.updateOne({first_name:"Herik"},{$unset:{age:1}})
+
+   7) Update Embedded Document : 
+      Push : db.collections.updateOne({first_name:"Herik"},{$push:{address:{'city':'Durgapur',postalCode:440008}}})
+      Pop  : db.collections.updateOne({first_name:"Herik"}, {$pop:{'address':1}} )
+      Text Update :  db.collection_name.updateOne(<filter>,{$set:{'arrayField.$.fieldInsideArray':"Updated Text"}}) 
+           example : db.collections.updateOne({first_name:'Pankaj','address.city':'Nagpur'},{$set:{'address.$.city':'mumbai'}})
+
+   
+7. Ordered or Unordered Insertion :
+   * db.collection_name.insertMany([{},{}],{ordered:false})
+   by default the ordered of database is true ,
+   ordered:false means the doc insertion contain an error then except error all the data insert as it is
+
+8. Comparison Operator 
+   * equal to              --> $eq
+   * not equal to          --> $ne
+   * greater than          --> $gt
+   * greater than equal to --> $gte
+   * less than             --> $lt
+   * less than equal to    --> $lte
+   * in                    --> $in
+   * not in                --> $nin
+   
+   db.collection_name.find({field:{$operator:value}})
+   ->> incase of : in 
+   db.collection_name.find({field:{$in:[val1,val2,val3]}})
+   Example : db.details.find({_id:{$in:[100,200,1]}})
+
+
+9. Introduction to Cursor : cursor in MongoDB like a pointer or a finger that helps you read a really long book one page at a time, without having to hold the entire book in your hand.
+   Cursor Methods :
+   * Count()           this will return the length of collection.
+   * limit(value)      this will return the no of doc as the value per the value present from collection. 
+   * skip(value)            this will skip the doc from collection
+   * sort()            this will sort the doc in a collection
+   * next()            this will return next document from the collection
+     Example :  db.collection_name.find().next()
+   * hasNext()         this will return true if next document is present
+     Example :  db.collection_name.find().hasNext()
+   
+   
+   for ascending order use sort() as : order = 1 {field:ordervalue}
+      db.collection_name.find().sort({field:1})
+   for decending order use sort() as : order = -1 {field:ordervalue}
+      db.collection_name.find().sort({field:-1})  
+ 
+10. Logical Operator 
+   * $and
+   * $or
+   * $not
+   * $nor
+    
+   db.collection_name.find({$operator:[{condition 1},{condition 2},{condition n}]})
+   Example : 
+   db.collections.find({ $and: [ {id:{$eq:1}},{last_name:{$eq:"thaware"}}   ]  }) 
+   db.collections.find({ $or : [ {id:{$gt:1}},{last_name:{$ne:"thaware"}}   ]  })
+
+
+11. Complex Expressions
+   Useful when  you need to compare fields from the same document in a more complex manner.
+   
+   * db.collections.find({field: {$operator:value} })
+   Example : db.collections.find({id: {$ne:1} })
+
+   * db.collections.find({ $expr: { $eq: [ "$id", 1 ] } })
+
+
+12. Elements Operator
+   * $exists : Matches document that have a specific field regardless of its value.
+                db.collection_name.find({ field: { $exists: <boolean> } })
+                Example : 
+                   db.collections.find({id:{$exists:true}})
+   * $type   : it filter the document based on the BSON data type of field.
+                db.collection_name.find({ field: { $type: <BSON type> } })
+                Example : 
+                   db.collections.find({id:{$type:'number' }}) 
+                   db.details.find({_id:{$type:"array"}})
+   * $size   : this operator matches documents where the size of an array field matches a specified value.
+                db.collections.find({id:{$size:2}})
+
+13. Projection : MongoDB Projection is a special feature allowing you to select only the necessary data rather than selecting the whole set of data from the document. For Example, If a Document contains 10 fields and only 5 fields are to be shown the same can be achieved using the Projections.
+   * db.collection_name.find( {}, {field1:1,field2:1} )
+   Example :  db.collections.find(  {id:{$eq:2}}, {id:1} )         this will return generated _id and id because the project of id:1
+                  O/P : [
+                           { _id: ObjectId("64e8e1762a10b32c2f18c9aa"), id: 2 },
+                           { _id: ObjectId("64e8e4452a10b32c2f18c9ac"), id: 2 }
+                        ]
+              db.collections.find(  {id:{$eq:2}}, {id:1,_id:0} )   this will return only the id as the value of projection for id:0
+                  O/P : [ { id: 2 }, { id: 2 } ]
+              db.collections.find(  {id:{$eq:2}}, {first_name:1,_id:0} )
+                  O/P : [ { first_name: 'Shreyash' }, { first_name: 'Herik' } ]
+              
+              db.collections.find(  {id:{$eq:2}}, {first_name:1,last_name:0,_id:0} )
+                  O/P : MongoServerError: Cannot do exclusion on field last_name in inclusion projection
+                  In above as we can see first_name : 1 (show)
+                                         last_name  : 0 (hide)
+                                         _id        : 0 (hide)
+                  solution is do (1,1,1) or else (0,0,0) if you go to any other combination like(1,0,1) or (0,1,0) or combination of both it will show error
+              db.collections.find({id:{$gte:1}},{address:1,_id:0})
+                 
+
+14. Embedded documents : They are an efficient and clean way to store related data, especially data that's regularly accessed together.
+                         In MongoDB, you can only nest document up to 100 levels.
+                         The overall document size must not exceed 16 MB.
+                         nested/embedded documents of the collection using dot notation and when you are using dot notation, then the field and the nested field must be inside the quotation marks.
+                         *  db.collections.find({ 'address.city':'Nagpur' })
+                         O/P : [
+                                 {
+                                   _id: ObjectId("64e8e1762a10b32c2f18c9a9"),
+                                    id: 1,
+                                    first_name: 'Piyush',
+                                    last_name: 'Thaware',
+                                    age: 23,
+                                    address: [
+                                               { city: 'Nagpur', state: 'Maharashtra', country: 'India' },
+                                               { city: 'Pune', state: 'Maharashtra', country: 'India' }
+                                              ]
+                                  }
+                                ]
+                       
+                         * db.collections.find({ 'address.city':{$ne:'Nagpur'} },{_id:0,address:1})
+                         O/P : [
+                                 {
+                                   address: [
+                                             { city: 'Haridwar', state: 'Uttarakhand', country: 'India' },
+                                             { city: 'Rishikesh', state: 'Uttarakhand', country: 'India' }
+                                            ]
+                                  },{}...]
+
+
+
+15. $all Operator : The $alloperator selects the documents where the value of a field is an array that contains all the specified elements. To specify an $all
+             { <field>: { $all: [ <value1> , <value2> ... ] } }
+     Example : db.collections.find( {'address.city':{$all:['Nagpur','Pune']}} )
+              O/P : [
+                     {
+                       _id: ObjectId("64e8e1762a10b32c2f18c9a9"),
+                       id: 1,
+                       first_name: 'Piyush',
+                       last_name: 'Thaware',
+                       age: 23,
+                       address: [
+                          { city: 'Nagpur', state: 'Maharashtra', country: 'India' },
+                          { city: 'Pune', state: 'Maharashtra', country: 'India' }
+                         ]
+                      }
+                     ]
+
+
+
+16. $elemMatch : The $elemMatch operator matches documents that contain an array field with at least one element that matches all the specified query criteria.
+               { <field>: { $elemMatch: { <query1>, <query2>, ... } } }
+
+            *  db.collections.find( {'address': {$elemMatch : {'city':'Nagpur','state':'Maharashtra'} } } )
+            O/P : [
+                     {
+                        _id: ObjectId("64e8e1762a10b32c2f18c9a9"),
+                        id: 1,
+                        first_name: 'Piyush',
+                        last_name: 'Thaware',
+                        age: 23,
+                        address: [
+                           { city: 'Nagpur', state: 'Maharashtra', country: 'India' },
+                           { city: 'Pune', state: 'Maharashtra', country: 'India' }
+                        ]
+                     }
+                  ]
+
+
+17. Explain Operation : Explain operation return a detail description of a result 
+            * db.collection_name.find(<filter>,<query>).explain()
+            Example :  db.collections.find({id:{$gte:1}}).explain()
+                       db.collections.find({id:{$gte:1}}).explain("executionStats")
+
+
+17. Indexes : Indexes support efficient execution of queries in MongoDB. Without indexes,
+              MongoDB must scan every document in a collection to return query results. 
+
+              1. db.collection_name.createIndex({field:1})  
+                     field:1  means storing indices in ascending order.
+                     field:-1 means storing indices in decending order.
+                     Example : db.collections.createIndex({'name':1})
+
+                     to create an unique index :
+                     db.collection_name.createIndex({'name':1},{unique:true})
+
+              2. db.collection_name.getIndexes() 
+                     _id is a default index 
+
+              3. db.collection_name.dropIndex({field:1})
+                 db.collection_name.dropIndex("Index_name")
+            
+
+18. Aggregation in MangoDB :
+      Aggregation operations process multiple documents and return computed results. You can use aggregation operations to:
+      An aggregation pipeline consists of one or more stages that process documents.
+      $Match
+      *  db.collections.aggregate([{ $match:{ 'first_name':'Herik' } } ])
+      *  db.collections.aggregate([{$match: {id:{$ne:1}}}])
+      *  db.products.aggregate([ {$match:{product_price: {$gt:100} } } ])
+
+      $ Group : It is like reduce in javascript 
+      In MongoDB, the $group operation is a bit like grouping things together based on a common feature and performing some calculations on each group.
+      It's similar to how you might group items together and then do something with each group.
+      * db.collection_name.aggregate([
+         {
+            $group:
+            {
+               _id: <expression>, // Group key
+               <field1>: { <accumulator1> : <expression1> },
+            }
+         }
+      ])
+         Example :  db.products.aggregate([ { $group: { _id: "$product_category", totalSumOfProductPrice: { $sum: "$product_price" } } }])
+         O/P     : [ { _id: 'toy', totalSumOfProductPrice: 1000 } ]
+
+
+
+         Code    : db.products.aggregate([
+                           {
+                              $group: {
+                                 _id: "$product_category",
+                                 totalSum: { $sum: "$price" }
+                              }
+                           },
+                           {
+                              $match: {
+                                 _id: "Common Category" // Replace with the common category you're interested in
+                              }
+                           }
+                           ])
+         Example : db.products.aggregate([ { $group: { _id: "$product_category", totalSumOfProductPrice: { $sum: "$product_price" } } },{$match : {_id:"sample" } } ])
+         O/P     :  [ { _id: 'sample', totalSumOfProductPrice: 800 } ]
+
+
+         Example : db.products.aggregate([{ $group: { _id: "$product_category", totalSumOfProductPrice: { $sum: "$product_price" }, maximumProductPriceName: { $max: "$product_name" } } }, { $match: { _id: "sample" } }] )
+         O/P   :  [
+                     {
+                        _id: 'sample',
+                        totalSumOfProductPrice: 800,
+                        maximumAppearProduct: 'Kit'
+                     }
+                  ]
+                  shopDatabase > db.products.aggregate([{ $group: { _id: "$product_category", totalSumOfProductPrice: { $sum: "$product_price" }, maximumProductPriceName: { $max: "$product_name" } } }, { $match: { _id: "sample" } }])
+                  [
+                     {
+                        _id: 'sample',
+                        totalSumOfProductPrice: 800,
+                        maximumProductPriceName: 'Kit'
+                     }
+                  ]
+
+
+      $Sort
+      *  db.collections.aggregate([ {$match:{id:{$ne:1}}}  , {$sort: {id:-1}} ])
+      {$sort: {id: 1}} ascending order
+      {$sort: {id:-1}} decending order 
+            Example : db.products.aggregate([ {$match:{product_price: {$lt:300}}} , {$sort: {_id:-1} }  ])
+
+
+      $project 
+      In MongoDB, the $project operation is like choosing what information you want to see from a document and ignoring the rest.
+      It's like creating a new version of the document with only the fields you're interested in.
+      * db.collections.aggregate([{$project: {id:1,_id:0,first_name:1}}])
+      O/P : [
+              { id: 1, first_name: 'Pankaj' },
+              { id: 2, first_name: 'Shreyash' },
+              { id: 3, first_name: 'Herik' }
+            ]
+      *  db.collections.find({id:{$gte:1}},{_id:0,id:1,first_name:1})
+       O/P : [
+              { id: 1, first_name: 'Pankaj' },
+              { id: 2, first_name: 'Shreyash' },
+              { id: 3, first_name: 'Herik' }
+            ]
+      
+      Example :  db.products.aggregate([ {$match:{product_price: {$lt:300}}} , {$sort: {_id:-1}} , {$project: {product_name:1,_id:0} }  ])
+      O/P     :  [ { product_name: 'car' }, { product_name: 'Bike' } ]
+
+
+      $push 
+      In MongoDB, the $push operation is used to add an element to an array field within a document. It's like putting a new item into a list.
+      {$push : <expression>}
+
+      *  db.products.aggregate([{ $match: { product_price: { $gt: 300 } } }, { $group: { _id: "$_id", newAddedItem: { $push: "newItem" } } }])
+      Example : 
+               [
+                  { _id: 4, newAddedItem: [ 'newItem' ] },
+                  { _id: 5, newAddedItem: [ 'newItem' ] }
+               ]
+      *  db.products.aggregate([{ $match: { product_price: { $gt: 300 } } }, { $group: { _id: "add new id no here", newAddedItem: { $push: "newItem" } } }])
+      Example : 
+               [
+                  { _id: 'add new id no here', newAddedItem: [ 'newItem', 'newItem' ] }
+               ]
+
+
+
+      $addToSet       
+      In MongoDB, the $addToSet operator is used to add an element to an array field within a document if the element doesn't already exist in the array. It's like adding an item to a list, but ensuring that duplicates are avoided.
+      *  db.products.updateOne( {_id:{$eq:1}} , {$addToSet: {"field":"Value"}}  )
+      Example : 
+               [
+                  {
+                     _id: 1,
+                     product_name: 'Bike',
+                     product_price: 100,
+                     product_category: 'toy',
+                     field: [ 'Value' ]
+                  }
+               ]
+
+
+      $limit 
+      In MongoDB's Aggregation Framework, the $limit stage is used to restrict the number of documents that pass through the pipeline. It limits the number of documents that are returned as the output of the aggregation operation.
+      db.collection_name.aggregate([{$limit:5}])
+
+
+
+      $skip 
+      In MongoDB's Aggregation Framework, the $skip stage is used to skip a specified number of documents in the pipeline. It essentially allows you to skip a certain number of documents from the beginning of the results.
+      db.collection_name.aggregate([{ $skip: 2 }])
+
+
+      $filter 
+      In MongoDB's Aggregation Framework, the $filter stage is used to create a new array that contains only the elements from an existing array that match certain conditions.
+      It's like filtering out items from a list based on specific criteria.
+
+      {
+         $filter:
+            {
+               input: <array>,
+               cond: <expression>,
+               as: <string>,
+               limit: <number expression>
+            }
+      }
+
+      Example : 
+               db.Details.aggregate([
+                  {
+                     $project:{
+                        _id:0,
+                        first_name:1,
+                        FilteredValues : {
+                           $filter: {
+                              input:"$marks",
+                              as:"val",
+                              cond:{ $gt: ['$$val', 30] }
+                           }
+                        }
+                     }
+                  }
+               ])
+
+
+
+
+19. Building Applications using MongoDB 
+   Go To >> MongoDB Drivers 
+    
+   Installation : npm i mongodb 
+   
+
+
+
+
+
+
+
+
+   

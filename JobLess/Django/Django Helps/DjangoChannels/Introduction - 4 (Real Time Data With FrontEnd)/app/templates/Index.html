@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+
+  <body>
+    <h1>Count Page</h1>
+    <h1>Packet Data Received : <span id="dataPacket"></span></h1>
+
+    <button id="disconnect">Close Connection</button>
+  </body>
+  <script>
+    var new_ws = new WebSocket("ws://127.0.0.1:8000/ws/sc/");
+
+    new_ws.onopen = function () {
+      console.log("Websocket Connection Open...");
+      new_ws.send("Hi,This is the  message from client named Piyush");
+    };
+
+    new_ws.onmessage = function (event) {
+      console.log("Message Received From Server is : ", event.data,typeof(JSON.parse(event.data)) ,event);
+      var dataToObject = JSON.parse(event.data)
+      document.getElementById("dataPacket").innerHTML = dataToObject.count;
+    };
+
+    new_ws.onerror = function (event) {
+      console.error("Websocket Process Failed !!!", event);
+    };
+
+    var btn = document.getElementById("disconnect");
+    btn.addEventListener("click", () => {
+      new_ws.close();
+    });
+    new_ws.onclose = function (event) {
+      console.warn("Websocket Conncetion Close...", event);
+    };
+  </script>
+</html>

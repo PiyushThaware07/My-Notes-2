@@ -1,0 +1,366 @@
+Image : It is actuially an array 
+
+1. Image Loading & Display:
+   *  imread() : The imread() function in OpenCV is used to read and load an image from a file. 
+                  cv2.imread(filename, flags) 
+                     flags = 1 -> Load the image in color (RGB) mode. This is the default if flags is not specified.
+                     flags = 0 -> Load the image in grayscale mode.
+                     flags = -1 -> Load the image as is, including the alpha channel if it exists.
+                     Example : image_path = cv2.imread("./background.jpg",0)
+                              image_path = cv2.imread("./background.jpg",1)
+
+   * imshow() : The imshow() function in OpenCV is used to display an image in a graphical window.
+                  cv2.imshow(window_name, image) 
+                     image: This is the image you want to display in the specified window. It should be an image loaded using the imread() function
+                     Example : image_display = cv2.imshow("Result",imageYouWantToDisplay)
+
+   * resize() : The resize() function in OpenCV is used to resize an image to a specified width and height or scale factor.
+                  cv2.resize(imageYouWantToResize, (width, height))
+                     Example : image_resize = cv2.resize(image_path,(500,400))
+
+   * waitKey() : It is commonly used after displaying an image using imshow() to keep the window open until a key is pressed.
+                  cv2.waitKey(value)
+                     Example : cv2.waitKey(25) i.e window open for 25 seconds
+                     
+   * imwrite() : The imwrite() function in OpenCV is used to save an image to a file after processing or modifying it.
+                  cv2.imwrite(filename,imageToBeStore)
+                     Example : image_store = cv2.imwrite("./output.jpg",image_path) this image will be store as output.jpg
+
+   * cvtColor() : The cvtColor() function in OpenCV is used to convert an image from one color space to another. 
+                  cv2.cvtColor(input_image, cv2.COLOR_BGR2GRAY)
+                     Example : image_colorChange = cv2.cvtColor(image_resize,cv2.BORDER_REFLECT)
+   
+   * ord("character") : The ord() function in Python is used to return the Unicode code point (integer representation) of a character. 
+                        Example : 
+                                 close = cv2.waitKey(0)
+                                 if close == ord("c"):
+                                    cv2.destroyAllWindows()
+
+   * distoryAllWindows() : This function is used to close all open OpenCV windows that were created using imshow(). 
+                        Close all OpenCV windows
+                        cv2.destroyAllWindows()
+
+   * flip() : To flip an image horizontally, vertically, or both, you can use the cv2.flip() function in OpenCV. 
+               cv2.flip(image, flip_code)
+               flip_code:
+                         0: Flip the image horizontally (left to right).
+                         1: Flip the image vertically (top to bottom).
+                        -1: Flip the image both horizontally and vertically.
+               
+               Example : image_flip = cv2.flip(image_colorChange,0)
+                         image_flip = cv2.flip(image_colorChange,-1)
+
+-----------------------------------------------------------------------------------------
+2. Camera Access and Video Processing :
+
+      * VideoCapture()  : The cv2.VideoCapture() function in OpenCV is used to access and capture video from various sources, such as video files, image sequences, or camera devices.
+                           cv2.VideoCapture(source)
+                           cv2.VideoCapture(0)  // 0 typically refers to the default camera on your computer, while 1, 2, and so on represent additional cameras if available.
+                           Example : video_url = "D:\\CODING\\OpenCv\\sample.mp4"
+                                     capture = cv2.VideoCapture(video_url)
+                                    
+      * VideoWrite()    :  cv2.VideoWriter() is used to create a video writer object that allows you to save video data as a video file.
+                           fourcc = cv2.VideoWriter_fourcc(*'codec')
+                           output = cv2.VideoWriter(filename, fourcc, fps, resolution)
+                           output.write(frame)
+                           output.release()  // release write video frame
+                                 fourcc -> The fourcc (Four-Character Code) is a four-character code that specifies the video codec to be used for encoding video frames when saving them to a video file.
+                                          'XVID': Xvid MPEG-4 codec
+                                          'DIVX': DivX codec
+                                          'MJPG': Motion-JPEG codec
+                                          'H264': H.264 codec
+                                          'H265': H.265 codec
+                                          'AVC1': Advanced Video Coding (H.264) codec for MP4
+                                          'MP4V': MPEG-4 Visual codec
+                                          'WMV1': Windows Media Video 1 codec
+                                          'WMV2': Windows Media Video 2 codec
+                           
+                           Example :   fourcc = cv2.VideoWriter_fourcc(*'XVID')
+                                       output = cv2.VideoWriter('outputd.mp4', fourcc, 30, (640, 480))
+
+      * release()       : The release() method in OpenCV is used to release resources associated with a cv2.VideoCapture object.
+                              cap = cv2.VideoCapture('video.mp4')
+                              # Release the video capture object
+                              cap.release()
+
+      
+      * Retrive Width & Height Of the frame : 
+         a. Width : cv2.CAP_PROP_FRAME_WIDTH : is used to retrieve the width of the frames being captured from a video source.
+                     Example  : print("Width : ",cap.get(cv2.CAP_PROP_FRAME_WIDTH))   # it reflects the camera's original frame size.
+                                print("For Video Width ==> ",capture.get(3)) 
+         b Height : cv2.CAP_PROP_FRAME_HEIGHT : is used to retrieve the height of the frames being captured from a video source.
+                     Example : print("Height : ",cap.get(cv2.CAP_PROP_FRAME_HEIGHT))   # it reflects the camera's original frame size.
+                               print("For Video Height ==> ",capture.get(4))
+
+         Note :  frame = cv2.resize(frame,(500,400))  # in this you are just changing the dimensions only or resize capture video to display it
+
+
+      ===> Sample Coding : Local Storage Video Access,Read,Write,Store
+               import cv2
+               video_url = "D:\\CODING\\OpenCv\\sample.mp4"
+               capture = cv2.VideoCapture(video_url)
+               # Define the codec and create a VideoWriter object
+               fourcc = cv2.VideoWriter_fourcc(*'XVID')
+               output = cv2.VideoWriter('output.mp4', fourcc, 30, (640, 480))
+
+               while True:
+                  boolValue,frame = capture.read()
+                  # Normal
+                  image_resize  = cv2.resize(frame,(300,500))
+                  cv2.imshow("Normal Result",image_resize)
+                  # Gray
+                  image_colorChange = cv2.cvtColor(image_resize,cv2.COLOR_BGR2GRAY)
+                  cv2.imshow("Gray Result",image_colorChange)
+                  close = cv2.waitKey(10)
+                  image_store = output.write(frame)
+                  if close == ord("c"):
+                     break
+               capture.release()
+               output.release()
+               cv2.destroyAllWindows()
+      
+
+      ==> Sample Code : Live Footage Read,Write,Store
+               import cv2
+               libe_capture = cv2.VideoCapture(0)
+               while True:
+                  boolValue,frame = libe_capture.read()
+                  image_resize  = cv2.resize(frame,(500,500))
+                  cv2.imshow("Normal Result",image_resize)
+                  close = cv2.waitKey(10)
+                  if close == ord("c"):
+                     break
+               capture.release()
+               cv2.destroyAllWindows()
+
+-----------------------------------------------------------------------------------------
+3. Drawing function
+      * Zeros (Black Background) : In OpenCV (cv2), you can create a black background by creating a NumPy array filled with zeros (0) and then use it as the canvas for further image processing or drawing.
+                  import numpy as np
+                  width, height = 640, 480
+                  black_background = np.zeros((height,width,3),dtype= np.uint8) # 3 channels for RGB color (black)
+
+      * ones  (White Background) : We create a white background image using np.ones.
+                  import numpy as np
+                  width, height = 640, 480
+                  white_background = np.ones((height,width,3),dtype= np.uint8)*255 
+
+      * Line : cv2.line(image, start_point, end_point, color, thickness)
+               start_point = (100, 100)  # (x, y) coordinates
+               end_point = (500, 400)    # (x, y) coordinates
+                  Example : cv2.line(white_background,(100,100),(300,100),(255,0,0),1)
+
+      * ArroedLine : cv2.arrowedLine(image, start_point, end_point, color, thickness)
+               Example : cv2.arrowedLine(white_background,(100,150),(300,150),(255,60,0),1)
+
+     
+      * Rectangle  : We use the cv2.rectangle() function to draw the rectangle on the image. The function takes the image, top-left and bottom-right corner coordinates, color, and thickness as arguments.
+               cv2.rectangle(image, top_left, bottom_right, color, thickness)
+               cv2.rectangle(img,starting_coordinates,ending_coordinates,color,thickness)
+               Example :  cv2.rectangle(white_background,(50,150),(100,200),(255,255,0),1)  # Rectangle with border only : 1
+                          cv2.rectangle(white_background,(110,150),(160,200),(255,255,0),-1)  # Rectangle with filled background : -1
+
+      
+      * Circle     :  cv2.circle(image, center, radius, color, thickness)
+               Example :   cv2.circle(white_background,(100,250),30,(0,255,242),1)  # Circle with border only : 1
+                           cv2.circle(white_background,(170,250),30,(0,255,242),-1)  # Circle with Filed Background : -1
+
+      
+      * Ellipse    : cv2.ellipse(image, center, axes_length, angle, 0, 360, color, thickness)
+                     # Define the center, axes lengths, and angle of the ellipse
+                        center = (320, 240)  # (x, y) coordinates of the center
+                        axes_length = (150, 100)  # (major axis length, minor axis length)
+                        angle = 45  # Angle of rotation (clockwise in degrees)
+               Example :   cv2.ellipse(white_background, (100,300), (100,50), 0, 0, 360, (0,0,255), 1)
+      
+
+      * Font      :  cv2.putText(img,text,start_Coordinate,font,fontSize,color,thickness,lineType)
+               Example :  font = cv2.FONT_ITALIC
+                          cv2.putText(white_background,"Nature Image",(50,400),font,4 )
+
+               Note : Add text to Video 
+                     font = cv2.FONT_HERSHEY_DUPLEX
+                     textData = "Hello Piyush"
+                     frame = cv2.putText(frame,textData,(50,60),font,0.8,(255,0,0),1,cv2.LINE_AA)
+
+                     font = cv2.FONT_HERSHEY_PLAIN
+                     textData = f"Current Date & Time : {dt.datetime.now()}"
+                     frame = cv2.putText(frame,textData,(50,80),font,0.8,(0,0,255),1,cv2.LINE_AA)
+                     cv2.imshow("Result",frame)
+
+
+-----------------------------------------------------------------------------------------
+4. Mouse Event Binding 
+
+    * cv2.namedWindow() : In OpenCV, the cv2.namedWindow() function is used to create a named window for displaying images or video frames. Named windows are useful when you want to display multiple images or video streams in separate windows and refer to them by name.
+                          Example : cv2.namedWindow(winname="myWindow")
+
+   *     import cv2 
+         import numpy as np 
+
+         def draw(event,x,y,flags,param):
+            if event == cv2.EVENT_LBUTTONDBLCLK:
+               cv2.circle(img,(x,y),60,(0,0,255),2)
+            if event == cv2.EVENT_RBUTTONDBLCLK:
+               cv2.rectangle(img,(x,y),(x+150,y+150),(0,225,0),1)
+
+         cv2.namedWindow(winname="myWindow")
+         img = np.zeros((500,500,3),np.uint8)
+         cv2.setMouseCallback("myWindow",draw)
+
+         while True:
+            cv2.imshow("myWindow",img)
+            close = cv2.waitKey(1) & 0xFF
+            if close == ord("c"):
+               break
+         cv2.destroyAllWindows()
+
+
+-----------------------------------------------------------------------------------------
+5. Create Trackbar : cv2.createTrackbar()
+      # Create a trackbar named 'Value' in the 'Image' window
+         cv2.createTrackbar('Value', 'Image', startValue, endValue, callbackFunction )  
+           callbackFunction will run if anything is not done 
+      # Get trackbar position
+         cv2.getTrackbarPos(value,window)  # window is where you want to show the changes
+
+      Example : 
+               import cv2
+               import numpy as np
+
+               # Create an empty black image
+               img = np.zeros((400, 400, 3), dtype=np.uint8)
+
+               # Resize the image to 400x400 pixels
+               img = cv2.resize(img, (400, 400))
+
+               # functions
+               cv2.namedWindow(winname="myWindow")
+
+               def nothing(x):
+                  pass
+
+               cv2.createTrackbar("RedColor", "myWindow", 0, 255, nothing)
+
+               while True:
+                  # Get the current position of the trackbar
+                  red = cv2.getTrackbarPos("RedColor", "myWindow")
+                  
+                  # Update the image with the current red value
+                  img[:] = [0,0,red]
+                  
+                  # Display the updated image
+                  cv2.imshow("myWindow", img)
+                  
+                  # Wait for a key press
+                  key = cv2.waitKey(1)
+                  
+                  if key == ord("c"):  # Press 'c' to exit
+                     break 
+
+               cv2.destroyAllWindows()
+
+-----------------------------------------------------------------------------------------
+6. Image Operations
+
+   * Shape  : It returns a tuple containing the number of rows (height), number of columns (width), and the number of color channels 
+              img = cv2.imread("./background.jpg")
+              img = cv2.resize(img,(400,600))
+              print(img.shape)  
+              o/p : (600, 400, 3)
+
+   * Size   : If you want to access just the size (height and width) without the number of color channels.
+              print(img.size)
+              o/p : 720000 --> 400*600*3
+
+   * dtype  : you can use img.dtype to get the data type of an image
+              print(img.dtype)
+              o/p : uint8 
+
+   * type   : The type() function in Python is used to determine the data type or class of an object.
+              print(type(img))
+              o/p : <class 'numpy.ndarray'>
+
+   * split  : cv2.split() is a function in OpenCV used to split a multi-channel image into its individual color channels.
+              print(cv2.split(img))
+
+              To store different colors channels in different variable
+               red,blue,green = cv2.split(img)
+               cv2.imshow("redColor",red)
+
+   * merge  : cv2.merge() is a function in OpenCV that allows you to merge multiple color channels or grayscale images into a single multi-channel image
+              cv2.merge((red_channel,green_channel,blue_channel))
+              Example : 
+                        merge_image = cv2.merge((red,green,blue))
+                        cv2.imshow("Merge Color",merge_image)
+
+   * Access the pixel value at the specified coordinates : 
+         pixel_value = img[row, col]
+         # The pixel_value is a NumPy array containing the BGR values
+         blue_value = pixel_value[0]
+         green_value = pixel_value[1]
+         red_value = pixel_value[2]
+         print(f"Pixel value at ({row}, {col}): B={blue_value}, G={green_value}, R={red_value}") 
+
+         # Accessing a specific pixel in an image and retrieving the blue color value of that pixel.
+         Pixel = img[300, 200, 0]   1.e  for Blue, 1 for Green, and 2 for Red.
+
+-----------------------------------------------------------------------------------------
+7. Region Of Interest (ROI) : Region of Interest is a specific area or subregion within an image that you want to focus on or perform operations on.
+   # Define the ROI coordinates (x, y) for the top-left and (x, y) for the bottom-right
+      x1, y1 = 247, 20
+      x2, y2 = 358, 135
+      # Extract the Region Of Interest (ROI)
+      roi = img[y1:y2, x1:x2]
+      # Display the ROI
+      cv2.imshow("Region Of Interest", roi)
+
+   # Passing the region of interest to the original image 
+      img[y1:y2,x1+111:x2+111] = roi
+      img[y1:y2,x1-111:x2-111] = roi
+      img[y1+differenceOf_y:y2+differenceOf_y,x1-111:x2-111] = roi
+-----------------------------------------------------------------------------------------
+8. Border : To create borders around an image in OpenCV, you can use the cv2.copyMakeBorder() function. This function allows you to add borders of a specified color and size to an image.
+            cv2.copyMakeBorder(image, top_border, bottom_border, left_border, right_border, cv2.BORDER_CONSTANT, value=border_color)
+            Example : 
+                     border = cv2.copyMakeBorder(img,80,60,40,20,cv2.BORDER_CONSTANT,value=[0,0,255])
+                     cv2.imshow("Window",border)
+
+-----------------------------------------------------------------------------------------
+9. Image Blending : Image blending is a technique used in computer vision and image processing to combine two or more images into a single composite image. 
+            # Not to perfered 
+            simplyAdd = img1+img2 
+            cv2.imshow("Simply Add",simplyAdd)
+
+      * cv2.add()  ->  The cv2.add() function in OpenCV performs pixel-wise addition between two images,.
+            # use this instead
+            useAddFunction = cv2.add(img1,img2)
+            cv2.imshow("Add Function",useAddFunction)
+ 
+      * cv2.addWeight -> This function is often used for image blending, where you can control the blending factor or weight for each image.
+                        cv2.addWeighted(image1, alpha, image2, 1 - alpha, 0)
+                              In this function:
+                              image1 is the first input image.
+                              alpha is the weight for image1.
+                              image2 is the second input image.
+                              1 - alpha is the weight for image2.
+                              The last argument (0 in this case) is a scalar added to the result (optional).
+
+                        Example : cv2.addWeighted(img1,0.8,img2,0.2,0)
+
+      
+-----------------------------------------------------------------------------------------
+10. Bitwise operations
+    
+   * AND Operation (cv2.bitwise_and): This operation computes the bitwise AND of two input images.
+      cv2.bitwise_and(img1,img2)      this will return the common region only
+
+   
+   * OR Operation (cv2.bitwise_or): This operation computes the bitwise OR of two input images.
+      cv2.bitwise_or(img1,img2)       this will return other than the common region
+
+
+   * NOT Operation (cv2.bitwise_not): This operation computes the bitwise NOT of an input image.
+      cv2.bitwise_not(img1)          
+
+   

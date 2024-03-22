@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3><b>Browser Events : An event is a signal that something has happened. All the DOM nodes generate such signals.</b></h3>
+    <div class="container" onmouseenter="alert('Mouse Enter')" onmouseleave="alert('Mouse Out')" >
+        <button type="button" onclick="alert('hello')">Click me</button>
+    </div>
+
+    <button type="button" onclick="rock()">ROCK</button>
+    <span>Name = <span id="name"></span></span>
+    <script>
+        const rock=()=>{
+            let name = prompt("Enter Your Name");
+            document.getElementById("name").innerHTML = name;
+        }
+    </script>
+</body>
+</html>

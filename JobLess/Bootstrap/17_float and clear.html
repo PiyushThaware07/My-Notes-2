@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .container {
+            border: 3px solid black;
+        }
+
+        .row {
+            border: 3px solid purple;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container clearfix">
+        <h1>When ever you use float you have to ise it with clearfix</h1>
+        <div class="bg-primary w-25 float-left">
+            <h1>Box-1</h1>
+        </div>
+        <div class="bg-success w-25 float-right">
+            <h1>Box-2</h1>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="container clearfix">
+        <h1>Float and clearfix with breakpoints</h1>
+        <div class="bg-primary w-25 float-md-left">
+            <h1>Box-1</h1>
+        </div>
+        <div class="bg-success w-25 float-md-right">
+            <h1>Box-2</h1>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="container clearfix">
+        <h1>Exchange position with screen change</h1>
+        <div class="bg-primary w-25 float-lg-left float-sm-right">
+            <h1>Box-1</h1>
+        </div>
+        <div class="bg-success w-25 float-lg-right float-sm-left">
+            <h1>Box-2</h1>
+        </div>
+    </div>
+
+
+    <div class="container clearfix" style="height: 300px;">
+        <h1>float-none</h1>
+        <div class="bg-primary w-25 h-25 float-lg-none float-sm-left">
+            <h1>Box-1</h1>
+        </div>
+        <div class="bg-success w-25 h-50 float-lg-none float-sm-right">
+            <h1>Box-2</h1>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="container clearfix" style="height: 300px;">
+        <h1>Height / width</h1>
+        <div class="bg-primary w-25 h-25 float-lg-left">
+            <h1>Box-1</h1>
+        </div>
+        <div class="bg-success w-25 h-50 float-lg-right">
+            <h1>Box-2</h1>
+        </div>
+    </div>
+</body>
+</html>

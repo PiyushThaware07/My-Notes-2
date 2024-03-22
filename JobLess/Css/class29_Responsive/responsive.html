@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>size units</title>
+    <style>
+        html{
+            font-size: 30px;
+        }
+        .container {
+            /* height: 888px;
+            width: 100%; */
+            /*--------- instead of doing above we can use following --------------------*/
+            height: 100vh;  /* jitna dikh rha hai uski puri height le leni hai : viewportheight */
+            width: 100vw;  /* jitna dikh rha hai uski puri width le leni hai : viewportwidth */
+            font-size: 10px;
+            border: 2px red solid;
+        }
+        h2{
+             text-align: center;
+        }
+
+         #first{
+            font-size: 3em;  /* apne parent se 3 guna font size kar do (ie 30px) */
+            padding: 3em;   /* 3 duna font size (ie 3*30=90) */
+        }
+        #second{
+            font-size: 3rem; /* html ke font size ke along fix kar deta hai */
+            padding: 3rem;
+        }
+        #third{
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 id="first">This is first heading</h2>
+        <h2 id="second">This is second heading</h2>
+        <h2 id="third">This is third heading</h2>
+    </div>
+</body>
+
+</html>

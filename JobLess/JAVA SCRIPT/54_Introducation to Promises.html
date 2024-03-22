@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1><b>Promises are used to prevent callback hell loop</b></h1>
+
+
+    <script>
+
+        let promise = new Promise((resolve, reject) => {
+            alert("Promise Alert");
+            resolve(56);
+        })
+        console.log("Hello-1");
+        setTimeout(function () {
+            console.log("Hello-2");
+        }, 2000);
+        console.log("Hello-3");
+        console.log(promise);
+
+
+        // Example ---------------------------
+        function correct(data) {
+            console.log(data);
+            if (data == "error") {
+                console.log("Error Encounter");
+            }
+        }
+
+        // Promise
+        let p = new Promise(function (resolve, reject) {
+            let input = prompt("Enter the name")
+            input = input.toLowerCase()
+            if (input == "piyush") {
+                resolve("yes");
+            }
+            else {
+                reject("error");
+            }
+        })
+
+        p.then(
+            function (value) { correct(value); },
+            function (error) { correct(error); }
+        )
+    </script>
+</body>
+
+</html>

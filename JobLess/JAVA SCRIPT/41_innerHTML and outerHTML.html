@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnerHTML & outerHTML</title>
+</head>
+
+<body>
+    <span id="first">Hello i am span</span>
+    <br>
+    <p>
+        console.log shows the element DOM true.
+        <br>
+        console.dir shows the element as an object with its properties.
+    </p>
+
+    <script>
+        console.log("Console Logs");
+
+        let x = document.getElementsByTagName('span')[0] // only display item
+        console.log(x);
+        console.dir(document.getElementsByTagName('span')[0]); // item with its property
+
+        console.log(document.body.textContent);
+
+
+        /*
+        innerHTML and outerHTML
+
+The innerHTML property allows to get the HTML inside the element as a string. (valid for element nodes only)
+The outerHTML property contains the full HTML, innerHTML + the element itself.
+innerHTML is valid only for element nodes. For other node types we can use nodeValue or data.
+        */
+    </script>
+</body>
+
+</html>

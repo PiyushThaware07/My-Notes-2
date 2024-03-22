@@ -1,0 +1,10 @@
+{% extends 'home/home.html' %}
+
+{% block content %}
+{% for contact in con %}
+<div class="container border border-3 border-primary">
+    <h3>Email : {{contact.Email}}<h3>
+    <p>Message : {{contact.msg}}</p>
+</div><br>
+{% endfor %}
+{% endblock content %}

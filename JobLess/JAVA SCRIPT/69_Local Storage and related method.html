@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // key & value should be a string in local storage or to convert object to string use JSON.stringify()
+
+        let key = prompt("Enter the key you want to set")
+        let val = prompt("Enter the value you want to set")
+        localStorage.setItem(key, val);
+        let display = localStorage.getItem(key)
+        console.log(`The value at ${key} is ${display}`);
+
+        // remove item from local storage
+        if (key == "red" || key == "blue") {
+            localStorage.removeItem(key);
+            console.log("This key", key, "is removed");
+        }
+
+        if (key == 0) {
+            localStorage.clear();
+        }
+
+        console.log(localStorage.length);
+        console.log(localStorage.key(0)); // index access of a local storage
+    </script>
+
+</body>
+
+</html>

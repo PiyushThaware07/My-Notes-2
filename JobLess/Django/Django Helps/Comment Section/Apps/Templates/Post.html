@@ -1,0 +1,117 @@
+{% extends 'Home.html' %}
+{% block title %}Post{% endblock title %}
+{% load extras %}
+{% block content %}
+<section>
+    <h1 class="border-bottom border-2 border-primary py-3"><b>Post</b></h1>
+    <a href="/"><button class="btn btn-sm btn-success">Go to home</button></a>
+    <div class="row p-5">
+        <div class="col-md-6"
+            style="height: 260px;background: url('/media/{{post.image}}') center no-repeat;background-size: cover;">
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <span><b>Post Id</b></span><span> : {{post.post_id}}</span>
+                    <br>
+                    <span><b>Title</b></span><span> : {{post.title}}</span>
+                    <br>
+                    <span><b>Content</b></span><span> : {{post.content|truncatechars:340}}</span>
+                    <br>
+                    <span><b>Publish Date</b></span><span> : {{post.publish_dt}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container p-5">
+        <div class="card p-3 border border-2 border-primary">
+            <div class="card-body">
+                <div class="card-title">
+                    <b>Comment ({{comments.count}})</b>
+                </div>
+                <form action="/comment" method="post">
+                    {% csrf_token %}
+                    <!--getting post id-->
+                    <input type="hidden" value="{{post.post_id}}" name="postID">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                            style="height: 200px" name="commentMSG" required></textarea>
+                        <label for="floatingTextarea2">Leave Comment Here...</label>
+                        <input type="hidden" name="parentSno" value="">
+                    </div>
+                    <button class="btn btn-sm btn-primary mt-3" type="submit">submit</button>
+                </form>
+
+
+                {% for comment in comments %}
+                <section>
+                    <!--commented-->
+                    <div class="col-md-12 bg-dark text-white my-3" style="border-radius:10px;">
+                        <div class="d-flex align-items-center p-3">
+                            <img class="rounded-circle" src="/media/{{post.image}}" style="height:50px;width:50px;">
+                            <div class="col-md-8 ms-5">
+                                <small class="ml-2"><b>{{comment.user.username}}</b>
+                                    <span class="text-white d-block">{{comment.comment_message}}</span>
+                                    <span class="text-muted d-block">{{comment.comment_date_time}}</span>
+
+
+
+                                    <!--reply-->
+                                    <p>
+                                        <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#replyBox{{comment.comment_id}}" aria-expanded="false"
+                                            aria-controls="replyBox{{comment.comment_id}}">
+                                            reply
+                                        </button>
+                                    </p>
+                                    <div class="collapse" id="replyBox{{comment.comment_id}}">
+                                        <div class="card card-body text-muted">
+                                            <form action="/comment" method="post">
+                                                {% csrf_token %}
+                                                <input type="hidden" value="{{post.post_id}}" name="postID">
+                                                <div class="form-floating">
+                                                    <textarea class="form-control" placeholder="Leave a comment here"
+                                                        id="floatingTextarea2" style="height: 100px" name="commentMSG"
+                                                        required></textarea>
+                                                    <label for="floatingTextarea2">Leave reply Here...</label>
+
+                                                    <input type="hidden" name="parentSno"
+                                                        value="{{comment.comment_id}}">
+                                                </div>
+                                                <button class="btn btn-sm btn-primary mt-3"
+                                                    type="submit">submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--reply-->
+                    {% for reply in replyDict|get_val:comment.comment_id %}<!--get_val reply templtes filter-->
+                    <div class="col-md-11 bg-primary text-white ms-5 my-3" style="border-radius:10px;">
+                        <div class="d-flex align-items-center p-3">
+                            <img class="rounded-circle" src="/media/{{post.image}}" style="height:50px;width:50px;">
+                            <div class="col-md-8 ms-5">
+                            <small class="ml-2"><b>{{reply.user.username}}</b> 
+                                <span class="text-white d-block">{{reply.comment_message}}</span>
+                                <span class="text-black d-block">{{reply.comment_date_time}}</span>
+                            </small>
+                        </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </section>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

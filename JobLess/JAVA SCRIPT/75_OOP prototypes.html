@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    
+
+    <script>
+        // Prototype --> JavaScript objects have a special property called prototype that is either null or references another object.
+
+        let a = {
+            name:"Piyush",
+            language:"JavaScript",
+            run : ()=>{
+                alert("self running"); 
+            }
+        }
+        console.log(a); // this will also contain a prototye as well
+
+        let obj = {
+            run : ()=>{
+                alert("running");
+            }
+        }
+
+        obj.__proto__ = {  // prototype ka bhi prototype ho sakta hai
+            name2:"Sahil",
+        }
+        
+        a.__proto__ = obj; // a ka jo prototype hai usko ye kardo
+        a.run() // if itself have this method then it will run its own else it will run fron its extended prototype
+        console.log(a.name2);
+    </script>
+</body>
+</html>

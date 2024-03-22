@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1><b>Weather Fetch API</b></h1>
+
+    <script>
+        // retrive file data
+        let f1 = fetch("readme.txt"); // file
+        f1.then(function (response) {
+            // console.log(response.text()); // return promise
+            return response.text()
+        }).then(function (data) {
+            console.log(data);
+            document.write(data)
+        })
+    </script>
+
+</body>
+
+</html>

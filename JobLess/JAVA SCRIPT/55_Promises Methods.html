@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            console.log("Promise is Pending");
+            setTimeout(() => {
+                alert("I am a Promise and i am fullfilled");
+                resolve(true);
+            }, 5000);
+        })
+        let p2 = new Promise((resolve, reject) => {
+            console.log("Promise is Pending");
+            setTimeout(() => {
+                alert("I am a Promise and i am rejected");
+                reject(new Error("I am a new error"));
+            }, 5000);
+        })
+        console.log(p1, p2);
+        // jab p1 complete ho jaye to new task karne ke liye
+        p1.then(function (value) {
+            console.log(value);
+        });
+
+        // Using catch you can handle error red line warning in console
+        p2.catch(function (error) {
+            console.log("Some Error occur in p2");
+        });
+        // Alternative of above code
+        p2.then(function (value) {
+            console.log(value);
+        }, function (error) {
+            console.log(error);
+        })
+
+
+        // Example -------------------
+        function correct(data) {
+            console.log(data);
+            if (data == "error") {
+                console.log("Error Encounter");
+            }
+        }
+
+        // Promise
+        let p = new Promise(function (resolve, reject) {
+            let input = prompt("Enter the name")
+            input = input.toLowerCase()
+            if (input == "piyush") {
+                resolve("yes");
+            }
+            else {
+                reject("error");
+            }
+        })
+
+        p.then(
+            function (value) { correct(value); }
+        )
+        p.catch(
+            function (error) { correct(error); }
+        )
+    </script>
+</body>
+
+</html>

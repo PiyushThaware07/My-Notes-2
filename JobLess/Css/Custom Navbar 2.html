@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <style>
+        /* Font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li a,
+        header .logo {
+            text-decoration: none;
+        }
+
+        body {
+            min-height: 100vh;
+            background: url("IMG/8.jpg") no-repeat center;
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            padding: 0px 7px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-weight: bold;
+            font-size: 25px;
+            columns: #333;
+        }
+
+        header .navbar ul {
+            list-style: none;
+        }
+
+        header .navbar ul li {
+            position: relative;
+            float: left;
+        }
+
+        header .navbar ul li a {
+            font-size: 20px;
+            padding: 20px;
+            color: #333;
+            display: block;
+        }
+
+        header .navbar ul li a:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        header .navbar ul li ul 
+        {
+            position: absolute;
+            left: 0;
+            width: 200px;
+            background: white; 
+            display: none;   
+        }
+        header .navbar ul li ul li {
+            width: 100%;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        header .navbar ul li ul  li ul 
+        {
+            left: 200px;
+            top: 0;
+        }
+
+        header .navbar ul li:focus-within > ul,
+        header .navbar ul li:hover > ul
+        {
+            display: initial;
+        }
+
+
+        #menu-bar 
+        {
+            display: none;
+        }
+        header label
+        {
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+            display: none;
+        }
+
+
+
+
+
+        @media(max-width:991px)
+        {
+            header 
+            {
+                padding: 20px;
+            }
+            header label 
+            {
+                display: initial;
+            }
+            header .navbar 
+            {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                border-top: 1px solid  rgba(0,0,0,0.1);
+                display: none;
+            }
+            header .navbar ul li 
+            {
+                width: 100%;
+            }
+            header .navbar ul li ul
+            {
+                position: relative;
+                width: 100%;
+            }
+            header .navbar ul li ul li
+            {
+                background-color: #eee;
+            }
+            header .navbar ul li ul li ul
+            {
+                width: 100%;
+                left: 0;
+            }
+
+            #menu-bar:checked ~ .navbar
+            {
+                display: initial;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="" class="logo">LOGO</a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar">Menu</label>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Pages+</a>
+                    <ul>
+                        <li><a href="#">Single Page</a></li>
+                        <li><a href="#">Services+</a>
+                        <ul>
+                            <li><a href="#">HTML</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">Javascript</a></li>
+                        </ul></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Blogs</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+</html>

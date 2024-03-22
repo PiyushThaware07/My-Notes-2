@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Time Line */
+@layer components {
+
+    .timelineContainer .timeline-items .timeline-item:nth-child(even) {
+        float: right;
+        clear: left;
+        transform: translateX(30px);
+    }
+
+    .timelineContainer .timeline-items .timeline-item:nth-child(odd) {
+        float: left;
+        /* Counting starts from 1 */
+        clear: right;
+        transform: translateX(-30px);
+    }
+
+    .timelineContainer .timeline-items .timeline-item:last-child {
+        margin-bottom: 0px;
+    }
+
+    .timelineContainer::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 3px;
+        border-radius: 20px;
+    }
+
+
+    /* Circle ---------------------------------------------------------------- */
+    /* ODD ================== */
+    .timelineContainer .timeline-items .timeline-item:nth-child(odd) .circle {
+        top: 0px;
+        right: 0px;
+        transform: translateX(139px);
+    }
+
+    .timelineContainer .timeline-items .timeline-item:nth-child(odd) .circle .icon {
+        order: 1;
+    }
+
+    .timelineContainer .timeline-items .timeline-item:nth-child(odd) .circle .duration {
+        order: 2;
+    }
+
+    /* EVEN ================== */
+    .timelineContainer .timeline-items .timeline-item:nth-child(even) .circle {
+        top: 0px;
+        left: 0px;
+        transform: translateX(-139px);
+    }
+
+    .timelineContainer .timeline-items .timeline-item:nth-child(even) .circle .icon {
+        order: 2;
+    }
+
+    .timelineContainer .timeline-items .timeline-item:nth-child(even) .circle .duration {
+        order: 1;
+    }
+
+
+
+    /* Media Query */
+    @media screen and (max-width:768px) {
+        .timelineContainer .timeline-items .timeline-item {
+            margin-bottom: 50px;
+        }
+
+        .timelineContainer .timeline-items .timeline-item:nth-child(even) {
+            float: none;
+            clear: none;
+            transform: translateX(0px);
+        }
+
+        .timelineContainer .timeline-items .timeline-item:nth-child(odd) {
+            float: none;
+            clear: none;
+            transform: translateX(0px);
+        }
+
+        .timelineContainer::after {
+            left: 0px;
+        }
+
+        /* Circle ---------------------------------------------------------------- */
+        /* ODD ========================== */
+        .timelineContainer .timeline-items .timeline-item:nth-child(odd) .circle {
+            top: -35px;
+            left: -60px;
+            transform: translateX(0px);
+        }
+        .timelineContainer .timeline-items .timeline-item:nth-child(odd) .circle .icon {
+            order: 1;
+        }
+    
+        .timelineContainer .timeline-items .timeline-item:nth-child(odd) .circle .duration {
+            order: 2;
+        }
+
+        /* Even ========================= */
+        .timelineContainer .timeline-items .timeline-item:nth-child(even) .circle {
+            top: -35px;
+            left: 0px;
+            transform: translateX(-60px);
+        }
+        .timelineContainer .timeline-items .timeline-item:nth-child(odd) .circle .icon {
+            order: 1;
+        }
+    
+        .timelineContainer .timeline-items .timeline-item:nth-child(even) .circle .duration {
+            order: 2;
+        }
+
+    }
+
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container" style="padding:50px;">
+        <input type="text" placeholder="Enter a value" id="input-data">
+        <button type="button" onclick="getInputValue();">submit</button>
+    </div>
+
+
+    <script>
+        /*
+        try {
+            console.log(piyush);
+            console.log("Try Block");
+            // Custom Error
+            // throw new Error("This is the custom error")
+            throw new ReferenceError("Reference error")
+        } catch (error) {
+            console.log(`Error Block : ${error}`);
+            console.log(`Error Name : ${error.name}`);
+            console.log(`Error Message : ${error.message}`);
+        }
+        */
+
+        const getInputValue = () => {
+
+            try {
+                let age = document.getElementById("input-data").value;
+                age = Number.parseInt(age)
+                if (age > 150) {
+                    throw new Error("Age is greater than 150 not possible");
+                }
+                else {
+                    alert("You are is possible")
+                }
+            } catch (error) {
+                console.log("Error Encounter -->", error);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}News{% endblock title %}
+{% block body %}
+
+<div class="container-fluid p-0 m-0">
+    <header>
+        <div class="container my-5">
+            <div class="row">
+                {% if search_result %}
+                <h4 class="text-center text-light bg-danger p-4 mb-5"
+                    style="font-family: 'main1', serif;font-size: 1.5rem;">Search Result : {{ search_result }}</h4>
+                {% else %}
+                <h3 class="text-center text-light bg-danger p-4 mb-5"
+                    style="font-family: 'main1', serif;font-size: 1.5rem;">Top Headlines</h3>
+                {% endif %}
+                {% for article in articles %}
+                <div class="col-md-4 mb-5 position-relative" height="500">
+                    <a href="{{ article.url }}">
+                        <div class="blockImg"
+                            style="height: 350px;width: 100%;background: url({{ article.urlToImage }}) center no-repeat;background-size:cover;">
+                        </div>
+                    </a>
+                    <p style="font-family: 'font1', cursive;font-size: 10px;font-weight: bold;" class="mt-4 text-dark">
+                        {{article.source.name}}
+                    </p>
+                    <h4 style="font-family: 'Roboto', sans-serif;font-weight: 600;">{{ article.title }}</h4>
+                    <p style="font-size: 12px;">{{ article.description|safe|truncate(150) }}</p>
+                    <span style="font-family: 'font1', cursive;font-size: 10px;font-weight: bold;bottom:0px;"
+                        class="float-start text-uppercase">BY {{ article.author }}</span>
+                    <span style="font-family: 'font1', cursive;font-size: 10px;font-weight: bold;bottom:0px;right:0px;"
+                        class="float-end">{{ article.publishedAt }}</span>
+                    <a href="{{ article.url }}"><button class="btn btn-dark rounded-0 form-control mt-2"
+                            style="font-size: 12px;">READ MORE</button></a>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </header>
+</div>
+
+
+
+
+
+
+{% endblock body %}

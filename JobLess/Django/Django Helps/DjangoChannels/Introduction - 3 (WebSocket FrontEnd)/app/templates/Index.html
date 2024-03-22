@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+</head>
+
+<body>
+    <h1>Count Page</h1>
+
+    <button id="disconnect">Close Connection</button>
+</body>
+<script>
+    var new_ws = new WebSocket("ws://127.0.0.1:8000/ws/sc/");
+    /*
+    new_ws.onopen = function () {
+        console.log('Websocket Connection Open...');
+        new_ws.send("Hi,This is the  message from client named Piyush")
+    }
+
+    new_ws.onmessage = function (event) {
+        console.log('Message Received From Server is : ', event);
+    }
+
+    new_ws.onerror = function (event) {
+        console.error('Websocket Process Failed !!!', event);
+    }
+
+    new_ws.onclose = function (event) {
+        console.warn('Websocket Conncetion Close...', event);
+    }
+    */
+
+    // <!--Alternative Of Above Code-->
+    new_ws.addEventListener("open", () => {
+        console.warn("Websocket Connection Open...");
+        new_ws.send("Hi,This is the  message from client named Piyush");
+    });
+    new_ws.addEventListener("message", (event) => {
+        console.log("Message Received From Server is : ", event.data,event);
+    });
+    new_ws.addEventListener("error", (event) => {
+        console.error("Websocket Process Failed !!!", event);
+    });
+
+    var btn = document.getElementById("disconnect");
+    btn.addEventListener('click', () => { // Use 'click' event, not 'close'
+        new_ws.close(); // Close the WebSocket connection when the button is clicked.
+    });
+
+    new_ws.addEventListener("close", (event) => {
+        console.warn("Websocket Connection Closed...", event);
+    });
+
+</script>
+
+</html>

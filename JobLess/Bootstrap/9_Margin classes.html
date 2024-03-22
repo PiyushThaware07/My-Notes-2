@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .container {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- center margin -->
+        <h1>Margin-center</h1>
+        <div class="row text-white">
+            <div class="col-md-3 bg-primary m-auto">
+                <h1>m-auto</h1>
+            </div>
+        </div>
+        <br>
+
+        <!-- left margin -->
+        <h1>Margin-left</h1>
+        <div class="row text-white">
+            <div class="col-md-3 bg-primary">
+                <h4>Without margin</h4>
+            </div>
+            <div class="col-md-3 bg-success ml-auto">
+                <h4>ml-auto</h4>
+            </div>
+        </div>
+        <!-- Right margin -->
+        <h1>Margin-Right</h1>
+        <div class="row text-white">
+            <div class="col-md-3 bg-primary mr-auto">
+                <h4>mr-auto</h4>
+            </div>
+            <div class="col-md-3 bg-success">
+                <h4>Without margin</h4>
+            </div>
+        </div>
+        <br>
+
+
+        <h1>Margin-using : Break Point</h1>
+        <div class="row text-white">
+            <div class="col-sm-3 bg-danger m-lg-auto">
+                <h4>m-lg-auto</h4>
+            </div>
+            <div class="col-sm-3 bg-warning">
+                <h4>Without margin</h4>
+            </div>
+        </div>
+
+        <h1>Margin For Different Elements</h1>
+        <div class="row text-white border border-dark">
+            <div class="col-sm-2 bg-danger m-lg-2">
+                <h4>margin from all sides</h4>
+            </div>
+            <div class="col-sm-2 bg-danger mt-lg-5">
+                <h4>margin-top : mt-lg-5</h4>
+            </div>
+            <div class="col-sm-2 bg-danger mb-lg-4">
+                <h4>margin-bottom : mb-lg-4</h4>
+            </div>
+            <div class="col-sm-2 bg-danger ml-lg-5">
+                <h4>Margin-left : ml-lg-5</h4>
+            </div>
+        </div>
+
+
+        <h1>One Element : Different margin</h1>
+        <div class="row text-white border border-dark">
+            <div class="col-md-3 bg-success mr-lg-5">
+                <h4>Col-1</h4>
+            </div>
+            <div class="col-md-3 bg-warning mt-lg-4">
+                <h4>Col 2</h4>
+            </div>
+        </div>
+        <br>
+
+        <h1>negative margins</h1>
+        <div class="row text-white border border-dark">
+            <div class="col-md-3 bg-primary mr-lg-n5 mb-md-n4 ml-lg-n4">
+                <h4>Col-1</h4>
+            </div>
+            <div class="col-md-3 bg-warning mt-lg-4">
+                <h4>Col 2</h4>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

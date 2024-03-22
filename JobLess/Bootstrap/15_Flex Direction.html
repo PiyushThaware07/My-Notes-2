@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .container {
+            border: 3px solid black;
+        }
+
+        .row {
+            border: 3px solid purple;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Default order : flex-row</h3>
+        <div class="row text-white text-center">
+            <div class="col-md-3 bg-primary"><h1>Col A</h1></div>
+            <div class="col-md-3 bg-success"><h1>Col B</h1></div>
+            <div class="col-md-3 bg-warning"><h1>Col C</h1></div>
+            <div class="col-md-3 bg-dark"><h1>Col D</h1></div>
+        </div>
+        <br>
+
+        <h3>Order Reverse : flex-row-reverse</h3>
+        <div class="row text-white text-center flex-row-reverse">
+            <div class="col-md-3 bg-primary"><h1>Col A</h1></div>
+            <div class="col-md-3 bg-success"><h1>Col B</h1></div>
+            <div class="col-md-3 bg-warning"><h1>Col C</h1></div>
+            <div class="col-md-3 bg-dark"><h1>Col D</h1></div>
+        </div>
+        <br>
+
+        <h3>Order : flex-column</h3>
+        <div class="row text-white text-center flex-column">
+            <div class="col-md-3 bg-primary"><h1>Col A</h1></div>
+            <div class="col-md-3 bg-success"><h1>Col B</h1></div>
+            <div class="col-md-3 bg-warning"><h1>Col C</h1></div>
+            <div class="col-md-3 bg-dark"><h1>Col D</h1></div>
+        </div>
+        <br>
+
+        <h3>Order : flex-column-reverse</h3>
+        <div class="row text-white text-center flex-column-reverse">
+            <div class="col-md-3 bg-primary"><h1>Col A</h1></div>
+            <div class="col-md-3 bg-success"><h1>Col B</h1></div>
+            <div class="col-md-3 bg-warning"><h1>Col C</h1></div>
+            <div class="col-md-3 bg-dark"><h1>Col D</h1></div>
+        </div>
+        <br>
+
+        <h3>Flex-nowrap</h3>
+        <div class="row text-white text-center flex-nowrap">
+            <div class="col-md-3 bg-primary"><h1>Col A</h1></div>
+            <div class="col-md-3 bg-success"><h1>Col B</h1></div>
+            <div class="col-md-3 bg-warning"><h1>Col C</h1></div>
+            <div class="col-md-3 bg-danger"><h1>Col D</h1></div>
+            <div class="col-md-3 bg-dark"><h1>Col E</h1></div>
+        </div>
+        <br>
+
+        <h3>Flex-wrap : it not necessary to write this always by default it is wrap</h3> 
+        <div class="row text-white text-center flex-wrap">
+            <div class="col-md-3 bg-primary"><h1>Col A</h1></div>
+            <div class="col-md-3 bg-success"><h1>Col B</h1></div>
+            <div class="col-md-3 bg-warning"><h1>Col C</h1></div>
+            <div class="col-md-3 bg-danger"><h1>Col D</h1></div>
+            <div class="col-md-3 bg-dark"><h1>Col E</h1></div>
+        </div>
+        <br>
+
+        <h3>Flex-wrap-direction : row(default)/column</h3> 
+        <div class="row text-white text-center flex-wrap-reverse">
+            <div class="col-md-3 bg-primary"><h1>Col A</h1></div>
+            <div class="col-md-3 bg-success"><h1>Col B</h1></div>
+            <div class="col-md-3 bg-warning"><h1>Col C</h1></div>
+            <div class="col-md-3 bg-danger"><h1>Col D</h1></div>
+            <div class="col-md-3 bg-dark"><h1>Col E</h1></div>
+        </div>
+        <br>
+
+        <h3>Flex-fill : it is only applied when col class without break point</h3> 
+        <div class="row text-white text-center flex-row-reverse">
+            <div class="col bg-primary flex-fill"><h1>Col A</h1></div>
+            <div class="col bg-success"><h1>Col B</h1></div>
+            <div class="col bg-warning"><h1>Col C</h1></div>
+            <div class="col bg-danger"><h1>Col D</h1></div>
+            <div class="col bg-dark flex-fill"><h1>Col E</h1></div>
+        </div>
+        <br>
+
+        <h3>Flex : With breakpoints : flex-lg-wrap-reverse</h3> 
+        <div class="row text-white text-center flex-lg-wrap-reverse">
+            <div class="col-md-3 bg-primary flex-fill"><h1>Col A</h1></div>
+            <div class="col-md-3 bg-success"><h1>Col B</h1></div>
+            <div class="col-md-3 bg-warning"><h1>Col C</h1></div>
+            <div class="col-md-3 bg-danger"><h1>Col D</h1></div>
+            <div class="col-md-3 bg-dark flex-fill"><h1>Col E</h1></div>
+        </div>
+    </div>
+</body>
+</html>

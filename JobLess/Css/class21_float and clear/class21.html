@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
+    <title>Alignment</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comforter Brush', cursive;
+        }
+
+        .container {
+            width: 900px;
+            border: 3px solid black;
+            margin: auto;
+            /* it will take left and right same margin */
+        }
+
+        .item {
+            border: 3px solid gray;
+            margin: 12px 3px;
+            padding: 12px 3px;
+            background-color: rgb(153, 235, 255);
+        }
+
+        #fruit {
+            float: left;
+            width: 48%;
+        }
+
+        #computer {
+            float: right;
+            width: 48%;
+        }
+
+        #stationary {
+            clear: left;
+            /* koi bhi float left element allowed nahi hai jab bhi box collide ho tab clear use karne ka */
+            /* float: left; */
+            width: 100%;
+        }
+
+        #glasses {
+            clear: both;
+            width: 100%;
+        }
+
+        p,
+        h3 {
+            text-align: right;
+            text-align: left;
+            text-align: center;
+            text-align: justify;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="fruit" class="item">
+            <h3>Fruit</h3>
+            <p id="fruitpara" class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta dolor
+                molestiae voluptatibus provident ullam inventore in porro, sit quidem, deleniti, magnam iste atque iure
+                possimus sequi non dolorem quos cumque.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt tempora itaque ut, illo hic aperiam
+                delectus officiis iusto eos eum. At doloremque odit earum reiciendis, quidem dolor ab quos delectus
+                nihil enim magni ipsa?</p>
+        </div>
+        <div id="computer" class="item">
+            <h3>Computer</h3>
+            <p id="computerpara" class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta dolor
+                molestiae voluptatibus provident ullam inventore in porro, sit quidem, deleniti, magnam iste atque iure
+                possimus sequi non dolorem quos cumque.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis odit laborum modi dolores soluta nobis
+                reiciendis, distinctio tempora vero ipsum voluptatibus, itaque illo neque eius amet, rerum deserunt
+                officia exercitationem unde non error incidunt.</p>
+        </div>
+        <div id="stationary" class="item">
+            <h3>Stationary</h3>
+            <p id="stationarypara" class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta dolor
+                molestiae voluptatibus provident ullam inventore in porro, sit quidem, deleniti, magnam iste atque iure
+                possimus sequi non dolorem quos cumque.
+                lorem354lorem34
+            </p>
+        </div>
+        <div id="glasses" class="item">
+            <h3>glasses</h3>
+            <p id="glassespara" class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta dolor
+                molestiae voluptatibus provident ullam inventore in porro, sit quidem, deleniti, magnam iste atque iure
+                possimus sequi non dolorem quos cumque.
+                lorem354lorem34
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

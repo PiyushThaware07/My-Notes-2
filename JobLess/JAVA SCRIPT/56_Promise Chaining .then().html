@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log("Resolved after 2 seconds");
+                resolve(56);
+            }, 2000);
+        })
+        p1.then((value) => {
+            console.log(value);
+            // first ke andar second promise
+            let p2 = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Promise #2");
+                }, 2000);
+            })
+            return p2
+        }).then((value)=>{
+            console.log("We are done",value);
+            return 2; // this return value is passed to next then
+        }).then((value)=>{
+            console.log("Finally we have done",value);
+        })
+        */
+
+        // Question : Write a loadscript function using promises
+        function loadScript(src) {
+            let promise = new Promise(function (resolve, reject) {
+
+                let new_script = document.createElement("script")
+                new_script.src = src
+                document.head.append(new_script)
+                // Check script is loaded 
+                new_script.onload = function () {
+                    // console.log("Script is loaded successfully");
+                    resolve("success");
+                }
+                // check script is not loaded
+                new_script.onerror = function () {
+                    // console.log("Failed to load the script");
+                    reject("failed");
+                }
+            })
+            return promise
+        }
+
+        let input_script = prompt("Enter the script")
+        let p = loadScript(input_script)
+        p.then(function (value) {
+            console.log("Script is loaded successfully , count = 1");
+
+            let another_script = prompt("Enter the new script again...")
+            return loadScript(another_script);
+        }).then(function (value) {
+            console.log("Script is loaded successfully , count = 2");
+        }).catch(function (error) {
+            console.log("Failed to load the script");
+        })
+
+    </script>
+</body>
+
+</html>

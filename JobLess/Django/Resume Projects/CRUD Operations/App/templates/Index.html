@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD - OPERATIONS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container-fluid py-5 bg-light" style="height: 100vh; width: 100vw; overflow-x: hidden">
+        <div class="container">
+            <h2><b>CRUD <span class="text-primary">OPERATIONS</span></b></h2>
+            <hr>
+            <div class="row">
+                <div class="col-md-4 p-4 border-end-0">
+                    <form action="{% url 'Add' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput1" placeholder="heading"
+                                name="form_heading" />
+                            <label for="floatingInput1">Heading</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="content" id="floatingInput2"
+                                style="height: 200px" name="form_content"></textarea>
+                            <label for="floatingInput2">Content</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="file" class="form-control" id="floatingInput4" placeholder="thumbnail"
+                                name="form_thumbnail" />
+                            <label for="floatingInput4">Thumbnail</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <button class="btn btn-primary">Add Post</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-8 p-4">
+                    <div class="row">
+                        {% if posts %} {% for post in posts %}
+                        <div class="col-md-6 mb-3">
+                            <div class="card" style="width: 100%">
+                                <img src="{{post.db_thumbnail}}" class="card-img-top" alt="Loading..."
+                                    style="height: 150px" />
+                                <div class="card-body">
+                                    <h5 class="card-title" style="height: 13px; font-weight: bold">
+                                        {{post.db_heading}}
+                                    </h5>
+                                    <p class="card-text" style="font-size: 12px">
+                                        {{post.db_content}}
+                                    </p>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal-{{ forloop.counter }}">
+                                            Update
+                                        </button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal-{{ forloop.counter }}" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <form action="{% url 'Update' post.db_id %}" method="post"
+                                                enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <div class="modal-dialog modal-xl">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">
+                                                                Update Post
+                                                            </h1>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-md-6"
+                                                                    style="height: 300px;display: flex;justify-content: center;align-items: center;">
+                                                                    <div class="thumbanil"
+                                                                        style=" width: 80%;height: 80%;background-image: url('{{post.db_thumbnail}}');background-size: cover;background-position: center;background-repeat: no-repeat;">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 p-3">
+                                                                    <div class="form-floating mb-3">
+                                                                        <input type="text" class="form-control"
+                                                                            id="floatingInput1" placeholder="heading"
+                                                                            name="update_form_heading"
+                                                                            value="{{post.db_heading}}" />
+                                                                        <label for="floatingInput1">Heading</label>
+                                                                    </div>
+                                                                    <div class="form-floating mb-3">
+                                                                        <textarea class="form-control"
+                                                                            placeholder="content" id="floatingInput2"
+                                                                            style="height: 100px"
+                                                                            name="update_form_content">
+                                                                            {{ post.db_content|safe }}</textarea>
+                                                                    </div>
+                                                                    <div class="form-floating mb-3">
+                                                                        <input type="file" class="form-control"
+                                                                            id="floatingInput3" placeholder="Thumbnail"
+                                                                            name="update_form_thumbnail"
+                                                                            value="{{post.db_thumbnail}}" />
+                                                                        <label for="floatingInput3">Thumbnail</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">
+                                                                Close
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary">
+                                                                Save changes
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <a href="{% url 'Delete' post.db_id %}" type="button"
+                                            class="btn btn-sm btn-outline-primary">
+                                            Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %} {% else %}
+                        <p>No Posts</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</html>

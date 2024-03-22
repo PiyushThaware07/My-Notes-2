@@ -1,0 +1,15 @@
+to check git status use this : git status
+
+to check git version use this : git --version
+
+to make any empty repostry or folder as git repository then use this : git init
+
+to make file migrations so write this : git add. 
+then the whole file comes under staging area
+
+to save all the migrations or commit then use : git commit -m "version 1"
+
+to check what changes had been made use this : git log
+
+if we are using git bash then use : SSH in git hub repository
+

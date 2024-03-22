@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <style>
+        .heading1 {
+            padding: 20px;
+            display: inline;
+        }
+
+        .col-md-4 .card {
+            width: 100% !important;
+            margin: 20px;
+            height: 400px !important;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .col-md-4 .card .card-body {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            transition: all 1.1s;
+        }
+
+        .col-md-4 .card:hover .card-body {
+            transform: scale(1.2);
+        }
+
+
+
+
+        .col-md-4 .card .box {
+            /* line-height: 80px !important; */
+            height: 50%;
+            font-family: 'Ysabeau SC', sans-serif;
+            font-weight: bold;
+            letter-spacing: 4px;
+            position: absolute;
+            width: 100%;
+            bottom: 0px;
+            left: 0px;
+            display: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.418);
+        }
+
+        .card:hover .box {
+            display: block;
+            transition: all 1.1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container px-5 pt-5 pb-2 text-center text-dark">
+        <div>
+            <p class="heading1 d-inline-block"
+                style="font-family: 'Ysabeau SC', sans-serif;font-weight: bold;letter-spacing: 4px;">
+                TECH STACK
+            </p>
+            <br>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1"><i class="fa-brands fa-html5 fa-lg"></i> HTML 90%</button>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1"><i class="fa-brands fa-css3-alt fa-lg"></i> CSS 80%</button>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1"><i class="fa-brands fa-js fa-lg"></i> Javascript 70%</button>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1"><i class="fa-brands fa-bootstrap fa-lg"></i> Bootstrap 95%</button>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1"><i class="fa-brands fa-wordpress fa-lg"></i> Wordpress 60%</button>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1"><i class="fa-brands fa-figma fa-lg"></i> Figma 90%</button>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1"><i class="fa-brands fa-python fa-lg"></i> Python 70%</button>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1">Django 70%</button>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1">Flask 80%</button>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1"><i class="fa-brands fa-git-alt fa-lg"></i> Git 50%</button>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1"><i class="fa-brands fa-github fa-lg"></i> Github 60%</button>
+            <button class="btn btn-dark rounded-0 text-capitalize m-2 m-md-1"><i class="fa-brands fa-react fa-lg"></i> ReactJs 30%</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

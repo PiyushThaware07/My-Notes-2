@@ -1,0 +1,48 @@
+{% extends 'Dashboard/base1.html' %}
+{% block title %}Upload{% endblock title %}
+{% block body %}
+
+<div class="container">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput1" placeholder="Author" name="author" required>
+                    <label for="floatingInput1">Author</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput2" placeholder="Title" name="title" required>
+                    <label for="floatingInput2">Title</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Content" id="floatingInput3" name="content" required
+                        style="height: 200px"></textarea>
+                    <label for="floatingInput3">Content</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput4" placeholder="Link" name="slug" required>
+                    <label for="floatingInput4">Link</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <figure class="figure rounded">
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="inputGroupFile01" name="image" required
+                            style="padding:80px;">
+                    </div>
+                    <figcaption class="figure-caption">Featured Image</figcaption>
+                </figure>
+            </div>
+            <span>
+                <button type="submit" class="btn btn-primary float-start">Finish <i
+                            class="fa-sharp fa-solid fa-feather"></i></button>
+                {% if preview %}
+                <a href="/post/{{preview.sno}}"><button type="button" class="btn btn-outline-secondary float-start ms-2">Preview <i
+                            class="fa-solid fa-eye"></i></button></a>
+                {% endif %}
+            </span>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}

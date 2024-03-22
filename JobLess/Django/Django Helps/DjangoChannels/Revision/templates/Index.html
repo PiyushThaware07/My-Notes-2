@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container my-5 p-5">
+        <h3>
+            <b>Real Time Data & Difference between Sync and Async Consumer.</b>
+            <button class="btn btn-primary m-2" id="connect">Send Data From Client To Server</button>
+            <button class="btn btn-dark m-2" id="disconnect">Disconnect Connection</button>
+        </h3>
+        <h1>Data : <span id="dataFromServer"></span></h1>
+    </div>
+</body>
+
+<script>
+    const mySocket = new WebSocket(`ws://${window.location.host}/ws/sc/`); // OR : WebSocket('ws://http://127.0.0.1:8000/ws/sc/')
+    // connect -----------------------------------------------
+    var connect = document.getElementById("connect");
+    connect.onclick = function () {
+        mySocket.send("client sending data to server")
+    }
+    mySocket.onopen = function (event) {
+        console.warn("Websocket connection is open...", event);
+        //   mySocket.send("client sending data to server"); // this will not display in console
+    };
+    mySocket.onmessage = function (event) {
+        console.log("Message Receive from server...", event);
+        // Display Data received from server 
+        var data = document.getElementById("dataFromServer").innerHTML = event.data;
+        // Accessing a dictionary 
+        var string_to_jsObject = JSON.parse(event.data)
+        var data = document.getElementById("dataFromServer").innerHTML = string_to_jsObject.count;
+    };
+
+    mySocket.onerror = function (event) {
+        console.error("Websocket Error Occurred...", event);
+    };
+
+    // Disconnect---------------------------------------------
+    var disconnect = document.getElementById("disconnect");
+    disconnect.onclick = function () {
+        mySocket.close()  // this is used to close the socket connection.
+    }
+    mySocket.onclose = function (event) {
+        console.warn("Websocket Connection Closed...", event);
+    };
+
+    /*
+    // Above code with addEventListerner : open , close, error , message
+    mySocket.addEventListener('open',()=>{
+        console.warn("Websocket connection is open...", event);
+    })
+    */
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</html>

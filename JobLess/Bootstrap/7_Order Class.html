@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col bg-primary">Col-1</div>
+            <div class="col bg-success">Col-2</div>
+            <div class="col bg-warning">Col-3</div>
+            <div class="col bg-danger">Col-4</div>
+        </div>
+        <br>
+        <!-- Ordering start -->
+        <h1>Order change</h1>
+        <div class="row">
+            <div class="col bg-primary order-last">Col-1</div>
+            <div class="col bg-success">Col-2</div>
+            <div class="col bg-warning">Col-3</div>
+            <div class="col bg-danger order-first">Col-4</div>
+        </div>
+        <br>
+        <!-- Ordering start with breakpoints -->
+        <h1>Order : using breakpoints</h1>
+        <div class="row">
+            <div class="col bg-primary order-md-last">Col-1</div>
+            <div class="col bg-success">Col-2</div>
+            <div class="col bg-warning">Col-3</div>
+            <div class="col bg-danger order-md-first">Col-4</div>
+        </div>
+        <br>
+        <!-- Ordering/Positioning : of every items-->
+        <h1>Order : using breakpoints</h1>
+        <div class="row text-white">
+            <div class="col bg-primary order-4">Position 1</div>
+            <div class="col bg-success order-3">Position 2</div>
+            <div class="col bg-warning order-2">Position 3</div>
+            <div class="col bg-danger order-1">Position 4</div>
+        </div>
+        <br>
+        <!-- Ordering/Positioning : of every items with media query classes i.e breakpoints-->
+        <h1>Order : using breakpoints</h1>
+        <div class="row text-white">
+            <div class="col bg-primary col-md-3 order-md-3">Position 1</div>
+            <div class="col bg-success col-md-2 order-md-1">Position 2</div>
+            <div class="col bg-warning col-md-4 order-md-4">Position 3</div>
+            <div class="col bg-danger col-md-3 order-md-2">Position 4</div>
+        </div>
+        <br>
+        <!-- Ordering/Positioning : of every items with media query classes i.e breakpoints-->
+        <h1>Order : using breakpoints</h1>
+        <div class="row text-white">
+            <div class="bg-primary col-md-4 order-md-2">
+                <h1>Position 1</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quos debitis quod delectus optio fuga
+                    laboriosam quo architecto. Dicta eveniet, mollitia omnis optio expedita numquam? Dicta doloribus
+                    animi vitae minima adipisci odit veniam nam nostrum esse molestiae dolorem, reiciendis quasi tempore
+                    aliquid, corporis quod perspiciatis autem quia laudantium? Consequuntur veniam delectus possimus nam
+                    et! Animi amet quo illo dolor ad fuga architecto dolorem. Repellat commodi ad omnis hic rem soluta,
+                    suscipit neque totam esse explicabo eius fuga distinctio sed inventore ipsa ipsam molestiae quos
+                    perspiciatis doloribus ab aliquid eligendi consequatur nisi ducimus! Repellendus, labore? Aperiam
+                    veniam sunt nam quis. Ipsam?
+                </p>
+            </div>
+            <div class="bg-success col-md-8 order-md-1">
+                <h1>Position 2</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis voluptatum asperiores hic fuga
+                    aliquam voluptatem molestias labore nemo ipsa adipisci rem laboriosam dolorem impedit nisi, ducimus
+                    magnam dolore illo culpa.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

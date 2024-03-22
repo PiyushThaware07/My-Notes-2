@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // constructor : It run as soon as the object is created
+        class ExamForm {
+
+            constructor(name, trailNo,address) {
+                this.name = name;
+                this.tno = trailNo;
+                this.add = address;
+                console.log("CONSTRUCTOR IS CALLED",this.name,this.tno,this.add);
+            }
+
+
+            submit() {
+                alert(this.name + " form is submitted and your train no is " + this.tno)
+            }
+            cancel() {
+                alert(this.name + " form is cancelled")
+                this.tno = 0; // if anyone cancel the train
+            }
+        }
+
+        // object creation
+        let student1 = new ExamForm("Jason", 234532,"xyz nagpur")
+        let student2 = new ExamForm("Ronak", 546723,"abc pune")
+
+        student1.submit()
+        student1.cancel()
+        student2.submit()
+        student2.cancel()
+    </script>
+</body>
+
+</html>

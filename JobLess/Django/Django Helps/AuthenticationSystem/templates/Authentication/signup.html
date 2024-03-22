@@ -1,0 +1,35 @@
+{% extends 'Authentication/home.html' %}
+
+{% block title %}Signup{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">Signup</h1>
+<form action="{% url 'signup' %}" method="post">{% csrf_token %}
+    <div class="my-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username" required>
+    </div>
+    <div class="my-3">
+        <label for="firstname" class="form-label">First name</label>
+        <input type="text" class="form-control" id="firstname" placeholder="Enter Firstname" name="firstname" required>
+    </div>
+    <div class="my-3">
+        <label for="lastname" class="form-label">Last name</label>
+        <input type="text" class="form-control" id="lastname" placeholder="Enter Lastname" name="lastname" required>
+    </div>
+    <div class="my-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter Email Address" name="email" required>
+    </div>
+    <div class="my-3">
+        <label for="pass1" class="form-label">Pasword</label>
+        <input type="password" class="form-control" id="pass1" placeholder="Enter Password" name="pass1" required>
+    </div>
+    <div class="my-3">
+        <label for="pass2" class="form-label">Confirm Pasword</label>
+        <input type="password" class="form-control" id="pass2" placeholder="Confirm Password" name="pass2" required>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+{% endblock content %} required

@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+.btn{
+    @apply rounded bg-purple-600 p-3 text-white lg:hover:bg-pink-600 md:focus:bg-blue-600
+}
+@tailwind utilities;
+.text-white
+{
+    background-color: black;
+}

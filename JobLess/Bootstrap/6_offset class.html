@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+        .container {
+            border: 5px solid black;
+        }
+
+        .container .row {
+            border: 5px solid blue;
+        }
+
+        .container .row .col-5 {
+            background-color: yellow;
+        }
+        .col-3
+        {
+            background-color: pink;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-5 offset-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, aliquid amet,
+                id facilis
+                doloribus deleniti sint soluta nemo cum incidunt velit, optio tempora placeat ipsam enim. Nisi eos
+            </div>
+            <div class="col-3">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci optio sunt dicta, quasi ratione
+                praesentium repellat itaque qui. Magnam earum qui nihil dicta veritatis! Magnam consectetur laboriosam
+                illum et dolores.
+            </div>
+        </div>
+        <!-- data out  : offset-md-3 means medium size screen tak he kaam karega then it willl disappear-->
+        <div class="row">
+            <div class="col-md-5 offset-md-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, aliquid amet,
+                id facilis
+                doloribus deleniti sint soluta nemo cum incidunt velit, optio tempora placeat ipsam enim. Nisi eos
+            </div>
+            <div class="col-md-3 bg-primary">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci optio sunt dicta, quasi ratione
+                praesentium repellat itaque qui. Magnam earum qui nihil dicta veritatis! Magnam consectetur laboriosam
+                illum et dolores.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 offset-lg-1 offset-md-3 bg-warning">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, aliquid amet,
+                id facilis
+                doloribus deleniti sint soluta nemo cum incidunt velit, optio tempora placeat ipsam enim. Nisi eos
+            </div>
+            <div class="col-md-3 bg-success offset-md-2">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci optio sunt dicta, quasi ratione
+                praesentium repellat itaque qui. Magnam earum qui nihil dicta veritatis! Magnam consectetur laboriosam
+                illum et dolores.
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

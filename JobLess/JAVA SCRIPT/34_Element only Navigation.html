@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <style>
+        body
+        {
+            padding: 0px;
+            margin: 0px;
+        }
+        nav > ul
+        {
+            display: flex;
+            padding: 10px;
+            margin: 0px;
+        }
+        nav > ul > li
+        {
+            text-decoration: none;
+            list-style-type: none;
+            margin: 0px 30px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Comment Node -->
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About me</li>
+            <li>Contact us</li>
+            <li>Hire me</li>
+            <li>Projects</li>
+        </ul>
+    </nav>
+    <div class="container">
+        <p>Hey Its Piyush</p>
+    </div>
+
+    <script>
+        const changeBgRed = ()=>{
+            document.body.firstElementChild.style.background = "red";
+        }
+        changeBgRed()
+        let b = document.body;
+        console.log(`First child of b is :`,b.firstChild);
+        console.log(`First element child of b is : `,b.firstElementChild);
+    </script>
+</body>
+
+</html>

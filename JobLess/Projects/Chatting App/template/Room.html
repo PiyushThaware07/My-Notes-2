@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container p-5 m-5 d-flex flex-column flex-nowrap">
+        <h1>{{roomname | json_script:"roomname"}}</h1>
+        <textarea name="" id="" cols="30" rows="10" id="chatarea" readonly ></textarea>
+        <div class="d-flex flex-nowrap my-5">
+            <input type="text" class="form-control me-3" id="chatInput" placeholder="Enter the message">
+            <button class="btn btn-primary">Send</button>
+        </div>
+
+    </div>
+</body>
+<script>
+    const roomname = JSON.parse(document.getElementById("roomname").textContent);
+    const chatScoket = WebSocket(
+        "ws://"+window.location.host+"/ws/chat/"+roomname+'/'
+    )
+    chatScoket.onmessage = function(e){
+        const msg = JSON.parse(e.data)
+        document.querySe
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</html>

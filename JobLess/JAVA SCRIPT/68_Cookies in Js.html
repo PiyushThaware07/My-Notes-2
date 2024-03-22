@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // sometime when we login to amazon in web and add some product to cart after closing that app after reopen that app you will see those item are still in JS
+        // storing data to browser is alson known as cookies
+
+        document.cookie = "item1 = milk"
+        document.cookie = "item2 = sugar"
+
+        // Custom Cookie
+        /*
+        let key = prompt("Enter the key")
+        let val = prompt("Enter the value")
+        document.cookie = `${key}=${val}`
+        */
+
+        // Adding expire data for cookie
+        document.cookie = "item3 = Crackers; expires=Thu, 24 Mar 2024 12:00:00 UTC"
+
+        // updating cookies
+        document.cookie = "item2 = sugar,bread,eggs"
+        console.log(document.cookie);
+    </script>
+
+</body>
+
+</html>

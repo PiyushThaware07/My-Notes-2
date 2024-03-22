@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/fontawesome.min.css"
+        integrity="sha384-X8QTME3FCg1DLb58++lPvsjbQoCT9bp3MsUU3grbIny/3ZwUJkRNO8NPW6zqzuW9" crossorigin="anonymous">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+    <style>
+        .container {
+            border: 3px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container p-1">
+        <h2 class="text-center">Bootstrap Button Group Classes</h2>
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <h3>Normal Size</h3>
+                <div class="btn-group">
+                    <button class="btn btn-primary">Click</button>
+                    <button class="btn btn-warning">Click</button>
+                    <button class="btn btn-success">Click</button>
+                </div>
+                <h3>Large size button</h3>
+                <div class="btn-group-lg my-3">
+                    <button class="btn btn-primary">Click</button>
+                    <button class="btn btn-warning">Click</button>
+                    <button class="btn btn-success">Click</button>
+                </div>
+                <h3>Small size button</h3>
+                <div class="btn-group-sm my-3">
+                    <button class="btn btn-primary">Click</button>
+                    <button class="btn btn-warning">Click</button>
+                    <button class="btn btn-success">Click</button>
+                </div>
+            </div>
+        </div>
+
+        <h1>Button toolbar</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="btn-toolbar">
+                    <div class="btn-group">
+                        <button class="btn btn-primary"><i class="fa fa-car"></i></button>
+                        <button class="btn btn-dark"><i class="fa fa-yen"></i> 2</button>
+                        <button class="btn btn-success">3</button>
+                    </div>
+                    <div class="btn-group mx-2">
+                        <button class="btn btn-primary">4</button>
+                        <button class="btn btn-dark">5</button>
+                        <button class="btn btn-success">6</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h1>Button verticle group</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="btn-group-vertical">
+                    <button class="btn btn-primary">1</button>
+                    <button class="btn btn-dark">2</button>
+                    <button class="btn btn-warning">3</button>
+                </div>
+            </div>
+        </div>
+
+        <h1>Drop-down button</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="btn-group">
+                    <button class="btn btn-primary">1</button>
+                    <button class="btn btn-dark">2</button>
+                    <a href="" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">Click for drop</a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-item">drop1</div>
+                        <div class="dropdown-item">drop2</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+HOOKS : Introducte after 16.8 version : Hooks are the functions that let you "hook into" react state and lifecycle features from the function components.Hooks allow function components to have access to state and other react features , because of the class components are generally no longer needed.
+To achive life cycle methods in functional component react hooks are introduce.
+
+1. useState ~> useState is a React Hook that allows functional components in React to manage state.
+               Syntax : const [count,setCount] = useState(initial Value);
+                        where : count -> state variable
+                                setCount -> Updated Function
+                                initial value -> It can be an array , string , no , object.
+
+
+2. useEffect ~> useEffect is another React Hook used for managing side effects in functional components. Side effects in React typically include things like data fetching, subscriptions, or manually changing the DOM in ways not covered by React's declarative model.
+                componentDidMount , componentDidUpdate , componentWillUnmount are combined into the single useEffect hook.
+                Whenever the state of website changes this leads to re-render the entire website leads to useEffect run again and again.
+
+                Syntax : useEffect(callBack Function , [ array of dependency ])
+                TYPE :
+                        1. No Dependency Passed
+                                    useEffect(() => {
+                                        console.warn("useEffect is running...");
+                                    });
+
+                        2. Empty Array : Run only on first render
+                                    useEffect(() => {
+                                        console.warn("useEffect is running...");
+                                    },[]);
+
+                        3. Change based on dependency 
+                                    useEffect(() => {
+                                        console.warn("useEffect is running...");
+                                    },[count]); // Only re-run the effect if count changes
+                    
+                Note : useEffect run asynchronously and after a render us printed on screen.
+
+
+3. useLayoutEffect ~>  This hook runs synchronously immediately after the DOM has been updated, but before the browser has painted. This means it runs before the browser has had a chance to paint the changes on the screen.
+                       The useLayoutEffect hook is useful when you need to perform DOM mutations or measurements and you want to make sure those are done before the browser updates the screen. This can be important for ensuring smooth animations or synchronizing measurements with layout changes.
+                       Syntax : useLayoutEffect(callBack Function,[array's dependency])
+
+
+4. useRef ~> useRef is a React Hook that provides a way to persist mutable values across renders without causing re-renders when the value changes. It's commonly used to reference DOM elements or to store mutable values that don't trigger a re-render when they're updated.
+             It create a mutable variable which will not re-render the components and can be used accross the DOM element directly.
+
+
+5. useContext ~> useContext is a React Hook that provides a way to consume context values in functional components. Context in React is a way to share values like themes, locale preferences, or authenticated user data between components without having to explicitly pass props through every level of the component tree.
+
+
+
+6. useReducer ~> useReducer is a React Hook that is used for managing more complex state logic in functional components. It offers an alternative to useState for managing state in a more predictable way, especially when state logic involves multiple sub-values or when the next state depends on the previous one. It's similar to how reducers work in Redux.
+                 Syntax : const [state,dispatch] = useReducer(reducer,initial_value);
+                                                                |
+                                                            (state,action)
+
+7. useMemo ~> The useMemo hook is a feature provided by React that allows you to memoize expensive calculations so that they are only recomputed when necessary. It's particularly useful for optimizing performance in React functional components by avoiding unnecessary re-renders caused by expensive computations.
+              React will only recompute the memoized value when one of the dependencies has changed.
+              If the dependencies have not changed since the last render, useMemo will return the memoized value without re-executing the function.
+              you can return data in this while in useEffect it return a cleanup function code.
+                Syntax : useMemo(callBack,[dependency])
+
+8. useCallback
+9. Custom Hook

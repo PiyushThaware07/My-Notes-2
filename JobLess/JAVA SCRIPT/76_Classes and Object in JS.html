@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        class ExamForm{
+            method_1(){
+                alert(this.arg+" form is submitted and your train no is "+this.tno)
+            }
+            method_2(){
+                alert(this.arg+" form is cancelled")
+            }
+            method_3(arg,trainNo){ // arg : arguments
+                this.arg = arg;
+                this.tno = trainNo
+                console.log("Method 3 is running",this.arg);
+            }
+        }
+
+        // object creation
+        let student1 = new ExamForm()
+        student1.method_3("Sahil",233)
+
+        let student2 = new ExamForm()
+        student2.method_3("Piyush",987)
+        
+        student1.method_1()
+        student1.method_2()
+        student2.method_1()
+        student2.method_2()
+    </script>
+</body>
+</html>

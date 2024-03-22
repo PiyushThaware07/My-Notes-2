@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using media queries with grid</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-areas:
+                'navbar navbar navbar navbar'
+                'section section section aside'
+                'footer footer footer footer';
+        }
+
+        .bdr {
+            border: 3px solid black;
+            padding: 30px;
+            background-color: wheat;
+        }
+
+        nav {
+            grid-area: navbar;
+        }
+
+        section {
+            grid-area: section;
+        }
+
+        aside {
+            grid-area: aside;
+        }
+
+        footer {
+            grid-area: footer;
+            text-align: center;
+        }
+
+        /* ============================================================================ */
+        @media only screen and (max-width:200px) {
+            body {
+                background-color: red;
+            }
+            span{
+                display: block;
+                text-align: center;
+            }
+            .container {
+                grid-template-areas:
+                    'navbar navbar navbar navbar'
+                    'section section section section'
+                    'aside aside aside aside'
+                    'footer footer footer footer';
+            }
+            aside{
+                display: none;
+            }
+
+        }
+
+        @media only screen and (min-width:200px) and (max-width:400px) {
+            body {
+                background-color: blue;
+            }
+
+            .container {
+                grid-template-areas:
+                    'navbar navbar navbar navbar'
+                    'section section section section'
+                    'aside aside aside aside'
+                    'footer footer footer footer';
+            }
+            aside{
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width:400px) and (max-width:600px) {
+            body {
+                background-color: rgb(1, 255, 1);
+            }
+
+            .container {
+                grid-template-areas:
+                    'navbar navbar navbar navbar'
+                    'section section section section'
+                    'aside aside aside aside'
+                    'footer footer footer footer';
+            }
+        }
+
+        @media only screen and (min-width:600px) and (max-width:800px) {
+            body {
+                background-color: yellow;
+            }
+        }
+
+        @media only screen and (min-width:800px) and (max-width:1000px) {
+            body {
+                background-color: purple;
+            }
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <div class="container">
+        <nav class="bdr">
+            <span>Home</span>
+            <span>About</span>
+            <span>Contact</span>
+            <span>Account</span>
+        </nav>
+        <section class="bdr">
+            <h2>Learn Css Now</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, eligendi sapiente. Voluptas, expedita? Minus id quaerat corrupti Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit excepturi corrupti labore neque explicabo obcaecati ratione molestias, repudiandae fuga temporibus sed quae! Eaque rem soluta facilis modi. Expedita vitae minima error, modi et quidem pariatur deleniti aspernatur illum, a, at ab excepturi incidunt omnis. Qui et nam atque modi aliquam quisquam molestiae, ducimus aut non, incidunt cum laudantium doloremque? Cum sequi culpa commodi, laudantium ipsum ipsam soluta exercitationem nemo placeat rerum numquam dolorem perspiciatis cupiditate, assumenda quam eius corrupti nostrum accusantium aspernatur ipsa hic aperiam nisi? Cupiditate facilis ratione, similique laborum veritatis tempore aliquid distinctio quo ducimus eius alias, iure vel ullam, vitae qui quisquam architecto expedita dolor sint in. Quisquam ad adipisci rerum, voluptatibus iste voluptatem libero. Magni quisquam doloribus natus illum dolorem minus tempora nostrum saepe. Est rem, deleniti sint recusandae minus a vel doloribus explicabo nemo qui amet. Unde, eligendi. Consectetur voluptatem delectus omnis adipisci, dolorem architecto sapiente neque exercitationem porro mollitia, explicabo dignissimos ipsam sit maiores quae iure impedit illum reprehenderit cum fuga unde nesciunt? Dolor quasi, minima in eaque soluta saepe eligendi quibusdam laudantium nesciunt ullam excepturi quas quod maxime error minus sunt aut dolorem pariatur inventore facilis ipsam officia sequi placeat optio? Accusantium iure quibusdam tempore labore eius veritatis exercitationem mollitia laboriosam fuga neque eveniet ipsum, voluptas consectetur repellendus harum suscipit nulla voluptate ea! Necessitatibus quae iusto reiciendis expedita, nesciunt obcaecati voluptatem officia impedit molestiae, commodi, architecto incidunt aut praesentium accusantium? Reprehenderit veritatis illo cum ut atque animi id adipisci doloremque, vitae illum. Rerum doloremque sit consectetur dolorem quasi voluptatum veniam error quo neque! Quis, assumenda non, accusamus quidem sequi quisquam itaque deserunt odio asperiores ipsa consectetur laudantium iure quasi. Sint cumque laudantium fugit veniam facere aspernatur doloremque quis obcaecati. Animi consequatur dolorum est voluptas, esse aperiam libero veritatis optio quo aliquam quos facere culpa natus quaerat porro, ex doloribus aspernatur? Consequatur blanditiis id deserunt sequi, suscipit quod, et voluptas excepturi, ab at beatae sint! Voluptatum natus at dolorum esse quasi nulla, laudantium consequuntur, cum quis ab quibusdam facilis culpa quas voluptatibus, reprehenderit inventore porro consequatur totam sit maxime quo? Harum iusto nobis unde, quidem excepturi corrupti nesciunt et itaque sint quas, repudiandae pariatur nihil distinctio quasi maiores. Autem, voluptatibus asperiores. Quis impedit perferendis possimus nobis atque quibusdam sit alias ipsa, quas voluptatem recusandae quam repudiandae odio cumque tempore inventore nisi. Consectetur praesentium fuga, ut inventore sapiente recusandae eos iure ipsum optio? Quas, doloremque? fuga veritatis fugiat, quia tenetur animi provident unde sequi consequuntur dolorem. Dolores debitis aut iure accusamus. Unde magni voluptas et atque minus officiis fuga commodi nihil ducimus dicta, fugit sapiente blanditiis repellendus cupiditate distinctio dolorum cum quod explicabo perferendis aliquid, veniam labore doloremque, tempore inventore? Tempora nobis dolores cumque quibusdam adipisci repellat quaerat sed obcaecati dolorum sint, iure doloremque libero itaque delectus, porro beatae ex magni maiores dolor et facilis. Ipsum, corporis? Deleniti esse perferendis minima modi suscipit iusto explicabo at atque dolorum culpa numquam soluta blanditiis maiores quisquam id, nostrum, tempora obcaecati labore quos ullam cumque sit reiciendis officiis. Sunt doloremque vel excepturi voluptas.</p>
+        </section>
+        <aside class="bdr">
+            <h1>More about us</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, mollitia repellendus? Deleniti amet hic tenetur, cum exercitationem obcaecati labore recusandae similique ipsum? Aliquam tempora perferendis necessitatibus illo in quidem vel?</p>
+        </aside>
+    </div>
+    <footer class="bdr">copyright by Piyush Thaware</footer>
+</body>
+</html>

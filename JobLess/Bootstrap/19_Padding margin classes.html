@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .container {
+            border: 3px solid black;
+        }
+
+        .row {
+            border: 3px solid purple;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="bg-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-warning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+        </div>
+        <br>
+
+
+        <h3>No-gutters : to remove  padding from row</h3>
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <div class="bg-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-warning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+        </div>
+        <br>
+
+
+        <h3>Padding with particular col</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="bg-primary py-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-success px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-warning py-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+        </div>
+        <br>
+
+
+        <h3>Margin Both</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="bg-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-success m-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-warning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+        </div>
+        <br>
+
+
+        <h3>Margin X-axis</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="bg-primary mx-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-success">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-warning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+        </div>
+        <br>
+
+
+        <h3>Margin with break point : .mx-break_point-*</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="bg-primary py-lg-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-success m-lg-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-warning">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+        </div>
+        <br>
+
+
+        <h3>Margin negative with break point : .mx-break_point-n*</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="bg-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-success mx-lg-n5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-warning my-lg-n5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem tempora
+                    consequuntur aperiam cumque error tenetur nesciunt, deserunt eum molestias quos commodi, aspernatur
+                    amet dignissimos. Voluptatem minima id cupiditate fugit placeat.</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

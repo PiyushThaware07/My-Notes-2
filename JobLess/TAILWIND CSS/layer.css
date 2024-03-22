@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+.componentsafter{
+    text-align: center;
+}
+
+@tailwind utilities;
+
+
+/* if you want after writing everything you want to get the below code under component layer us this */
+@layer components{
+    .btn {
+        @apply rounded bg-purple-600 p-3 text-white lg:hover:bg-pink-600 md:focus:bg-blue-600
+    }
+}

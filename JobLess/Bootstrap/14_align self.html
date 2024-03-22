@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+        .container {
+            border: 3px solid black;
+        }
+
+        .row {
+            border: 3px solid purple;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Problem</h1>
+        <div class="row text-white">
+            <div class="col-3 bg-primary">
+                <h1>Box-1</h1>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="col-3 bg-success">
+                <h1>Box-2</h1>
+                <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ut quaerat,
+                    impedit esse adipisci praesentium excepturi unde reprehenderit vero temporibus?
+                </p>
+            </div>
+            <div class="col-3 bg-warning">
+                <h1>Box-3</h1>
+                <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="col-3 bg-dark">
+                <h1>Box-4</h1>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+
+
+        <h1>Solution</h1>
+        <h4>1)align-self-break_point-start/end/center/stretch/auto(change with parent div i.e row) <br>2)align-self-start/end/center/stretch/auto(change with parent div i.e row)</h4>
+        <!-- <div class="row text-white align-items-start">  : use for auto-->
+        <div class="row text-white">
+            <div class="col-3 bg-primary align-self-lg-start">
+                <h1>Box-1</h1>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="col-3 bg-success align-self-lg-center">
+                <h1>Box-2</h1>
+                <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut ut quaerat,
+                    impedit esse adipisci praesentium excepturi unde reprehenderit vero temporibus?
+                </p>
+            </div>
+            <div class="col-3 bg-warning align-self-lg-end">
+                <h1>Box-3</h1>
+                <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="col-3 bg-dark align-self-lg-auto"> <!--auto : depends upon parents alignment-->
+                <h1>Box-4</h1>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

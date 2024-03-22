@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        // retrive file data
+        let f1 = fetch("readme.txt"); // file
+        f1.then(function (response) {
+            // console.log(response.text()); // return promise
+            return response.text()
+        }).then(function (data) {
+            console.log(data);
+            // document.write(data)
+        })
+
+        // retrive json data
+        let f = fetch("https://jsonplaceholder.typicode.com/users");
+        f.then((response) => { return response.json(); })
+            // .then((data)=> { console.log(data); })
+            .then((data) => {
+                for (var item in data) {
+                    document.write(`${data[item].name} ~ <br> ${data[item].email}  <br> ~ ${data[item].id} `)
+                }
+            })
+            .catch((error) => { console.log(error); document.write("Can't fetch the data") })
+
+
+
+
+        // Insert,Update,Delete data
+        // insertion
+        let upload_to_server = {
+            method: "POST", // default value is get
+            body: JSON.stringify({
+                title: 'Piyush',
+                body: 'This is updated data',
+                userId: 2001,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+
+        }
+        let f2 = fetch("https://jsonplaceholder.typicode.com/posts", upload_to_server)
+        f2.then((response) => { return response.json() })
+            .then((data) => { console.log(data); })
+
+    </script>
+
+</body>
+
+</html>

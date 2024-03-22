@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let p1 = new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                console.log("P1 = not solved");
+                resolve("P1 = Solved");
+            }, 2000);
+        })
+        let p2 = new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                console.log("P2 = not solved");
+                reject("P2 = Solved");
+            }, 4000);
+        })
+        let p3 = new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                console.log("P3 = not solved");
+                resolve("P3 = Solved");
+            }, 6000);
+        })
+
+        // Here firstly we will get output of each one after another
+        p1.then((value) => { console.log(value); })
+        p2.then((value) => { console.log(value); })
+        p3.then((value) => { console.log(value); })
+
+        // If you want all output after successfully completetion of all the above function at once
+        let all_promises = Promise.all([p1, p2, p3])
+        console.log("all() method : fulfilled or not : ", all_promises, "if any promise get failed you will get an error");
+
+        // allSettled : in above case if any promise get fail you will get error but in this it will give a correct response
+        let all_settled_promises = Promise.allSettled([p1, p2, p3])
+        console.log("allSettled() method : fulfilled or not : ", all_settled_promises, "if any promise get fail still it will manage and give a fullfilled response");
+
+        // fast : it will display fastest promise from all of them
+        let fastest = Promise.race([p1, p2, p3])
+        console.log("race() : it will return the fastest promise data", fastest);
+
+        let resolved = Promise.resolve([p1, p2, p3])
+        console.log(resolved);
+
+        let rejected = Promise.reject(new Error("Rejecting Encounter"))
+        console.log(rejected);
+
+        let t = Promise.any([p1, p2, p3])
+        console.log(t);
+
+
+    </script>
+</body>
+
+</html>

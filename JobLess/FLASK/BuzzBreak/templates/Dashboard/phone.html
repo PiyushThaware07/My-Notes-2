@@ -1,0 +1,64 @@
+{% extends 'Dashboard/base1.html' %}
+{% block title %}Contact{% endblock title %}
+{% block body %}
+<section>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr style="font-family: 'font1', cursive;font-size: 12px;font-weight: bold;">
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone No</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody style="font-family: 'font1', cursive;font-size: 12px;">
+
+                {% if contacts %}
+                {% for contact in contacts %}
+                <tr data-bs-toggle="collapse" href="#collapseExample-{{contact.id}}" role="button" aria-expanded="false"
+                    aria-controls="collapseExample-{{contact.id}}">
+                    <td>{{loop.index}}</td>
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.phone}}</td>
+                    <td>{{contact.date}}</td>
+                    <td><a href="/delete_phone/{{contact.id}}" class="text-dark"><i class="fa-solid fa-trash"></i></a></td>
+                    
+                </tr>
+                <tr class="collapse show">
+                    <td colspan="5" class="p-0">
+                        <div class="collapse" id="collapseExample-{{contact.id}}">
+                            <div class="card card-body border border-success m-2 text-success" style="background-color: rgba(0, 255, 0, 0.16);">
+                                Message : {{contact.msg}}
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr style="font-family: 'font1', cursive;font-size: 12px;" class="text-danger">
+                    <td>No data</td>
+                    <td>No data</td>
+                    <td>No data</td>
+                    <td>No data</td>
+                    <td>No data</td>
+                    <td><a href="#" class="text-dark"><i class="fa-solid fa-trash"></i></a></td>
+                  </tr>
+                {% endif %}
+
+
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+
+
+
+
+
+{% endblock body %}

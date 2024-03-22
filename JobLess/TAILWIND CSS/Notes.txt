@@ -1,0 +1,4 @@
+1. npm init
+2. npm install -D tailwindcss postcss autoprefixer vite
+3. npx tailwindcss init
+4. npm run start : for running the program

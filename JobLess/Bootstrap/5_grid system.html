@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+        .container {
+            border: 3px solid black;
+        }
+
+        #menu
+        {
+            background-color: pink;
+        }
+        #menu ul{list-style: none;margin: 0;}
+        #menu ul li{display: inline-block;margin: 5px;}
+
+        #footer
+        {
+            background-color: skyblue;
+        }
+        #head
+        {
+            background-color: orange;
+        }
+
+        #sidebar
+        {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" id="head">
+            <div class="col-12">
+                <h1>Website Name</h1>
+            </div>
+        </div>
+
+        <div class="row" id="menu">
+            <div class="col-12">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">Blogs</a></li>
+                    <li><a href="">Account</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row" id="content">
+            <div class="col-md-9">
+                <h2>Sub Heading</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, saepe. Natus maiores est fugit
+                    doloremque quod, inventore nulla fuga laudantium, aliquid quia voluptates, esse veniam deserunt quos
+                    eligendi! Distinctio eveniet incidunt reiciendis, sit minima dolorum perferendis ducimus. Repellat,
+                    porro quaerat totam placeat ea alias tenetur minima voluptatum fugit, sequi quibusdam iste et
+                    aliquam accusamus ratione autem reprehenderit non rerum facere velit. Expedita fugiat tempora at
+                    aliquid commodi laudantium, similique deleniti autem numquam? Quam quisquam placeat laborum iste
+                    dolores saepe, dicta suscipit incidunt excepturi ea cupiditate dolorum iusto fuga veniam impedit
+                    consectetur nostrum sequi. Tempora, accusamus? Fuga perspiciatis similique eius. Cum.
+                </p>
+            </div>
+            <div class="col-md-3" id="sidebar">
+                <h1>Sidebar</h1>
+                <h3>Social</h3>
+                <ul>
+                    <li><a href="">Facebook</a></li>
+                    <li><a href="">Whatsapp</a></li>
+                    <li><a href="">Instagram</a></li>
+                    <li><a href="">Github</a></li>
+                    <li><a href="">Linkedin</a></li>
+                    <li><a href="">Snapchat</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row" id="footer">
+            <div class="col-12">
+                <h1>Footer is here</h1>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!-- 
+
+    sidebar overflow then use this 
+    Extra-large : >=1200px  > col-xl-no
+    Large       : >=992px   > col-lg-no
+    Medius      : >=768px   > col-md-no
+    Small       : >=576px   > col-sm-no
+    Extrasmall  : <576      
+ -->

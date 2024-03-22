@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+        .container {
+            border: 3px solid black;
+        }
+
+        .row {
+            border: 3px solid purple;
+            height: 500px;  /* if we use this then content inside it will occupy all the spaces*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Problem :  height: 500px;  /* if we use this then content inside it will occupy all the spaces*/</h1>
+        <div class="row">
+            <div class="col-md-3 bg-primary">
+                <h1>Box-1</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, placeat?</p>
+            </div>
+            <div class="col-md-7 bg-danger">
+                <h1>Box-2</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, placeat?Lorem, ipsum dolor sit
+                    amet consectetur adipisicing elit. Quibusdam reprehenderit inventore ducimus eos quisquam maiores
+                    vero repudiandae, consequatur dolore placeat.
+                </p>
+            </div>
+            <div class="col-md-4 bg-success">
+                <h1>Box-3</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, placeat?Lorem ipsum dolor sit
+                    amet.
+                </p>
+            </div>
+            <div class="col-md-5 bg-warning">
+                <h1>Box-4</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, placeat?</p>
+            </div>
+        </div>
+
+        <br>
+        <h1>Solution of problem</h1>
+        <h2>1)Align-content-start/end/center/between/around/stretch <br> 2)Align-content-break_point-start/end/center/between/around/stretch </h2>
+        <div class="row align-content-lg-around">
+            <div class="col-md-3 bg-primary">
+                <h1>Box-1</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, placeat?</p>
+            </div>
+            <div class="col-md-7 bg-danger">
+                <h1>Box-2</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, placeat?Lorem, ipsum dolor sit
+                    amet consectetur adipisicing elit. Quibusdam reprehenderit inventore ducimus eos quisquam maiores
+                    vero repudiandae, consequatur dolore placeat.
+                </p>
+            </div>
+            <div class="col-md-4 bg-success">
+                <h1>Box-3</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, placeat?Lorem ipsum dolor sit
+                    amet.
+                </p>
+            </div>
+            <div class="col-md-5 bg-warning">
+                <h1>Box-4</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, placeat?</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

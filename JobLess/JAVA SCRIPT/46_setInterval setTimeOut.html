@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // set time out : be like it will print data after the time set is finish
+        /*
+        let fun = setTimeout(() => {
+            console.log("Inside TimeOut");
+        }, 2000);
+
+        let input = prompt("Enter the character")
+        function check() {
+            if (input == "piyush") {
+                clearTimeout(fun);
+                console.log("Outside TimeOut");
+            }
+        }
+        check();
+        */
+
+
+
+        // setinterval
+        let myfun = setInterval(() => {
+            console.log("Inside Interval");
+        }, 2000);
+        let input1 = prompt("Enter the input");
+        function check1() {
+            if (input1 == "piyush") {
+                clearTimeout(myfun);
+                console.log("Outside Interval");
+            }
+        }
+        check1()
+    </script>
+</body>
+
+</html>

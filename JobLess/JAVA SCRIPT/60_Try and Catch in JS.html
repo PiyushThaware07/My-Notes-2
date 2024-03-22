@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // this will show error due to try catch only handle synchronous code it doesn't allow schedule code.
+        try {
+            setTimeout(() => {
+                console.log(sam);
+            }, 100);
+            console.log("Try Block");
+        }
+        catch (error) {
+            console.warn("Reason for an error is, Catch is running -->", error);
+        }
+
+        setTimeout(() => {
+            console.log("Hacking Wifi please wait...");
+        }, 1000);
+
+        setTimeout(() => {
+            console.log("Fetching username and password please wait...");
+            // Handling an error
+            try {
+                console.log(rahul);
+            }
+            catch (error) {
+                console.warn("Catch is running -->", error);
+            }
+        }, 2000);
+
+        setTimeout(() => {
+            console.log("We got username and password please wait...");
+        }, 3000);
+
+        setTimeout(() => {
+            console.log("Entering into the system please wait...");
+        }, 4000);
+
+        setTimeout(() => {
+            console.log("System Hacked Successfully");
+        }, 5000);
+
+
+    </script>
+</body>
+
+</html>

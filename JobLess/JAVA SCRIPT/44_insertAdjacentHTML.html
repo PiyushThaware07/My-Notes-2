@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="first">first Div</div>
+
+    <div id="second">Second Div</div>
+    <script>
+        let f = document.getElementById("first");
+        f.insertAdjacentHTML('beforebegin' , '<h3><b>Before Begin Added</b></h3>');
+        f.insertAdjacentHTML('beforeend' , '<h3><b>Before End Added</b></h3>');
+        f.insertAdjacentHTML('afterbegin' , '<h5><b>After Begin Added</b></h5>');
+        f.insertAdjacentHTML('afterend' , '<h5><b>After End Added</b></h5>');
+
+
+        // To remove a node
+        let s = document.getElementById("second");
+        s.remove();
+    </script>
+</body>
+</html>

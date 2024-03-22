@@ -1,0 +1,10 @@
+Older React Redux Version --------------------------------------------------------------------------------------------------------
+
+Flow -> Action (get data from api as collector) -> Reducer (get data from action convert to standerd format) -> Store(Stores data from reducer)
+
+install :
+1. Install React
+2. Install Redux : npm i redux 
+3. Install React-Redux  : npm i react-redux 
+
+Action : return data and type , you can add and use constants in action.

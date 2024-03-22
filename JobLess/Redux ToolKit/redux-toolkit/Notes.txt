@@ -1,0 +1,104 @@
+1. Defination Redux  : Redux is a state management framework that can be used with React.
+2. Why Redux ToolKit RTK : Redux Toolkit is our official standard approach for writing Redux logic.
+3. There are multiple approach for state management 
+   * context API
+   * Redux
+   * Redux Toolkit (RTK) -> easy store creating,compress the code to less no of lines , etc
+4. Installation : npm install @reduxjs/toolkit 
+   for binding react with redux use this : npm i react-redux
+
+5. createSlice : 
+   slices in RTK --> A function that accepts a "slice name","initial state" and an "object of reducer function" and automatically generates action creators and action types that corresponds to the reducers and state.
+   slices : A single slice have mulitple functionality like addToCart , removeFromCart , displayUser all this functionality are related to the user only so user is a single slice and we can create more than one slice in our app.
+
+   Example : 
+            import { createSlice } from "@reduxjs/toolkit";
+
+            const userSlice = createSlice({
+               name : "user",
+               initialState : [],
+               rootReducers : {
+                  addUser(state,action){
+                        // Logix
+                  },
+                  
+                  removeUser(state,action){
+                        // Logic
+                  },
+
+                  clearUsers(state,action){
+                        // Logic
+                  }
+               }
+            })
+
+            export default userSlice.reducer;
+
+            // To Display all the action creator use this : console.log(userSlice.action)
+
+
+6. configureStore() : In Redux, configureStore is a function provided by the @reduxjs/toolkit package.
+                      Before configuring your store, you should create one or more Redux "slices" using createSlice. 
+                      This creates a Redux store, and also automatically configure the Redux DevTools extension so that you can inspect the store while developing.
+                      It takes object as a parameter.
+
+                      Example : 
+                              import { configureStore } from "@reduxjs/toolkit";
+                              import userSlice from "./slices/userSlice"; --> import userSlice 
+
+                              const store = configureStore({
+                                 rootReducer: {
+                                    user: userSlice, // do this if you have mentioned userSlice.reducer in userSlice export default other wise you have to this like : users: userSlice.reducer not reducers ok.
+                                 }
+                              });
+                              export default store;
+
+
+7.  Connect React with Redux Toolkit to Access Store Data : Once the store is created, we can make it available to our React components by putting a React-Redux <Provider> around our application in src/index.js. Import the Redux store we just created, put a <Provider> around your <App>, and pass the store as a prop
+      *  Open Index.js modify code like this : 
+
+         import { Provider } from 'react-redux'; --> Provider 
+         import store from './store/store';      --> store 
+         <Provider store={store} >
+            <App />
+         </Provider>
+
+8. Access the state data with useDispatch & action creators : 
+      * <button className='btn btn-info text-white rounded-0 text-nowrap' onClick={() => addNewUser(fakeUserData())}>ADD NEW</button>
+      * write this at the code of userSlice file -->  export const {addUser} = userSlice.actions;
+      *  import { fakeUserData } from '../APIs/fakeAPI';
+         import { useDispatch } from 'react-redux';
+         import { addUser } from '../store/slices/UserSlice'; // Assuming this is the correct import path
+         const dispatch = useDispatch();
+         const addNewUser = (payload) => {
+            console.warn("Payload ==> ", payload);
+            dispatch(addUser(payload)); // Uncomment this line to dispatch the addUser action
+         }
+      
+      *  addUser(state, action) {
+            // Logic for adding a user
+            state.push(action.payload)
+         },
+
+9. Access and Display User Data using useSelector() & Action Creators : 
+      * const userDsiplay = useSelector((state) => state.users);
+      * map userDsiplay
+
+10. Deleting a Single User from State :
+      * onClick={()=>dispatch(removeUser(item))}
+      * removeUser(state, action) {
+            // Logic for removing a user
+            state.splice(action.payload, 1)  // In JavaScript, the splice() method is used to add or remove elements from an array. splie(item to be deleed , no of data you want to delete i/e suppose 2 then it will delete the current data as well as next upcoming data item as well. )
+        },
+
+
+      
+
+
+      
+
+
+
+
+
+

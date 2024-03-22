@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .container {
+            border: 3px solid black;
+        }
+
+        .row {
+            border: 3px solid purple;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>By default : display-block</h1>
+        <h3>display:none; ---------> .d-none <br>
+            display:inline; -------> .d-inline <br>
+            display:inline-block; -> .d-inline-block <br>
+            display:block; --------> .d-block <br>
+            display:table; --------> .d-table <br>
+            display:table-cell; ---> .d-table-cell <br>
+            display:table-row; ----> .d-table-row <br>
+            display:flex; ---------> .d-flex <br>
+            display:inline-flex; ---------> .d-inline-flex <br>
+            with break point : .d-break_point-inline-block
+        </h3>
+        <div class="bg-primary p-3 d-lg-inline-block">
+            <h1>Box - 1</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="bg-success p-3 d-inline-block">
+            <h1>Box - 2</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+    </div>
+
+    <br>
+    <div class="container">
+        <h1>If i want to hide block b in md then : do this hide in mobile display</h1>
+        <div class="row text-white">
+            <div class="col-md-3 bg-primary">
+                <h1>Col A</h1>
+            </div>
+            <div class="col-md-3 bg-success d-none d-md-block">
+                <h1>Col B</h1>
+            </div>
+            <div class="col-md-3 bg-warning">
+                <h1>Col C</h1>
+            </div>
+            <div class="col-md-3 bg-dark">
+                <h1>Col D</h1>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="container">
+        <h1>d-flex</h1>
+        <div class="d-flex" style="border: 3px solid red;">
+            <div class="bg-primary p-3 order-4">
+                <h1>Col A</h1>
+            </div>
+            <div class="bg-success p-3 order-1">
+                <h1>Col B</h1>
+            </div>
+            <div class="bg-warning p-3 order-3">
+                <h1>Col C</h1>
+            </div>
+            <div class="bg-dark p-3 order-2">
+                <h1>Col D</h1>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="container">
+        <h1>if i want to box b is not visible to all break point but user taking print of it will be visible to him</h1>
+        <div class="row text-white">
+            <div class="col-md-3 bg-primary">
+                <h1>Box A</h1>
+            </div>
+            <div class="col-md-3 bg-warning d-none d-print-block"> <!--hide-to-user show-on-print-->
+                <h1>Box B</h1>
+            </div>
+            <div class="col-md-3 bg-success d-print-none d-block"> <!--show-to-user hide-on-print-->
+                <h1>Box C</h1>
+            </div>
+            <div class="col-md-3 bg-dark">
+                <h1>Box D</h1>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

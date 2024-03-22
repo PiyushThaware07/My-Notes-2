@@ -1,0 +1,18 @@
+{% extends 'Authentication/home.html' %}
+
+{% block title %}Signin{% endblock title %}
+
+{% block content %}
+<h1 class="mb-4">Signin</h1>
+<form action="{% url 'signin' %}" method="post">{% csrf_token %}
+    <div class="my-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
+    </div>
+    <div class="my-3">
+        <label for="pass1" class="form-label">Pasword</label>
+        <input type="password" class="form-control" id="pass1" placeholder="Enter Password" name="pass1">
+    </div>
+    <button type="submit" class="btn btn-primary">Signin</button>
+</form>
+{% endblock content %}

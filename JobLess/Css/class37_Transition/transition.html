@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitions</title>
+    <style>
+        .container{
+
+        }
+        #box{
+            display: flex;
+            justify-content: center;
+            background: Blue;
+            color: white;
+            height: 100px;
+            width: 100px;
+            align-items: center; /* align-content : spacing ko bara bar karta hai or item center mein align karta hai */
+            font-size: 1em;
+            transition-property: background-color;
+            transition-duration: 1s; /* transition ko pura karne mein ek sec ka time lega */
+            transition-timing-function: ease-in;
+        }
+        
+        /*==================== transitions ==========================================================================*/
+        
+        #box:hover{
+            background-color: black;
+            color: red;
+            height: 400px;
+            width: 400px;
+            border-radius: 20px;
+            font-size: 45px;
+        }
+    </style>
+</head>
+<body>
+    <h3>This is css Transition Tutorials</h3>
+    <div class="container">
+        <div id="box">
+            This is Box
+        </div>
+    </div>
+</body>
+</html>

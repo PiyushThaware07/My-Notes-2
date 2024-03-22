@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rows{
+            display: grid;
+            grid-template-rows: 1fr 1fr 4fr; /* (( bydefault : remaining box will be 1fr )) */
+            /* but to mention all boxes are 1fr we can use  */
+            grid-auto-rows: 2fr;
+            border: 10px solid blue;
+        }
+        .box{
+            /* height: 100px;
+            width: 50%; */
+            background-color: yellow;
+            border: 3px solid black;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* ================================================================================ */
+        .columns{
+            display: grid;
+            grid-template-columns: 1fr 4fr 2fr; /* (( bydefault : remaining box will be 1fr )) */
+            /* but to mention all boxes are 1fr we can use  */
+            grid-auto-rows: 2fr;
+            grid-gap: 1rem;
+            border: 10px solid blue;
+        }
+
+        h1{
+            font-size: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grid in Rows</h1>
+    <div class="rows">
+        <div class="box">Box-1</div>
+        <div class="box">Box-2</div>
+        <div class="box">Box-3</div>
+        <div class="box">Box-4</div>
+        <div class="box">Box-5</div>
+        <div class="box">Box-6</div>
+        <div class="box">Box-7</div>
+        <div class="box">Box-8</div>
+        <div class="box">Box-9</div>
+        <div class="box">Box-10</div>
+    </div>
+
+    <h1>Grids in Columns</h1>
+    <div class="columns">
+        <div class="box">Box-1</div>
+        <div class="box">Box-2</div>
+        <div class="box">Box-3</div>
+        <div class="box">Box-4</div>
+        <div class="box">Box-5</div>
+        <div class="box">Box-6</div>
+        <div class="box">Box-7</div>
+        <div class="box">Box-8</div>
+        <div class="box">Box-9</div>
+        <div class="box">Box-10</div>
+    </div>
+
+</body>
+</html>

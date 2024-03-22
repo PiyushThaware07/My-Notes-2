@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance selectors</title>
+    <style>
+        h1{
+            background-color: red;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+        }
+
+        /* this is only for para inside div container*/
+        div p{  
+            color: blue;
+            font-weight: bold;
+        }
+
+
+        div li p{
+            background-color: yellow;
+        }
+/* =========================================================================== */
+    /* For Targeting the particular elements : */
+    div > .row > ul > .direct{
+        background-color: green;
+        color: white;
+    }
+/* =========================================================================== */
+/* ayse element ko lagao jis ka previous element  ho  div ho */
+    div + p{ 
+        background-color: pink;
+    }
+    </style>
+</head>
+<body>
+    <h1>This is more on selectors</h1>
+    <div class="container">
+        <div class="row">
+            <ul>
+                <li class="item"><p>This is another paragraph.</p></li>
+                <li>This will not get affected</li>
+                <li class="direct">Direct Targeting</li>
+            </ul>
+            <p>This is para inside ROW</p>
+        </div>
+        <p>This is para outside ROW</p>
+    </div>
+    <p>This is para outside container</p> 
+</body>
+</html>

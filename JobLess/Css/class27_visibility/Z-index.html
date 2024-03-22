@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-index</title>
+    <style>
+        .box{
+            height: 170px;
+            width: 170px;
+            border: 8px solid black;
+            font-size: 60px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #box1{
+            background-color: red; 
+            position: relative;
+            top: 50px;
+        }
+        #box2{
+            background-color: blue;
+        }
+        #box3{
+            background-color: green;
+            position: relative;
+            top: 50px;
+            z-index: -1;
+        }
+        #box4{
+            background-color: yellow;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Z-index : it will not work with static position elements. <br>
+        It will work only with relative , absolute , fixed or sticky position.
+    </h1>
+    <div class="box" id="box1">1</div>
+    <div class="box" id="box2">2</div>
+    <div class="box" id="box3">3</div>
+    <div class="box" id="box4">4</div>
+
+    <h1>Those element whose z-index is high it will display at top.
+        <br> z-index jada rahega vo upar rahega.]
+    </h1>
+</body>
+</html>

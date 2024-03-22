@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // session storage is similar to loacalstorage except it store the data by particular session.
+        let key = prompt("Enter the key that you want to set")
+        let val = prompt("Enter the value that you want to set")
+        sessionStorage.setItem(key, val);
+
+        let display = sessionStorage.getItem(key);
+        console.log(`The value at ${key} is ${display}`);
+
+        if (key == 0) {
+            sessionStorage.clear()
+        }
+        // sessionStorage.removeItem("item_name")
+
+
+
+        window.onstorage = (e) => {
+            alert("Changed")
+            console.log(e);
+        }
+        /*
+        Storage Event
+        When the data gets updated in localStorage or sessionStorage, storage event triggers with these properties:
+        
+        key – The key
+        oldValue – Previous value
+        newValue – New value
+        url – Page URL
+        StorageArea – local or sessionStorage
+        */
+    </script>
+</body>
+
+</html>

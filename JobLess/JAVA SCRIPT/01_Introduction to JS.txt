@@ -1,0 +1,4 @@
+What is EcmaScript?
+ECMAScript is a standard on which JavaScript is based!
+It was created to ensure that different documents on JavaScript are actually talking about the same language.
+JavaScript and ECMAScript can almost always be used interchangeably. JavaScript is very literal in what it allows.

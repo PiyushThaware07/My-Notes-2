@@ -1,0 +1,39 @@
+--> Working with flask
+from flask import Flask
+app = Flask(__name__)  # used to define the app
+
+@app.route("/")
+def hello():
+    return "Hello World"
+
+@app.route("/piyush")
+def piyush():
+    return "This is the another page\nThis is Piyush Thaware"
+
+
+# app.run()
+app.run(debug=True) # for live server
+
+
+-->Static : This folder is public 
+
+-->How to render template in flask use below code
+from flask import Flask,render_template
+and then when ever you want to render write this -- return render_templete('template_name.html')
+
+-->How to pass arguments to template then use this
+def about():
+    name = "Piyush"
+    return render_template('about.html',name2=name)
+
+as name2 is define in template render that why we use this
+
+
+--> How to connect database to flask app we have to use this : Flask SQLAlchemy 
+cmd : pip install flask-sqlalchemy
+import : from flask_sqlalchemy import SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/buzzbreak'  # if error occurs no module found use this pip install mysqlclient
+db = SQLAlchemy(app)
+
+---> to enable ngrok server use this
+ngrok http server_port no

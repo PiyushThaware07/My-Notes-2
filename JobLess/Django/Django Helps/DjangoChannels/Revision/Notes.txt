@@ -1,0 +1,121 @@
+1. Consumer :  a consumer is a Django Channels component that listens for incoming messages and responds to them. It can be used to handle things like live chat messages, notifications, or any kind of real-time data exchange between your server and clients (e.g., web browsers).
+
+            Types of consumers : 
+            * Sync Consumer : It handles one request at a time.
+            * Async Consumer : It handles multiple request at a time.
+
+            def websocket_connect --> this handler is called when client initially opens
+                     #  following code will sends a message back to the client using self.send. The message is a dictionary with a single key-value pair.
+                        self.send({
+                              'type': 'websocket.accept',
+                        })
+
+            def websocket_receive --> this handler is called when data is receive from client
+                       # server to client data sending 
+                       self.send({
+                              'type':'websocket.send',
+                              'text':'data you want to send'
+                       })
+
+                       # client to server data sending 
+                       print(f"Message Received from client is : {event['text']}")
+
+
+                       Note :
+                              for number in range(10):
+                                          self.send({
+                                          "type": "websocket.send",
+                                          # "text": number,  ---> this will give error as int object has no attribute encode so you need to convert it to the string like as below.
+                                          "text": f'Server to Client : {str(number)}',
+
+                                          })
+                                          sleep(1)
+
+                       
+            def websocket_disconnect --> this handler us called when connection is close from either client side or server side.
+
+
+2. Routing :  Routing is the process of determining how incoming messages are distributed to the appropriate consumers or handlers.
+
+3. Front End WebSocket Handling : 
+   js code : const socket_name = new WebSocket(path to the socket or routing path)
+             methods to interact with connection
+             1. onopen : this event handler run when connection is ready to send and receive data.
+             2. onmessage : this event handler run when message is receive from server.
+             3. onclose : this event handler run when connection with websocket is closed or disconnect.
+             4. onerror : this event handler run when there is an error in websocket.
+
+             ------------------------------------------------------------------------------------
+             send() : socket_name.send() this method is used to send data from client to server.
+                     Example : 
+                            const mySocket = new WebSocket(`ws://${window.location.host}/ws/sc/`)  // OR : WebSocket('ws://http://127.0.0.1:8000/ws/sc/')
+                            mySocket.onopen = function (event) {
+                                   console.warn("Websocket connection is open...", event);
+                                   mySocket.send("client sending data to server")  // this will not display in console
+                            }
+                            mySocket.onmessage = function (event) {
+                                   console.log("Message Receive from server...", event);
+                            }
+
+                            mySocket.onerror = function (event) {
+                                   console.error('Websocket Error Occurred...', event);
+                            }
+
+                            mySocket.onclose = function (event) {
+                                   console.warn('Websocket Connection Closed...', event);
+                            }
+
+
+4. Data Format for sending data to server : data must be send in string json format to the server 
+       1. Server Side 
+              * when sending data to client 
+                     -> Python to String   --> json.dumps()
+              * when receiving data from client
+                     -> String to Python   --> json.loads()
+
+       2. Client Side 
+                     * when sending data to server 
+                            -> Javascript Object to String  --> JSON.stringify()
+                     * when receiving data from server 
+                            -> String to Javascript Object  --> JSON.parse()
+
+
+       Conversion : 
+       1. Python JSON Lib : import json 
+                            json.dumps() -> This method is used to convert python dictionary into json string.
+                            json.loads() -> This method is used to convert json string into python dictionary.
+
+       2. Json : 
+                     JSON.parse() --> this method is used to convert json string into javascript object.
+                     JSON.stringify() --> this method is used to convert javascript object into json string.
+                
+       Example : Server side
+              import json
+              my_dict = {'a':1,'b':2,'c':3}
+              print(my_dict,type(my_dict))  --->  {'a': 1, 'b': 2, 'c': 3}  <class 'dict'>
+              # sending data from server to client ------------------------------------------
+              json_data = json.dumps(my_dict)
+              print(json_data,type(json_data))  --> {"a": 1, "b": 2, "c": 3} <class 'str'>
+              # Receiving data from client to server ------------------------------------------
+              json_loads = json.loads(json_data)
+              print(json_loads,type(json_loads)) ---> {'a': 1, 'b': 2, 'c': 3} <class 'dict'>
+
+              Example : server side 
+              my_list = ['piyush','sahil','herik','punit']
+              print(my_list,type(my_list)) --> ['piyush', 'sahil', 'herik', 'punit'] <class 'list'>
+               # sending data from server to client ------------------------------------------
+              json_data = json.dumps(my_list)
+              print(json_data,type(json_data)) --> ["piyush", "sahil", "herik", "punit"] <class 'str'>
+              # Receiving data from client to server ------------------------------------------
+              python_data = json.loads(json_data)
+              print(python_data,type(python_data)) --> ['piyush', 'sahil', 'herik', 'punit'] <class 'list'>
+
+       Example : Client Side 
+              json_data = '{"a":1,"b":2,"c":3}'
+              console.log(json_data,typeof(json_data))   ---> {"a":1,"b":2,"c":3} string 
+              // when receiving data from server   -------------------------------------------
+              js_obj = JSON.parse(json_data)
+              console.log(js_obj,typeof(js_obj)) ---> {a: 1, b: 2, c: 3} 'object'
+              // when sending data to server    ----------------------------------------------
+              back_to_json = JSON.stringify(js_obj)
+              console.log(back_to_json,typeof(back_to_json))  --->  {"a":1,"b":2,"c":3} string

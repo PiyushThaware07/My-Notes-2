@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="first">First Child</div>
+    <div class="second">Second Child</div>
+
+    <script>
+        let f = document.body.firstElementChild;
+        console.log(f);
+        console.log(f.nextSibling, f.nextElementSibling);
+        console.log(f.parentNode,f.parentElement);
+        
+        let l = document.body.lastElementChild;
+        console.log(l);
+        console.log(l.previousSibling);
+        console.log(l.previousElementSibling);
+    </script>
+</body>
+
+</html>

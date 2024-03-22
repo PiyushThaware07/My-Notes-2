@@ -1,0 +1,167 @@
+container : 1140px center page automatically 
+container-fluid : width 100%
+
+Extra-large : >=1200px  -----> col-xl
+Large       : >=992px   -----> col-lg
+Medius      : >=768px   -----> col-md
+Small       : >=576px   -----> col-sm
+Extrasmall  : <576      ----->
+
+total grid in bootstrap : 12
+
+sometime we want gaps so we will use : offset classes in bootstrap
+
+for order classes : to set order of an item
+Extra-large : .order-xl-first , .order-xl-last
+Large       : .order-lg-first , .order-lg-last
+Medius      : .order-md-first , .order-md-last
+Small       : .order-sm-first , .order-sm-last
+Extrasmall  : 
+
+margin: 0-5 size only
+margin        : .m-
+margin-right  : .mr-
+margin-left   : .ml-
+margin-top    : .mt-
+margin-bottom : .mb-
+
+padding : internal margin from 0-5
+padding          : .p-             .p-xl-            
+padding-right    : .pr-            .pr-lg-
+padding-left     : .pl-            .pl-md-
+padding-top      : .pt-            .pl-sm-
+padding-bottom   : .pb-
+
+
+display:
+display:none; ---------> .d-none
+display:inline; -------> .d-inline
+display:inline-block; -> .d-inline-block
+display:block; --------> .d-block
+display:table; --------> .d-table
+display:table-cell; ---> .d-table-cell
+display:table-row; ----> .d-table-row
+display:flex; ---------> .d-flex
+display:inline-flex; ---------> .d-inline-flex
+
+display print utilities
+.d-print-none
+.d-print-inline
+.d-print-inline-block
+.d-print-block
+.d-print-table
+.d-print-table-row
+.d-print-table-cell
+.d-print-flex
+.d-print-inline-flex
+
+float : left/right/none
+Extra-large : .float-xl-left
+Large       : .float-lg-left
+Medius      : .float-md-left
+Small       : .float-sm-left
+Extrasmall  : .float-left
+
+width/hight
+w-25   25%  relative to its parent width
+mw-100  max-width
+
+viewport height/width
+vh-100  vw-100
+
+
+position:
+.position-relative
+.position-absolute
+.position-static
+.position-fixed
+.position-sticky
+
+
+
+.fixed-top/bottom/
+.fixed-top .fixed-bottom both will fixed
+.sticky-top
+
+.overflow-hidden
+.overflow-auto
+
+
+margin-
+y-axis :  .my-
+x-axis :  .mx-
+
+padding
+y-axis :  .py-
+x-axis :  .px-
+
+
+background :
+.bg-primary
+.bg-secondary
+.bg-success
+.bg-danger
+.bg-warning
+.bg-info
+.bg-light
+.bg-dark
+.bg-white
+.bg-transparent
+
+text-color:
+.text-primary
+.text-secondary
+.text-success
+.text-danger
+.text-dark
+.text-warning
+.text-info
+.text-light
+.text-dark
+.text-body
+.text-muted
+.text-black-50
+.text-white-50
+
+text-align :
+.text-left
+.text-right
+.text-center
+.text-justify
+
+using break point
+.text-break_point-position
+
+text-transform:lowercase; -----> .text-lowercase
+text-transform:uppercase; -----> .text-uppercase
+text-transform:capitalize; -----> .text-capitalize
+
+font-weight:bold ----> .font-weight-bold
+font-weight:bolder ----> .font-weight-bolder
+font-weight:300 ----> .font-weight-light
+font-weight:lighter ----> .font-weight-lighter
+font-weight:normal ----> .font-weight-normal
+
+Anchor Tag Formatting classes
+text-decoration:none; ------> .text-decoration-none
+
+Wrapping & Log text formatting classes
+.text-nowrap
+.text-truncate
+.text-break
+
+
+font size classes
+.display-1
+.display-2
+.display-3
+.display-4
+.lead
+.list-unstyled
+.list-inline
+
+
+user selection classes : 
+.user-select-all
+.user-select-auto
+.user-select-none

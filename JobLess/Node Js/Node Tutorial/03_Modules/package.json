@@ -1,0 +1,23 @@
+{
+  "name": "03_modules",
+  "version": "1.0.0",
+  "description": "this is the description",
+  "main": "Core_Module_CreateServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon Third_Party_Module_Nodemon.js"
+  },
+  "keywords": [
+    "python",
+    "django",
+    "flask",
+    "as",
+    "the",
+    "keywords"
+  ],
+  "author": "Piyush",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
